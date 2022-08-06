@@ -62,10 +62,10 @@ public class FAQReplyDAO {
 			
 			
 			while(rs.next()) {
-				FAQReplyDTO dto = new FAQReplyDTO();
-				dto.setAnswer(rs.getString("answer"));
-				dto.setBoard_idx(rs.getInt("board_idx"));
-				dto.setNickname(rs.getString("nickname"));
+				reply = new FAQReplyDTO();
+				reply.setAnswer(rs.getString("answer"));
+				reply.setBoard_idx(rs.getInt("board_idx"));
+				reply.setNickname(rs.getString("nickname"));
 				
 			}
 			

@@ -19,15 +19,15 @@ public class FAQDetailReplyAction implements Action {
 		String nickname = request.getParameter("nickname");
 		String answer = request.getParameter("answer"); 
 		
-//		System.out.println("answer : " + request.getParameter("answer"));
-//		System.out.println("nicknaem : " + request.getParameter("nickname"));
-//		System.out.println(Integer.parseInt(request.getParameter("pageNum")));
-//		System.out.println(Integer.parseInt(request.getParameter("idx")));
+		System.out.println("answer : " + request.getParameter("answer"));
+		System.out.println("nicknaem : " + request.getParameter("nickname"));
+		System.out.println(Integer.parseInt(request.getParameter("pageNum")));
+		System.out.println(Integer.parseInt(request.getParameter("idx")));
 		
 		FAQDetailReplyService service = new FAQDetailReplyService();
 		
 		boolean isWriteReplySuccess = service.registFAQDetailReply(idx, nickname, answer);
-//		System.out.println("isWriteReplySuccess : " + isWriteReplySuccess);
+		System.out.println("isWriteReplySuccess : " + isWriteReplySuccess);
 		
 		if(!isWriteReplySuccess) {
 			response.setContentType("text/html; charset=UTF-8");

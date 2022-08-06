@@ -22,6 +22,7 @@ public class FAQDetailAction implements Action {
 		FAQDTO faq = service.getFAQ(idx);
 		
 		FAQReplyDTO reply = service.getFAQReply(idx); 
+		System.out.println("reply : " + reply);
 		
 		request.setAttribute("faq", faq);
 		request.setAttribute("reply", reply);

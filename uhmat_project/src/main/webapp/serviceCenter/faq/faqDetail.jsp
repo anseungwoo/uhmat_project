@@ -91,7 +91,7 @@
 		<section id="insertForm">
 			<form action="FAQDetailReply.sc" style="position: relative; left: 40%; top:50%;">
 				<!-- 댓글 전송 시 현재 게시물 글번호(idx)도 함께 전송 -->
-				<input type="hidden" name="board_idx" value="${faq.idx }">
+				<input type="hidden" name="idx" value="${param.idx }">
 				<!-- 댓글 전송 시 현재 게시물 닉네임(nickname) 함께 전송 -->
 				<input type="hidden" name="nickname" value="${faq.nickname }">
 				<!-- 페이지번호도 함께 전송 -->
