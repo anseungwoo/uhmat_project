@@ -1,6 +1,7 @@
 package svc;
 
 import java.sql.*;
+import java.util.*;
 
 import dao.*;
 import db.*;
@@ -41,6 +42,22 @@ public class FAQDetailService {
 		JdbcUtil.close(con);
 		
 		return notice;
+	}
+
+	public FAQReplyDTO getFAQReply(int idx) {
+		FAQReplyDTO reply = null;
+		
+		Connection con = JdbcUtil.getConnection();
+		
+		FAQReplyDAO dao = FAQReplyDAO.getInstance();
+		
+		dao.setConnection(con);
+		
+		reply = dao.selectReplyList(idx);
+		
+		JdbcUtil.close(con);
+		
+		return reply;
 	}
 
 

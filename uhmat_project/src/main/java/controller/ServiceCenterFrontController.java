@@ -131,7 +131,18 @@ public class ServiceCenterFrontController extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}
+		
+		//---------------------관리자가 답변-----------------------------------------------
+		} else if(command.equals("/FAQDetailReply.sc")) {
+			try {
+				action = new FAQDetailReplyAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} 
+		
 		
 		//--------------------------------------------------------------------
 		

@@ -28,7 +28,7 @@ public class FAQListAction implements Action {
 		FAQListService service = new FAQListService();
 		int listCount = service.getListCount();
 		
-		System.out.println("전체 게시물 수 " + listCount);
+//		System.out.println("전체 게시물 수 " + listCount);
 		
 		// 1. 현재 페이지에서 표시할 전체 페이지 수 계산
 		int maxPage = (int)Math.ceil((double)listCount / listLimit);

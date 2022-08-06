@@ -85,35 +85,7 @@
 			${faq.content }
 		</section>
 	</section>
-	<section id="replyArea">
-		<!-- insertForm 섹션(댓글 작성 영역)은 세션 아이디가 존재할 경우에만 출력 -->
-		
-		<section id="insertForm">
-			<form action="FAQDetailReply.sc" style="position: relative; left: 40%; top:50%;">
-				<!-- 댓글 전송 시 현재 게시물 글번호(idx)도 함께 전송 -->
-				<input type="hidden" name="board_idx" value="${faq.idx }">
-				<!-- 댓글 전송 시 현재 게시물 닉네임(nickname) 함께 전송 -->
-				<input type="hidden" name="nickname" value="${faq.nickname }">
-				<!-- 페이지번호도 함께 전송 -->
-				<input type="hidden" name="pageNum" value="${param.pageNum}">
-				<textarea rows="3" cols="50" name="answer"></textarea>
-				<input type="submit" value="등록">
-			</form>
-		</section>
-		
-		<section id="replyViewArea" style="position: relative; left: 40%; top:50%;">
-			<!-- ArrayList(replyList) 객체 크기만큼 for문 반복 -->
-			<br>
-			     <table>
-			     	<tr>
-				     	<td>닉네임 : </td><td> ${reply.nickname }</td>
-				     	<td>답변 : </td><td> ${reply.answer }</td>
-			     	</tr>
-			     </table>
-			<br>
-		</section>
-	</section>
-	<section id="commandList" >
+	<section id="commandList">
 		<input type="button" value="수정" onclick="location.href='FAQModifyForm.sc?idx=${faq.idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='FAQDelete.sc?idx=${faq.idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='FAQList.sc?pageNum=${param.pageNum}'">
