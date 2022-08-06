@@ -50,6 +50,7 @@ public class FAQReplyDAO {
 		return isWriteReplySuccess;
 	}
 	public FAQReplyDTO selectReplyList(int idx) {
+//		System.out.println("selectReplyList");
 		FAQReplyDTO reply = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -66,11 +67,10 @@ public class FAQReplyDAO {
 				reply.setAnswer(rs.getString("answer"));
 				reply.setBoard_idx(rs.getInt("board_idx"));
 				reply.setNickname(rs.getString("nickname"));
-				
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("SQL 구문 오류 발생! -  " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(rs);

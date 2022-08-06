@@ -42,7 +42,7 @@ text-align: center;
 </head>
 <body>
 	<section id="writeForm">
-	<h2>게시판 글 등록</h2>
+	<h2>FAQ게시판 글 등록</h2>
 		<form action="FAQWritePro.sc" method="post" enctype="multipart/form-data" name="boardform">
 			<table border="1">
 				<tr>
@@ -63,7 +63,13 @@ text-align: center;
 				</tr>
 				<tr>
 					<td class="td_left"><label for="category">카테고리</label></td>
-					<td class="td_right"><input type="text" name="category" id="category" required="required" /></td>
+					<td colspan="3">
+						<select id="selectBox" name="category">
+							<option value="오류신고">오류신고</option>
+							<option value="음식점등록">음식점등록</option>
+							<option value="자도 오류">지도 오류</option>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<section id="commandCell">

@@ -11,7 +11,7 @@ public class FAQDetailReplyAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FAQDetailReplyAction - execute");
+//		System.out.println("FAQDetailReplyAction - execute");
 		ActionForward forward = null;
 		
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -27,7 +27,7 @@ public class FAQDetailReplyAction implements Action {
 		FAQDetailReplyService service = new FAQDetailReplyService();
 		
 		boolean isWriteReplySuccess = service.registFAQDetailReply(idx, nickname, answer);
-		System.out.println("isWriteReplySuccess : " + isWriteReplySuccess);
+//		System.out.println("isWriteReplySuccess : " + isWriteReplySuccess);
 		
 		if(!isWriteReplySuccess) {
 			response.setContentType("text/html; charset=UTF-8");

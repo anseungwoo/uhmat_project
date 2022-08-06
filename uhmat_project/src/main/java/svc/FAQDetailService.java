@@ -45,7 +45,7 @@ public class FAQDetailService {
 	}
 
 	public FAQReplyDTO getFAQReply(int idx) {
-		System.out.println("getFAQReply");
+//		System.out.println("getFAQReply");
 		FAQReplyDTO reply = null;
 		
 		Connection con = JdbcUtil.getConnection();
@@ -55,7 +55,7 @@ public class FAQDetailService {
 		dao.setConnection(con);
 		
 		reply = dao.selectReplyList(idx);
-		System.out.println("getFAQReply - reply :  " + reply);
+//		System.out.println("getFAQReply - reply :  " + reply);
 		JdbcUtil.close(con);
 		
 		return reply;
