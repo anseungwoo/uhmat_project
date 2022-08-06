@@ -132,8 +132,8 @@ public class ServiceCenterFrontController extends HttpServlet {
 				}
 		}
 		
-		
 		//--------------------------------------------------------------------
+		
 		if (forward != null) {
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
