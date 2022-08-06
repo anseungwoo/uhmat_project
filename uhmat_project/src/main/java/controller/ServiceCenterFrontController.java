@@ -31,6 +31,7 @@ public class ServiceCenterFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/NoticeWriteForm.sc")) {
+			
 			forward = new ActionForward();
 			forward.setPath("serviceCenter/notice/noticeWriteForm.jsp");
 			forward.setRedirect(false);

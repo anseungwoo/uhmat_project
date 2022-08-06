@@ -50,7 +50,7 @@
 			<table>
 				<tr>
 					<td class="td_left"><label for="name">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="name" value="${notice.name}" required="required"></td>
+					<td class="td_right"><input type="text" name="nickname" value="${notice.nickname}" required="required" readonly="readonly" ></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="subject">제목</label></td>
@@ -63,11 +63,16 @@
 				<tr>
 					<td class="td_left"><label for="file">파일</label></td>
 					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
-					<td class="td_right">${notice.original_file }(수정불가)</td>
+					<td class="td_right">${notice.original_File }(수정불가)</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="category">카테고리</label></td>
-					<td class="td_right"><input type="text" name="category" id="category" required="required" /></td>
+					<td colspan="3">
+						<select id="selectBox" name="category">
+							<option value="알림">알림</option>
+							<option value="보도기사">보도기사</option>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<section id="commandCell">

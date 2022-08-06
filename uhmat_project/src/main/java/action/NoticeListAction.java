@@ -31,7 +31,7 @@ public class NoticeListAction implements Action {
 		NoticeListService service = new NoticeListService();
 		int listCount = service.getListCount();
 		
-		System.out.println("전체 게시물 수 " + listCount);
+//		System.out.println("전체 게시물 수 " + listCount);
 		
 		// 1. 현재 페이지에서 표시할 전체 페이지 수 계산
 		int maxPage = (int)Math.ceil((double)listCount / listLimit);
@@ -54,14 +54,14 @@ public class NoticeListAction implements Action {
 		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
 		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
 		
-		ArrayList<NoticeDTO> list = service.getNoticeList(pageNum, listLimit);
+		ArrayList<NoticeDTO> notice = service.getNoticeList(pageNum, listLimit);
+//		System.out.println("list : " + list);
 		
-		System.out.println("list : " + list);
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("list", list);
+		request.setAttribute("notice", notice);
 		
 		forward = new ActionForward();
-		forward.setPath("serviceCenter/notice/noticelist.jsp");
+		forward.setPath("serviceCenter/notice/noticelist.jsp?pageNum=" +pageNum);
 		forward.setRedirect(false);
 		
 		return forward;

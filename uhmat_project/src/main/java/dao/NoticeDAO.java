@@ -78,6 +78,7 @@ public class NoticeDAO {
 				notice.setSubject(rs.getString("subject"));
 				notice.setCategory(rs.getString("category"));
 				
+				
 				list.add(notice);
 			}
 //			System.out.println("list : " + list);
@@ -176,8 +177,8 @@ public class NoticeDAO {
 			pstmt.setInt(4, notice.getIdx());
 			
 			updateCount = pstmt.executeUpdate();
-			
 //			System.out.println(updateCount);
+			
 		} catch (SQLException e) {
 			System.out.println("SQL 구문 오류 발생! " + e.getMessage());
 			e.printStackTrace();

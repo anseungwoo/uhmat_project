@@ -28,6 +28,7 @@ public class NoticeModifyProService {
 		} else {
 			JdbcUtil.rollback(con);
 		}
+		
 		JdbcUtil.close(con);
 		
 		return isModifySuccess;

@@ -61,6 +61,7 @@
 		<!-- 게시판 리스트 -->
 		<section id="listForm">
 		<h2>FAQ</h2>
+		<input type="button" value="홈" onclick="location.href='index.jsp'">
 		<table>
 			<tr id="tr_top">
 				<td width="150px">카테고리</td>

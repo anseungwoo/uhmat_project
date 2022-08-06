@@ -63,7 +63,12 @@ text-align: center;
 				</tr>
 				<tr>
 					<td class="td_left"><label for="category">카테고리</label></td>
-					<td class="td_right"><input type="text" name="category" id="category" required="required" /></td>
+					<td colspan="3">
+						<select id="selectBox" name="category">
+							<option value="알림">알림</option>
+							<option value="보도기사">보도기사</option>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<section id="commandCell">

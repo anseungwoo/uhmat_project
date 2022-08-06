@@ -64,9 +64,9 @@
 					<tr>
 						<th width="70">작성자</th><td>${faq.nickname }</td>
 						<th width="70">작성일</th><td>${faq.date }</td>
-						<th>조회수</th><th>${faq.readcount }</th>
-<%-- 						<th>카테고리</th><td>${faq.category }</td> --%>
 					</tr>
+					<tr>
+						<th>조회수</th><th>${faq.readcount }</th>
 					<tr>
 						<th width="70">첨부파일</th>
 						<td>
@@ -81,13 +81,13 @@
 					</tr>
 				</table>
 		</section>
+		<br><br>
 		<section id="articleContentArea">
 			${faq.content }
 		</section>
 	</section>
 	<section id="replyArea">
 		<!-- insertForm 섹션(댓글 작성 영역)은 세션 아이디가 존재할 경우에만 출력 -->
-		
 		<section id="insertForm">
 			<form action="FAQDetailReply.sc" style="position: relative; left: 40%; top:50%;">
 				<!-- 댓글 전송 시 현재 게시물 글번호(idx)도 함께 전송 -->
@@ -106,7 +106,6 @@
 			<br>
 			     <table>
 			     	<tr>
-				     	<td>닉네임 : </td><td> ${reply.nickname }</td>
 				     	<td>답변 : </td><td> ${reply.answer }</td>
 			     	</tr>
 			     </table>

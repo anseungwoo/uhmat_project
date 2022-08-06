@@ -50,7 +50,7 @@
 			<table>
 				<tr>
 					<td class="td_left"><label for="nickname">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="nickname" value="${faq.nickname}" required="required"></td>
+					<td class="td_right"><input type="text" name="nickname" value="${faq.nickname}" required="required" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="subject">제목</label></td>
@@ -64,6 +64,16 @@
 					<td class="td_left"><label for="file">파일</label></td>
 					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
 					<td class="td_right">${faq.original_File }(수정불가)</td>
+				</tr>
+				<tr>
+					<td class="td_left"><label for="category">카테고리</label></td>
+					<td colspan="3">
+						<select id="selectBox" name="category">
+							<option value="오류신고">오류신고</option>
+							<option value="음식점등록">음식점등록</option>
+							<option value="자도 오류">지도 오류</option>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<section id="commandCell">

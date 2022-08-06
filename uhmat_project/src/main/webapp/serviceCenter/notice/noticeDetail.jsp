@@ -76,7 +76,6 @@
 							${notice.real_File }
 							</a>
 						</td>
-						
 					</tr>
 				</table>
 		</section>

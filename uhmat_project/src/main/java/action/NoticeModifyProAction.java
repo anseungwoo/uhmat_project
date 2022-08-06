@@ -11,7 +11,7 @@ public class NoticeModifyProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		System.out.println("NoticeModifyProAction-execute");
+		System.out.println("NoticeModifyProAction-execute");
 		
 		ActionForward forward = null;
 		NoticeDTO notice = new NoticeDTO();
@@ -21,7 +21,7 @@ public class NoticeModifyProAction implements Action {
 		notice.setOriginal_File(request.getParameter("file"));
 		notice.setReal_File(request.getParameter("file"));
 		notice.setIdx(Integer.parseInt(request.getParameter("idx")));
-		System.out.println("notice : " + notice);
+//		System.out.println("notice : " + notice);
 		
 		NoticeModifyProService service = new NoticeModifyProService();
 		

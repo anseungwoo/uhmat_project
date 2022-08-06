@@ -61,6 +61,7 @@
 		<!-- 게시판 리스트 -->
 		<section id="listForm">
 		<h2>Notice</h2>
+		<input type="button" value="홈" onclick="location.href='index.jsp'">
 		<table>
 			<tr id="tr_top">
 				<td width="150px">카테고리</td>
@@ -68,27 +69,25 @@
 				<td>제목</td>
 				<td width="150px">작성자</td>
 				<td width="150px">날짜</td>
-				<td width="100px">조회수</td>
 			</tr>
 			<!-- 게시물 목록 출력(단, 게시물이 하나라도 존재할 경우에만 출력) -> JSTL과 EL 활용-->
 			<!-- JSTL의 c:choose 태그를 사용하여 게시물 존재 여부 판별 -->
 			<!--  조건 : boardList 객체가 비어있지 않고 pageInfo 객체의 listCount가 0보다 클 경우 -->
 			<!--  제발 복습하자!!! -->
 	 		<c:choose>
-	 			<c:when test="${not empty list and pageInfo.listCount gt 0}">
+	 			<c:when test="${not empty notice and pageInfo.listCount gt 0}">
 					<!-- c:foreach 태그를 사용하여 boardList 객체의 BoardDTO 객체를 꺼내서 출력 --> 				
-					<c:forEach var="Notice" items="${list}"> 
+					<c:forEach var="notice" items="${notice}"> 
 						<tr>
-						 	<td>${Notice.category }</td>
-							<td>${Notice.idx }</td>
+						 	<td>${notice.category }</td>
+							<td>${notice.idx }</td>
 							<td id="subject">
-								<a href="NoticeDetail.sc?idx=${Notice.idx}&pageNum=${pageInfo.pageNum}">
-									${Notice.subject }
+								<a href="NoticeDetail.sc?idx=${notice.idx}&pageNum=${pageInfo.pageNum}">
+									${notice.subject }
 								</a>
 							</td>
-							<td>${Notice.nickname }</td>
-							<td>${Notice.date }</td>
-							
+							<td>${notice.nickname }</td>
+							<td>${notice.date }</td>
 						</tr>
 					</c:forEach>
 	 			</c:when>
@@ -111,7 +110,7 @@
 		-->
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='BoardList.bo?pageNum=${pageInfo.pageNum - 1}'">
+				<input type="button" value="이전" onclick="location.href='NoticeList.sc?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
@@ -126,7 +125,7 @@
 					${i }
 				</c:when>
 				<c:otherwise>
-					<a href="BoardList.bo?pageNum=${i }">${i }</a>
+					<a href="NoticeList.sc?pageNum=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
@@ -134,7 +133,7 @@
 		<!-- 현재 페이지 번호(pageNum)가 총 페이지 수보다 작을 때만 [다음] 링크 동작 -->
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='BoardList.bo?pageNum=${pageInfo.pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='NoticeList.sc?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">
