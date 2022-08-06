@@ -43,7 +43,7 @@ text-align: center;
 <body>
 	<section id="writeForm">
 	<h2>게시판 글 등록</h2>
-		<form action="NoticeWritePro.sc" method="post" enctype="multipart/form-data" name="boardform">
+		<form action="FAQWritePro.sc" method="post" enctype="multipart/form-data" name="boardform">
 			<table border="1">
 				<tr>
 					<td class="td_left"><label for="name">글쓴이</label></td>

@@ -3,10 +3,9 @@ package vo;
 import java.sql.*;
 
 /*
- 	CREATE TABLE noticeBoard(
+ 	CREATE TABLE NoticeBoard(
  		idx INT PRIMARY KEY,
  		name VARCHAR(20) NOT NULL,
- 		passwd VARCHAR(16) NOT NULL,
  		subject VARCHAR(20) NOT NULL,
  		content VARCHAR(2000) NOT NULL,
  		date DATE NOT NULL,
@@ -20,13 +19,24 @@ import java.sql.*;
 public class NoticeDTO {
 	private int idx;
 	private String name;
-	private String passwd;
 	private String subject;
 	private String content;
 	private Date date;
-	private String real_file;
-	private String original_file;
+	private String real_File;
+	private String original_File;
 	
+	public final String getReal_File() {
+		return real_File;
+	}
+	public final void setReal_File(String real_File) {
+		this.real_File = real_File;
+	}
+	public final String getOriginal_File() {
+		return original_File;
+	}
+	public final void setOriginal_File(String original_File) {
+		this.original_File = original_File;
+	}
 	public final int getIdx() {
 		return idx;
 	}
@@ -38,12 +48,6 @@ public class NoticeDTO {
 	}
 	public final void setName(String name) {
 		this.name = name;
-	}
-	public final String getPasswd() {
-		return passwd;
-	}
-	public final void setPasswd(String passwd) {
-		this.passwd = passwd;
 	}
 	public final String getSubject() {
 		return subject;
@@ -62,18 +66,6 @@ public class NoticeDTO {
 	}
 	public final void setDate(Date date) {
 		this.date = date;
-	}
-	public final String getReal_file() {
-		return real_file;
-	}
-	public final void setReal_file(String real_file) {
-		this.real_file = real_file;
-	}
-	public final String getOriginal_file() {
-		return original_file;
-	}
-	public final void setOriginal_file(String original_file) {
-		this.original_file = original_file;
 	}
 	
 }

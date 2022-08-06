@@ -6,11 +6,11 @@ import java.util.*;
 import db.*;
 import vo.*;
 
-public class NoticeDAO {
+public class FAQDAO {
 	// 싱글톤
-	private static NoticeDAO instance = new NoticeDAO();
-	public NoticeDAO ()	{}
-	public static  NoticeDAO getInstance() {
+	private static FAQDAO instance = new FAQDAO();
+	public FAQDAO ()	{}
+	public static  FAQDAO getInstance() {
 		return instance;
 	}
 
@@ -23,14 +23,14 @@ public class NoticeDAO {
 	
 	
 	public int selectListcount() {
-//		System.out.println("NoticeDAO - selectListCount");
+//		System.out.println("FAQDAO - selectListCount");
 		int listCount = 0;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM NoticeBoard";
+			String sql = "SELECT COUNT(*) FROM FAQBoard";
 			pstmt = con.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
@@ -50,34 +50,36 @@ public class NoticeDAO {
 		return listCount;
 	}
 
-	public ArrayList<NoticeDTO> selectNoticeList(int pageNum, int listLimit) {
-//		System.out.println("NoticeDAO - selectNoticeList");
-		ArrayList<NoticeDTO> list = null;
+	public ArrayList<FAQDTO> selectFAQList(int pageNum, int listLimit) {
+//		System.out.println("FAQDAO - selectNoticeList");
+		ArrayList<FAQDTO> list = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		int startRow = (pageNum- 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM NoticeBoard ORDER BY idx DESC LIMIT ?,?";
+			String sql = "SELECT * FROM FAQBoard ORDER BY idx DESC LIMIT ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, listLimit);
 			rs = pstmt.executeQuery();
 			
-			list = new ArrayList<NoticeDTO>();
+			list = new ArrayList<FAQDTO>();
 			
 			while(rs.next()) {
-				NoticeDTO notice = new NoticeDTO();
-				notice.setContent(rs.getString("content"));
-				notice.setDate(rs.getDate("date"));
-				notice.setIdx(rs.getInt("idx"));
-				notice.setName(rs.getString("name"));
-				notice.setOriginal_File(rs.getString("original_File"));
-				notice.setReal_File(rs.getString("real_File"));
-				notice.setSubject(rs.getString("subject"));
+				FAQDTO faq = new FAQDTO();
+				faq.setContent(rs.getString("content"));
+				faq.setDate(rs.getDate("date"));
+				faq.setIdx(rs.getInt("idx"));
+				faq.setNickname(rs.getString("nickname"));
+				faq.setOriginal_File(rs.getString("original_File"));
+				faq.setReal_File(rs.getString("real_File"));
+				faq.setSubject(rs.getString("subject"));
+				faq.setCategory(rs.getString("category"));
+				faq.setReadcount(rs.getInt("readcount"));
 				
-				list.add(notice);
+				list.add(faq);
 			}
 //			System.out.println("list : " + list);
 		} catch (SQLException e) {
@@ -89,15 +91,14 @@ public class NoticeDAO {
 		}
 		return list;
 	}
-	public int insertNotice(NoticeDTO notice) {
-//		System.out.println("NoticeDAO - insertNotice");
+	public int insertFAQ(FAQDTO faq) {
 		int insertCount = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int num = 1;
 		
 		try {
-			String sql = "SELECT MAX(idx) FROM NoticeBoard";
+			String sql = "SELECT MAX(idx) FROM FAQBoard";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -106,17 +107,19 @@ public class NoticeDAO {
 			}
 			
 			// 전달받은 데이터를 board 테이블에 INSERT
-			sql = "INSERT INTO NoticeBoard VALUES (?,?,?,?,now(),?,?)";
+			sql = "INSERT INTO FAQBoard VALUES (?,?,?,?,now,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2, notice.getName());
-			pstmt.setString(3, notice.getSubject());
-			pstmt.setString(4, notice.getContent());
-			pstmt.setString(5, notice.getReal_File());
-			pstmt.setString(6, notice.getOriginal_File());
+			pstmt.setString(2, faq.getNickname());
+			pstmt.setString(3, faq.getSubject());
+			pstmt.setString(4, faq.getContent());
+			pstmt.setString(5, faq.getReal_File());
+			pstmt.setString(6, faq.getOriginal_File());
+			pstmt.setInt(7, faq.getReadcount());
+			pstmt.setString(8, faq.getCategory());
 			
 			insertCount = pstmt.executeUpdate();
-//			System.out.println("insertCount : " + insertCount);
+			
 		} catch (SQLException e) {
 			System.out.println("SQL 구문 오류 발생! -  " + e.getMessage());
 			e.printStackTrace();
@@ -127,29 +130,31 @@ public class NoticeDAO {
 		
 		return insertCount;
 	}
-	public NoticeDTO selectNotice(int idx) {
-//		System.out.println("NoticeDAO - selectNotice");
-		NoticeDTO notice = null;
+	public FAQDTO selectFAQ(int idx) {
+//		System.out.println("FAQDAO - selectFAQ");
+		FAQDTO faq = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM NoticeBoard WHERE idx=?";
+			String sql = "SELECT * FROM FAQBoard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				notice = new NoticeDTO();
-				notice.setContent(rs.getString("content"));
-				notice.setDate(rs.getDate("date"));
-				notice.setIdx(rs.getInt("idx"));
-				notice.setName(rs.getString("name"));
-				notice.setOriginal_File(rs.getString("original_File"));
-				notice.setReal_File(rs.getString("real_File"));
-				notice.setSubject(rs.getString("subject"));
+				faq = new FAQDTO();
+				faq.setContent(rs.getString("content"));
+				faq.setDate(rs.getDate("date"));
+				faq.setIdx(rs.getInt("idx"));
+				faq.setNickname(rs.getString("nickname"));
+				faq.setOriginal_File(rs.getString("original_File"));
+				faq.setReal_File(rs.getString("real_File"));
+				faq.setSubject(rs.getString("subject"));
+				faq.setCategory(rs.getString("category"));
+				faq.setReadcount(rs.getInt("readcount"));
 			}
-//			System.out.println("notice");
+//			System.out.println("faq");
 		} catch (SQLException e) {
 			System.out.println("SQL 구문 오류 발생! " + e.getMessage());
 			e.printStackTrace();
@@ -157,24 +162,24 @@ public class NoticeDAO {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		return notice;
+		return faq;
 	}
-	public int updateNotice(NoticeDTO notice) {
-//		System.out.println("NoticeDAO - updateNotice");
+	public int updateFAQ(FAQDTO faq) {
+//		System.out.println("FAQDAO - updateNotice");
 		int updateCount = 0;	
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "UPDATE NoticeBoard SET name=?, subject=?, content=? WHERE idx=?";
+			String sql = "UPDATE FAQBoard SET nickname=?, subject=?, content=? WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, notice.getName());
-			pstmt.setString(2, notice.getSubject());
-			pstmt.setString(3, notice.getContent());
-			pstmt.setInt(4, notice.getIdx());
+			pstmt.setString(1, faq.getNickname());
+			pstmt.setString(2, faq.getSubject());
+			pstmt.setString(3, faq.getContent());
+			pstmt.setInt(4, faq.getIdx());
 			
 			updateCount = pstmt.executeUpdate();
-			
 //			System.out.println(updateCount);
+			
 		} catch (SQLException e) {
 			System.out.println("SQL 구문 오류 발생! " + e.getMessage());
 			e.printStackTrace();
@@ -184,26 +189,22 @@ public class NoticeDAO {
 		
 		return updateCount;
 	}
-	public boolean deleteNotice(int idx) {
-//		System.out.println("NoticeDAO - deleteNotice ");
+	public boolean deleteFAQ(int idx) {
 		boolean deleteSuccess = false;
 		int deleteCount =0;
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE * FROM NoticeBoard WHERE idx=?";
+			String sql = "DELETE * FROM FAQBoardWHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			deleteCount = pstmt.executeUpdate();
 			
-//			System.out.println("deleteCount : " + deleteCount);
-			
 			if(deleteCount > 0 ) {
 				deleteSuccess = true;
 			}
-			
 		} catch (SQLException e) {
-			System.out.println("SQL 구문 오류 발생!  " + e.getMessage());
+			System.out.println("SQL 구문 오류 발생! " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(pstmt);
@@ -211,7 +212,5 @@ public class NoticeDAO {
 		
 		return deleteSuccess;
 	}
-	
-	
 	
 }

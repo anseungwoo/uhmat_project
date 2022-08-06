@@ -11,10 +11,11 @@ import com.oreilly.servlet.multipart.*;
 import svc.*;
 import vo.*;
 
-public class NoticeWriteProAction implements Action {
+public class FAQWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		System.out.println("FAQWriteProAction - execute");
 		ActionForward forward = null;
 		
 		String uploadPath = "upload";
@@ -29,7 +30,6 @@ public class NoticeWriteProAction implements Action {
 		// => ServletContext 객체의 getRealPath() 메서드 호출
 		String realPath = context.getRealPath(uploadPath); // 가상의 업로드 폴더명을 파라미터로 전달
 		System.out.println(realPath);
-		//D:\workspace_jsp2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MVC_Board\ upload;
 		// 실제 업로드 될 폴더 위치 ( 주의! 워크스페이스 내의 프로젝트 폴더에 있는 upload 폴더는 가상의 폴더)
 		
 		// MutlipartRequest 객체 생성
@@ -43,18 +43,19 @@ public class NoticeWriteProAction implements Action {
 		);
 		
 		// NoticeDTO에 가져온 값을 저장
-		NoticeDTO notice = new NoticeDTO();
-		notice.setName(multi.getParameter("name"));
-		notice.setSubject(multi.getParameter("subject"));
-		notice.setContent(multi.getParameter("content"));
-		notice.setOriginal_file(multi.getOriginalFileName("file"));
-		notice.setReal_file(multi.getFilesystemName("file"));
+		FAQDTO faq = new FAQDTO();
+		faq.setNickname(multi.getParameter("name"));
+		faq.setSubject(multi.getParameter("subject"));
+		faq.setContent(multi.getParameter("content"));
+		faq.setOriginal_File(multi.getOriginalFileName("file"));
+		faq.setReal_File(multi.getFilesystemName("file"));
+		faq.setReadcount(Integer.parseInt(multi.getParameter("readcount")));
+		faq.setCategory(multi.getParameter("category"));
+//		System.out.println(faq);
 		
-		System.out.println(notice);
+		FAQWriteProService service = new FAQWriteProService();
 		
-		NoticeWriteProService service = new NoticeWriteProService();
-		
-		boolean isWriteSuccess = service.registNotice(notice);
+		boolean isWriteSuccess = service.registFAQ(faq);
 		
 		if(!isWriteSuccess) {
 			response.setContentType("text/html; charset=UTF-8");
@@ -63,9 +64,7 @@ public class NoticeWriteProAction implements Action {
 			out.println("alert('글 쓰기 실패')");
 			out.println("history.back()");
 			out.println("</script>");
-			
 		} else {
-			
 			forward = new ActionForward();
 			forward.setPath("NoticeList.sc");
 			forward.setRedirect(true);

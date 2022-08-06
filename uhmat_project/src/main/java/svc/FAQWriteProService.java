@@ -6,20 +6,21 @@ import dao.*;
 import db.*;
 import vo.*;
 
-public class NoticeWriteProService {
+public class FAQWriteProService {
 
-	public boolean registNotice(NoticeDTO notice) {
-//		System.out.println("NoticeWriteProService - registNotice");
+	public boolean registFAQ(FAQDTO faq) {
+//		System.out.println("FAQWriteProService - registFAQ");
 		boolean isWriteSuccess = false;
 		
 		Connection con = JdbcUtil.getConnection();
 		
-		NoticeDAO dao = NoticeDAO.getInstance();
+		FAQDAO dao = FAQDAO.getInstance();
 		
 		dao.setConnection(con);
 		
-		int insertCount  = dao.insertNotice(notice);
-//		System.out.println(insertCount);
+		int insertCount  = dao.insertFAQ(faq);
+//		System.out.println("insertCount : " + insertCount);
+		
 		
 		if(insertCount > 0) {
 			JdbcUtil.commit(con);

@@ -6,19 +6,19 @@ import dao.*;
 import db.*;
 import vo.*;
 
-public class NoticeDetailService {
+public class FAQDetailService {
 
-	public NoticeDTO getNoticeBoard(int idx) {
+	public FAQDTO getFAQBoard(int idx) {
 //		System.out.println("NoticeDetailService - getNoticeBoard");
-		NoticeDTO notice = null;
+		FAQDTO notice = null;
 		
 		Connection con = JdbcUtil.getConnection();
 		
-		NoticeDAO dao = NoticeDAO.getInstance();
+		FAQDAO dao = FAQDAO.getInstance();
 		
 		dao.setConnection(con);
 		
-		notice = dao.selectNotice(idx);
+		notice = dao.selectFAQ(idx);
 //		System.out.println("notice : " + notice);
 		
 		JdbcUtil.close(con);

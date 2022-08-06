@@ -13,7 +13,7 @@ import vo.*;
 @WebServlet("*.sc")
 public class ServiceCenterFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ServiceCenterFrontController");
+//		System.out.println("ServiceCenterFrontController");
 		request.setCharacterEncoding("UTF-8");
 		
 		String command = request.getServletPath();
@@ -21,6 +21,7 @@ public class ServiceCenterFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
+		// --------------------- Notice -------------------------------------
 		if (command.equals("/NoticeList.sc")) {
 			try {
 				action = new NoticeListAction();
@@ -50,9 +51,89 @@ public class ServiceCenterFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		} else if(command.equals("/NoticeModifyForm.sc")) {
+			try {
+				action = new NoticeModifyFormAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/NoticeModify.sc")) {
+			try {
+				action = new NoticeModifyProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/NoticeModifyForm.sc")) {
+				try {
+					action = new NoticeDeleteAction();
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+		// --------------------FAQ ------------------------------------
+		} else if (command.equals("/FAQList.sc")) {
+			try {
+				action = new FAQListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FAQWriteForm.sc")) {
+			forward = new ActionForward();
+			forward.setPath("serviceCenter/faq/faqWriteForm.jsp");
+			forward.setRedirect(false);
+			
+		} else if(command.equals("/FAQWritePro.sc")) {
+			try {
+				action = new FAQWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FAQDetail.sc")) {
+			try {
+				action = new FAQDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FAQModifyForm.sc")) {
+			try {
+				action = new FAQModifyFormAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FAQModify.sc")) {
+			try {
+				action = new FAQModifyProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FAQModifyForm.sc")) {
+				try {
+					action = new FAQDeleteAction();
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 		
 		
+		//--------------------------------------------------------------------
 		if (forward != null) {
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
