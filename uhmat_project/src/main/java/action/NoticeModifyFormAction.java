@@ -16,7 +16,7 @@ public class NoticeModifyFormAction implements Action {
 		
 		NoticeDetailService service = new NoticeDetailService();
 		
-		NoticeDTO notice = service.getNoticeBoard(idx);
+		NoticeDTO notice = service.getNotice(idx);
 		
 		request.setAttribute("notice", notice);
 		

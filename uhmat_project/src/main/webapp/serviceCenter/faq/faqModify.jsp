@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MVC 게시판</title>
+<title>FAQ 글 수정</title>
 <style type="text/css">
 	#modifyForm {
 		width: 500px;
@@ -49,8 +49,8 @@
 		<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<tr>
-					<td class="td_left"><label for="name">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="name" value="${faq.name}" required="required"></td>
+					<td class="td_left"><label for="nickname">글쓴이</label></td>
+					<td class="td_right"><input type="text" name="nickname" value="${faq.nickname}" required="required"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="subject">제목</label></td>
@@ -63,7 +63,7 @@
 				<tr>
 					<td class="td_left"><label for="file">파일</label></td>
 					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
-					<td class="td_right">${faq.original_file }(수정불가)</td>
+					<td class="td_right">${faq.original_File }(수정불가)</td>
 				</tr>
 			</table>
 			<section id="commandCell">

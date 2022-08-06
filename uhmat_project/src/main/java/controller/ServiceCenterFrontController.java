@@ -67,7 +67,7 @@ public class ServiceCenterFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(command.equals("/NoticeModifyForm.sc")) {
+		} else if(command.equals("/NoticeDelete.sc")) {
 				try {
 					action = new NoticeDeleteAction();
 					forward = action.execute(request, response);
@@ -75,9 +75,10 @@ public class ServiceCenterFrontController extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+		} 
 				
 		// --------------------FAQ ------------------------------------
-		} else if (command.equals("/FAQList.sc")) {
+		 else if (command.equals("/FAQList.sc")) {
 			try {
 				action = new FAQListAction();
 				forward = action.execute(request, response);
@@ -122,7 +123,7 @@ public class ServiceCenterFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(command.equals("/FAQModifyForm.sc")) {
+		} else if(command.equals("/FAQDelete.sc")) {
 				try {
 					action = new FAQDeleteAction();
 					forward = action.execute(request, response);

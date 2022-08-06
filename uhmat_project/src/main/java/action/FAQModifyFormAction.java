@@ -16,7 +16,7 @@ public class FAQModifyFormAction implements Action {
 		
 		FAQDetailService service = new FAQDetailService();
 		
-		FAQDTO faq = service.getFAQBoard(idx);
+		FAQDTO faq = service.getFAQ(idx);
 		
 		request.setAttribute("faq", faq);
 		

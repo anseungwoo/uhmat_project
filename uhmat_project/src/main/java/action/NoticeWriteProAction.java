@@ -44,13 +44,13 @@ public class NoticeWriteProAction implements Action {
 		
 		// NoticeDTO에 가져온 값을 저장
 		NoticeDTO notice = new NoticeDTO();
-		notice.setName(multi.getParameter("name"));
+		notice.setNickname(multi.getParameter("nickname"));
 		notice.setSubject(multi.getParameter("subject"));
 		notice.setContent(multi.getParameter("content"));
-		notice.setOriginal_file(multi.getOriginalFileName("file"));
-		notice.setReal_file(multi.getFilesystemName("file"));
-		
-		System.out.println(notice);
+		notice.setOriginal_File(multi.getOriginalFileName("file"));
+		notice.setReal_File(multi.getFilesystemName("file"));
+		notice.setCategory(multi.getParameter("category"));
+//		System.out.println(notice);
 		
 		NoticeWriteProService service = new NoticeWriteProService();
 		

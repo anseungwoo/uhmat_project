@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>FAQ 글 등록</title>
 <style type="text/css">
 #writeForm{
 width: 500px;
@@ -46,8 +46,8 @@ text-align: center;
 		<form action="FAQWritePro.sc" method="post" enctype="multipart/form-data" name="boardform">
 			<table border="1">
 				<tr>
-					<td class="td_left"><label for="name">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="name" id="name" required="required" /></td>
+					<td class="td_left"><label for="nickname">글쓴이</label></td>
+					<td class="td_right"><input type="text" name="nickname" id="nickname" required="required" /></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="subject">제목</label></td>
@@ -60,6 +60,10 @@ text-align: center;
 				<tr>
 					<td class="td_left"><label for="file">파일 첨부</label></td>
 					<td class="td_right"><input name="file" type="file" id="file" required="required" /></td>
+				</tr>
+				<tr>
+					<td class="td_left"><label for="category">카테고리</label></td>
+					<td class="td_right"><input type="text" name="category" id="category" required="required" /></td>
 				</tr>
 			</table>
 			<section id="commandCell">

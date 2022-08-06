@@ -15,7 +15,7 @@ public class NoticeModifyProAction implements Action {
 		
 		ActionForward forward = null;
 		NoticeDTO notice = new NoticeDTO();
-		notice.setName(request.getParameter("name"));
+		notice.setNickname(request.getParameter("nickname"));
 		notice.setSubject(request.getParameter("subject"));
 		notice.setContent(request.getParameter("content"));
 		notice.setOriginal_File(request.getParameter("file"));

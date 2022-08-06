@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Notice 게시판</title>
+<title>FAQ 게시판</title>
 <style type="text/css">
 	#listForm {
 		width: 1024px;
@@ -60,32 +60,36 @@
 <body>
 		<!-- 게시판 리스트 -->
 		<section id="listForm">
-		<h2>게시판 글 목록</h2>
+		<h2>FAQ</h2>
 		<table>
 			<tr id="tr_top">
+				<td width="150px">카테고리</td>
 				<td width="100px">번호</td>
 				<td>제목</td>
 				<td width="150px">작성자</td>
 				<td width="150px">날짜</td>
 				<td width="100px">조회수</td>
+				<td width="100px">카테고리</td>
 			</tr>
 			<!-- 게시물 목록 출력(단, 게시물이 하나라도 존재할 경우에만 출력) -> JSTL과 EL 활용-->
 			<!-- JSTL의 c:choose 태그를 사용하여 게시물 존재 여부 판별 -->
 			<!--  조건 : boardList 객체가 비어있지 않고 pageInfo 객체의 listCount가 0보다 클 경우 -->
 			<!--  제발 복습하자!!! -->
 	 		<c:choose>
-	 			<c:when test="${not empty faq and pageInfo.listCount gt 0}">
+	 			<c:when test="${not empty list and pageInfo.listCount gt 0}">
 					<!-- c:foreach 태그를 사용하여 boardList 객체의 BoardDTO 객체를 꺼내서 출력 --> 				
-					<c:forEach var="FAQ" items="${faq}"> 
+					<c:forEach var="FAQ" items="${list}"> 
 						<tr>
+							<td>${FAQ.category }</td>
 							<td>${FAQ.idx }</td>
 							<td id="subject">
 								<a href="FAQDetail.sc?idx=${FAQ.idx}&pageNum=${pageInfo.pageNum}">
 									${FAQ.subject }
 								</a>
 							</td>
-							<td>${FAQ.name }</td>
+							<td>${FAQ.nickname }</td>
 							<td>${FAQ.date }</td>
+							<td>${FAQ.category }</td>
 						</tr>
 					</c:forEach>
 	 			</c:when>

@@ -15,7 +15,7 @@ public class FAQWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		System.out.println("FAQWriteProAction - execute");
+		System.out.println("FAQWriteProAction - execute");
 		ActionForward forward = null;
 		
 		String uploadPath = "upload";
@@ -29,7 +29,7 @@ public class FAQWriteProAction implements Action {
 		// 업로드 파일이 저장되는 실제 경로를 얻어오기
 		// => ServletContext 객체의 getRealPath() 메서드 호출
 		String realPath = context.getRealPath(uploadPath); // 가상의 업로드 폴더명을 파라미터로 전달
-		System.out.println(realPath);
+//		System.out.println(realPath);
 		// 실제 업로드 될 폴더 위치 ( 주의! 워크스페이스 내의 프로젝트 폴더에 있는 upload 폴더는 가상의 폴더)
 		
 		// MutlipartRequest 객체 생성
@@ -44,14 +44,13 @@ public class FAQWriteProAction implements Action {
 		
 		// NoticeDTO에 가져온 값을 저장
 		FAQDTO faq = new FAQDTO();
-		faq.setNickname(multi.getParameter("name"));
+		faq.setNickname(multi.getParameter("nickname"));
 		faq.setSubject(multi.getParameter("subject"));
 		faq.setContent(multi.getParameter("content"));
 		faq.setOriginal_File(multi.getOriginalFileName("file"));
 		faq.setReal_File(multi.getFilesystemName("file"));
-		faq.setReadcount(Integer.parseInt(multi.getParameter("readcount")));
 		faq.setCategory(multi.getParameter("category"));
-//		System.out.println(faq);
+//		System.out.println("faq : " + faq);
 		
 		FAQWriteProService service = new FAQWriteProService();
 		
@@ -66,7 +65,7 @@ public class FAQWriteProAction implements Action {
 			out.println("</script>");
 		} else {
 			forward = new ActionForward();
-			forward.setPath("NoticeList.sc");
+			forward.setPath("FAQList.sc");
 			forward.setRedirect(true);
 		}
 		return forward;

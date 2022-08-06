@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MVC 게시판</title>
+<title>FAQ 글 수정</title>
 <style type="text/css">
 	#modifyForm {
 		width: 500px;
@@ -64,6 +64,10 @@
 					<td class="td_left"><label for="file">파일</label></td>
 					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
 					<td class="td_right">${notice.original_file }(수정불가)</td>
+				</tr>
+				<tr>
+					<td class="td_left"><label for="category">카테고리</label></td>
+					<td class="td_right"><input type="text" name="category" id="category" required="required" /></td>
 				</tr>
 			</table>
 			<section id="commandCell">

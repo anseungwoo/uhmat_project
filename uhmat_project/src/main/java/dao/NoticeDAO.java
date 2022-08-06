@@ -72,10 +72,11 @@ public class NoticeDAO {
 				notice.setContent(rs.getString("content"));
 				notice.setDate(rs.getDate("date"));
 				notice.setIdx(rs.getInt("idx"));
-				notice.setName(rs.getString("name"));
+				notice.setNickname(rs.getString("nickname"));
 				notice.setOriginal_File(rs.getString("original_File"));
 				notice.setReal_File(rs.getString("real_File"));
 				notice.setSubject(rs.getString("subject"));
+				notice.setCategory(rs.getString("category"));
 				
 				list.add(notice);
 			}
@@ -106,14 +107,15 @@ public class NoticeDAO {
 			}
 			
 			// 전달받은 데이터를 board 테이블에 INSERT
-			sql = "INSERT INTO NoticeBoard VALUES (?,?,?,?,now(),?,?)";
+			sql = "INSERT INTO NoticeBoard VALUES (?,?,?,?,now(),?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2, notice.getName());
+			pstmt.setString(2, notice.getNickname());
 			pstmt.setString(3, notice.getSubject());
 			pstmt.setString(4, notice.getContent());
 			pstmt.setString(5, notice.getReal_File());
 			pstmt.setString(6, notice.getOriginal_File());
+			pstmt.setString(7, notice.getCategory());
 			
 			insertCount = pstmt.executeUpdate();
 //			System.out.println("insertCount : " + insertCount);
@@ -144,10 +146,11 @@ public class NoticeDAO {
 				notice.setContent(rs.getString("content"));
 				notice.setDate(rs.getDate("date"));
 				notice.setIdx(rs.getInt("idx"));
-				notice.setName(rs.getString("name"));
+				notice.setNickname(rs.getString("nickname"));
 				notice.setOriginal_File(rs.getString("original_File"));
 				notice.setReal_File(rs.getString("real_File"));
 				notice.setSubject(rs.getString("subject"));
+				notice.setCategory(rs.getString("category"));
 			}
 //			System.out.println("notice");
 		} catch (SQLException e) {
@@ -165,9 +168,9 @@ public class NoticeDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "UPDATE NoticeBoard SET name=?, subject=?, content=? WHERE idx=?";
+			String sql = "UPDATE NoticeBoard SET nickname=?, subject=?, content=? WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, notice.getName());
+			pstmt.setString(1, notice.getNickname());
 			pstmt.setString(2, notice.getSubject());
 			pstmt.setString(3, notice.getContent());
 			pstmt.setInt(4, notice.getIdx());
@@ -191,7 +194,7 @@ public class NoticeDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE * FROM NoticeBoard WHERE idx=?";
+			String sql = "DELETE FROM NoticeBoard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			deleteCount = pstmt.executeUpdate();

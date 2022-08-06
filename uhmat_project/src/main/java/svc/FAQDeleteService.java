@@ -8,7 +8,7 @@ import db.*;
 public class FAQDeleteService {
 
 	public boolean removeFAQ(int idx) {
-//		System.out.println("FAQDeleteService - removeFAQ");
+		System.out.println("FAQDeleteService - removeFAQ");
 		boolean deleteSuccess = false;
 		
 		Connection con = JdbcUtil.getConnection();
@@ -18,12 +18,12 @@ public class FAQDeleteService {
 		dao.setConnection(con);
 		
 		deleteSuccess = dao.deleteFAQ(idx);
-//		System.out.println("deleteSuccess : "+ deleteSuccess);
+		System.out.println("deleteSuccess : "+ deleteSuccess);
 		
 		if(!deleteSuccess) {
-			JdbcUtil.commit(con);
-		} else {
 			JdbcUtil.rollback(con);
+		} else {
+			JdbcUtil.commit(con);
 		}
 		
 		return deleteSuccess;

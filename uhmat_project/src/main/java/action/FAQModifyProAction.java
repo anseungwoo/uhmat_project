@@ -11,7 +11,7 @@ public class FAQModifyProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("NoticeModifyProAction-execute");
+//		System.out.println("NoticeModifyProAction-execute");
 		ActionForward forward = null;
 		FAQDTO faq = new FAQDTO();
 		faq.setNickname(request.getParameter("nickname"));
@@ -25,6 +25,7 @@ public class FAQModifyProAction implements Action {
 		FAQModifyProService service = new FAQModifyProService();
 		
 		boolean isModifySuccess = service.modifyFAQ(faq);
+//		System.out.println(isModifySuccess);
 		
 		if(!isModifySuccess) {
 			response.setContentType("text/html; charset=UTF-8");

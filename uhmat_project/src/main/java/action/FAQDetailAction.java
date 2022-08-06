@@ -15,7 +15,9 @@ public class FAQDetailAction implements Action {
 		
 		FAQDetailService service = new FAQDetailService();
 		
-		FAQDTO faq = service.getFAQBoard(idx);
+		service.increaseReadcount(idx);
+		
+		FAQDTO faq = service.getFAQ(idx);
 		
 		request.setAttribute("faq", faq);
 		

@@ -8,7 +8,24 @@ import vo.*;
 
 public class FAQDetailService {
 
-	public FAQDTO getFAQBoard(int idx) {
+	public void increaseReadcount(int idx) {
+		FAQDTO notice = null;
+		
+		Connection con = JdbcUtil.getConnection();
+		
+		FAQDAO dao = FAQDAO.getInstance();
+		
+		dao.setConnection(con);
+		
+		dao.updateReadCount(idx);
+		
+		JdbcUtil.commit(con);
+		
+		JdbcUtil.close(con);
+		
+	}
+	
+	public FAQDTO getFAQ(int idx) {
 //		System.out.println("NoticeDetailService - getNoticeBoard");
 		FAQDTO notice = null;
 		
@@ -25,5 +42,6 @@ public class FAQDetailService {
 		
 		return notice;
 	}
+
 
 }

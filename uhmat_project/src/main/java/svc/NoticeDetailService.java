@@ -8,7 +8,7 @@ import vo.*;
 
 public class NoticeDetailService {
 
-	public NoticeDTO getNoticeBoard(int idx) {
+	public NoticeDTO getNotice(int idx) {
 //		System.out.println("NoticeDetailService - getNoticeBoard");
 		NoticeDTO notice = null;
 		

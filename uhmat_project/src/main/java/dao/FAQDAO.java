@@ -78,6 +78,7 @@ public class FAQDAO {
 				faq.setSubject(rs.getString("subject"));
 				faq.setCategory(rs.getString("category"));
 				faq.setReadcount(rs.getInt("readcount"));
+				faq.setCategory(rs.getString("category"));
 				
 				list.add(faq);
 			}
@@ -107,7 +108,7 @@ public class FAQDAO {
 			}
 			
 			// 전달받은 데이터를 board 테이블에 INSERT
-			sql = "INSERT INTO FAQBoard VALUES (?,?,?,?,now,?,?,?,?)";
+			sql = "INSERT INTO FAQBoard VALUES (?,?,?,?,now(),?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, faq.getNickname());
@@ -178,7 +179,7 @@ public class FAQDAO {
 			pstmt.setInt(4, faq.getIdx());
 			
 			updateCount = pstmt.executeUpdate();
-//			System.out.println(updateCount);
+			System.out.println(updateCount);
 			
 		} catch (SQLException e) {
 			System.out.println("SQL 구문 오류 발생! " + e.getMessage());
@@ -195,7 +196,7 @@ public class FAQDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE * FROM FAQBoardWHERE idx=?";
+			String sql = "DELETE FROM FAQBoard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			deleteCount = pstmt.executeUpdate();
@@ -211,6 +212,24 @@ public class FAQDAO {
 		}
 		
 		return deleteSuccess;
+	}
+	public void updateReadCount(int idx) {
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE FAQboard SET readcount = readcount + 1 WHERE idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 오류 발생! -  " + e.getMessage());
+			e.printStackTrace();
+			
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
 	}
 	
 }

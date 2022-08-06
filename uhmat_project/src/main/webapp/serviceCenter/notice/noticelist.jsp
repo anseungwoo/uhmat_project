@@ -60,9 +60,10 @@
 <body>
 		<!-- 게시판 리스트 -->
 		<section id="listForm">
-		<h2>게시판 글 목록</h2>
+		<h2>Notice</h2>
 		<table>
 			<tr id="tr_top">
+				<td width="150px">카테고리</td>
 				<td width="100px">번호</td>
 				<td>제목</td>
 				<td width="150px">작성자</td>
@@ -78,14 +79,16 @@
 					<!-- c:foreach 태그를 사용하여 boardList 객체의 BoardDTO 객체를 꺼내서 출력 --> 				
 					<c:forEach var="Notice" items="${list}"> 
 						<tr>
+						 	<td>${Notice.category }</td>
 							<td>${Notice.idx }</td>
 							<td id="subject">
 								<a href="NoticeDetail.sc?idx=${Notice.idx}&pageNum=${pageInfo.pageNum}">
 									${Notice.subject }
 								</a>
 							</td>
-							<td>${Notice.name }</td>
+							<td>${Notice.nickname }</td>
 							<td>${Notice.date }</td>
+							
 						</tr>
 					</c:forEach>
 	 			</c:when>

@@ -21,9 +21,9 @@ public class NoticeDeleteService {
 //		System.out.println("deleteSuccess : " + deleteSuccess);
 		
 		if(!deleteSuccess) {
-			JdbcUtil.commit(con);
-		} else {
 			JdbcUtil.rollback(con);
+		} else {
+			JdbcUtil.commit(con);
 		}
 		
 		return deleteSuccess;
