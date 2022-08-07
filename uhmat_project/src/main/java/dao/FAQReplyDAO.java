@@ -79,6 +79,30 @@ public class FAQReplyDAO {
 		return reply;
 	}
 	
+	public boolean deleteReplyFAQ(int idx) {
+		boolean deleteSuccess = false;
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM faq_reply WHERE board_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			deleteCount = pstmt.executeUpdate();
+			
+			if(deleteCount > 0) {
+				deleteSuccess = true;
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 오류 발생! -  " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		return deleteSuccess;
+	}
+	
 	
 	
 }
