@@ -79,6 +79,7 @@ public class FAQReplyDAO {
 		return reply;
 	}
 	
+
 	public boolean deleteReplyFAQ(int idx) {
 		boolean deleteSuccess = false;
 		int deleteCount = 0;
@@ -103,6 +104,7 @@ public class FAQReplyDAO {
 		return deleteSuccess;
 	}
 	
+
 	
 	
 }

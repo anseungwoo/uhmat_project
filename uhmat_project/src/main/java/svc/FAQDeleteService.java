@@ -29,6 +29,7 @@ public class FAQDeleteService {
 		return deleteSuccess;
 	}
 
+
 	public boolean removeReplyFAQ(int idx) {
 		boolean deleteReplySuccess = false;
 		
@@ -50,5 +51,6 @@ public class FAQDeleteService {
 		
 		return deleteReplySuccess;
 	}
+
 
 }
