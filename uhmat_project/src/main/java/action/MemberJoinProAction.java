@@ -6,7 +6,6 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import action.Action;
 import svc.MemberJoinProService;
 import vo.ActionForward;
 import vo.MemberDTO;
