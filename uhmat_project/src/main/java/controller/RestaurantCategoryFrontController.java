@@ -31,6 +31,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+
 		} else if (command.equals("/ReviewWriteForm.re")) {
 			
 			// 세션 값에 따라 처리 
@@ -45,6 +46,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+
 		}
 	
 		if (forward != null) {

@@ -38,7 +38,9 @@ public class ReviewCategoryDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 			System.out.println("SQL 구문 작성 및 실행 오류 - selectReviewListCount()" + e.getMessage());
+
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -80,7 +82,9 @@ public class ReviewCategoryDAO {
 				dto.setRes_name(rs.getString("res_name"));
 				dto.setNickname(rs.getString("nickname"));
 				dto.setSubject(rs.getString("subject"));
+
 				dto.setPhoto(rs.getString("photo"));
+
 				dto.setContent(rs.getString("content"));
 				dto.setLikes(rs.getInt("likes"));
 				dto.setRating(rs.getFloat("rating"));
@@ -91,7 +95,9 @@ public class ReviewCategoryDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 			System.out.println("SQL 구문 작성 및 실행 오류 selectReviewBoardList()- " + e.getMessage());
+
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -99,6 +105,7 @@ public class ReviewCategoryDAO {
 		
 		return reviewList;
 	}
+
 	public int insertReview(ReviewBoardDTO dto) {
 		int insertCount = 0;
 		
@@ -141,5 +148,6 @@ public class ReviewCategoryDAO {
 		
 		return insertCount;
 	}
+
 	
 }

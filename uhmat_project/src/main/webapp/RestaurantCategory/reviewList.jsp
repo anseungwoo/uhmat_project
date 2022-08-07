@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,7 @@
 </head>
 <body>
 	<h1>welcome reviewList</h1>
+
 	<nav><a href="ReviewWriteForm.re">글 작성</a></nav>
 	<hr>
 	<section>
@@ -37,6 +40,6 @@
 				</c:choose>
 		</table>
 	</section>
-	
+
 </body>
 </html>
