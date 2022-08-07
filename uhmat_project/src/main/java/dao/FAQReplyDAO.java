@@ -24,6 +24,7 @@ public class FAQReplyDAO {
 		boolean isWriteReplySuccess = false;
 		int insertCount = 0;
 		int board_idx = 1;
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		

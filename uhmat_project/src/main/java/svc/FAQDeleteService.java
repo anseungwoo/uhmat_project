@@ -22,6 +22,7 @@ public class FAQDeleteService {
 		
 		if(!deleteSuccess) {
 			JdbcUtil.rollback(con);
+			
 		} else {
 			JdbcUtil.commit(con);
 		}
