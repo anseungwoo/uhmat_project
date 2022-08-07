@@ -29,4 +29,28 @@ public class FAQDeleteService {
 		return deleteSuccess;
 	}
 
+
+	public boolean removeReplyFAQ(int idx) {
+		boolean deleteReplySuccess = false;
+		
+		Connection con = JdbcUtil.getConnection();
+		
+		FAQReplyDAO dao = FAQReplyDAO.getInstance();
+		
+		dao.setConnection(con);
+		
+		deleteReplySuccess = dao.deleteReplyFAQ(idx);
+		
+		if(!deleteReplySuccess) {
+			JdbcUtil.rollback(con);
+		} else {
+			JdbcUtil.commit(con);
+		}
+		
+		JdbcUtil.close(con);
+		
+		return deleteReplySuccess;
+	}
+
+
 }

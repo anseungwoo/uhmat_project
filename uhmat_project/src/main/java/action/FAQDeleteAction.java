@@ -18,6 +18,9 @@ public class FAQDeleteAction implements Action {
 		FAQDeleteService service = new FAQDeleteService();
 		boolean deleteSuccess = service.removeFAQ(idx);
 //		System.out.println("deleteSuccess : " + deleteSuccess);
+
+		boolean deleteReplySuccess = false;
+
 		
 		if(!deleteSuccess) {
 			response.setContentType("text/html; charset=UTF-8");
@@ -26,6 +29,19 @@ public class FAQDeleteAction implements Action {
 			out.println("alert('글 삭제 실패')");
 			out.println("history.back()");
 			out.println("</script>");
+
+		} else {
+			deleteReplySuccess = service.removeReplyFAQ(idx);
+			System.out.println("deleteSuccess : " + deleteSuccess);
+		}
+		if(!deleteReplySuccess) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('글 삭제 실패')");
+			out.println("history.back()");
+			out.println("</script>");
+
 			
 		} else {
 			forward = new ActionForward();
