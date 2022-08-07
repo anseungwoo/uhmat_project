@@ -22,13 +22,13 @@ public class FAQDeleteService {
 		
 		if(!deleteSuccess) {
 			JdbcUtil.rollback(con);
+			
 		} else {
 			JdbcUtil.commit(con);
 		}
 		
 		return deleteSuccess;
 	}
-
 
 	public boolean removeReplyFAQ(int idx) {
 		boolean deleteReplySuccess = false;
@@ -52,5 +52,20 @@ public class FAQDeleteService {
 		return deleteReplySuccess;
 	}
 
+	public boolean checkReply(int idx) {
+		boolean checkReply = false;
+		
+		Connection con = JdbcUtil.getConnection();
+		
+		FAQReplyDAO dao = FAQReplyDAO.getInstance();
+		
+		dao.setConnection(con);
+		
+		checkReply = dao.selectFAQReply(idx);
+		
+		JdbcUtil.close(con);
+		
+		return checkReply;
+	}
 
 }
