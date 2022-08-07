@@ -79,7 +79,6 @@ public class FAQReplyDAO {
 		return reply;
 	}
 	
-
 	public boolean deleteReplyFAQ(int idx) {
 		boolean deleteSuccess = false;
 		int deleteCount = 0;
@@ -103,8 +102,30 @@ public class FAQReplyDAO {
 		
 		return deleteSuccess;
 	}
+	public boolean selectFAQReply(int idx) {
+		boolean selectFAQReply = false;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM faq_reply WHERE board_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				selectFAQReply = true;
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 오류 발생! -  " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		return selectFAQReply;
+	}
 	
-
 	
 	
 }
