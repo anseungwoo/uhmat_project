@@ -10,7 +10,7 @@ public class MemberCheckDuplicateEmailService {
 
 	public boolean checkDuplicateEmail(String email) {
 
-boolean isDuplicate = false;
+		boolean isDuplicate = false;
 		
 		Connection con = getConnection();
 		MemberDAO dao = MemberDAO.getInstance();
