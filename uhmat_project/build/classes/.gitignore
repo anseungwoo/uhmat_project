@@ -1,3 +1,5 @@
-/.metadata/
-
-
+/controller/
+/action/
+/dao/
+/svc/
+/vo/
