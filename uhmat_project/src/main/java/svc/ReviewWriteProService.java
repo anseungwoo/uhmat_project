@@ -1,7 +1,7 @@
 package svc;
 
 import vo.*;
-import static db.JdbcUtill.*;
+import static db.JdbcUtil.*;
 
 import java.sql.*;
 
