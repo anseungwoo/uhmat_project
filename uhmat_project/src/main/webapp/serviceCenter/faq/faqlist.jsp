@@ -62,6 +62,12 @@
 		<section id="listForm">
 		<h2>FAQ</h2>
 		<input type="button" value="홈" onclick="location.href='index.jsp'">
+			<select id="selectBox" name="category">
+				<option value="카테고리 선택" >카테고리 선택</option>
+				<option value="오류신고" >오류신고</option>
+				<option value="음식점등록" >음식점등록</option>
+				<option value="지도 오류" >지도 오류</option>
+			</select>
 		<table>
 			<tr id="tr_top">
 				<td width="150px">카테고리</td>
@@ -114,7 +120,7 @@
 				<input type="button" value="이전" onclick="location.href='FAQList.sc?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
-				<input type="button" value="이전">
+				<input type="button" value="이전" disabled="disabled">
 			</c:otherwise>
 		</c:choose>
 			
@@ -137,7 +143,7 @@
 				<input type="button" value="다음" onclick="location.href='FAQList.sc?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
-				<input type="button" value="다음">
+				<input type="button" value="다음" disabled="disabled">
 			</c:otherwise>
 		</c:choose>
 	</section>
