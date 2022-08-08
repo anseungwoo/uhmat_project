@@ -13,7 +13,7 @@ public class FAQListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		System.out.println("NoticeListAction-execute");
 		ActionForward forward = null;
-		
+
 
 		// 페이징 처리를 위한 변수 선언
 		int pageNum = 1; // 현재페이지 번호

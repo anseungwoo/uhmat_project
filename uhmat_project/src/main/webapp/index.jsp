@@ -55,7 +55,13 @@
  	</details>
  </nav>
 
+<<<<<<< HEAD
 >>>>>>> master
+=======
+
+
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 <h3> <a href="NoticeList.sc">Notice</a></h3>
 <h3> <a href="FAQList.sc">FAQ</a></h3>
  <h3><a href="MateWriteForm.mate">글쓰기</a></h3>

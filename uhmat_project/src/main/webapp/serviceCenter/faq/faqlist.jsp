@@ -71,9 +71,15 @@
 				<td width="150px">날짜</td>
 				<td width="100px">조회수</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 				<td width="100px">카테고리</td>
 >>>>>>> master
+=======
+
+				<td width="100px">카테고리</td>
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 			</tr>
 			<!-- 게시물 목록 출력(단, 게시물이 하나라도 존재할 경우에만 출력) -> JSTL과 EL 활용-->
 			<!-- JSTL의 c:choose 태그를 사용하여 게시물 존재 여부 판별 -->
@@ -94,6 +100,10 @@
 							<td>${FAQ.date }</td>
 
 							<td>${FAQ.readcount }</td>
+<<<<<<< HEAD
+=======
+							<td>${FAQ.category }</td>
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 
 						</tr>
 					</c:forEach>
@@ -118,8 +128,12 @@
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
 
+<<<<<<< HEAD
 				<input type="button" value="이전" onclick="location.href='FAQList.sc?pageNum=${pageInfo.pageNum - 1}'">
 
+=======
+				<input type="button" value="이전" onclick="location.href='FAQList.bo?pageNum=${pageInfo.pageNum - 1}'">
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
@@ -128,14 +142,22 @@
 			
 		<!-- 페이지 번호 목록은 시작 페이지(startPage)부터 끝 페이지(endPage) 까지 표시 -->
 
+<<<<<<< HEAD
 		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }" step="1">
+=======
+		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 			<!-- 단, 현재 페이지 번호는 링크 없이 표시 -->
 			<c:choose>
 				<c:when test="${pageInfo.pageNum eq i}">
 					${i}
 				</c:when>
 				<c:otherwise>
+<<<<<<< HEAD
 					<a href="FAQList.sc?pageNum=${i}">${i} &nbsp;</a>
+=======
+					<a href="FAQList.bo?pageNum=${i }">${i }</a>
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 
 				</c:otherwise>
 			</c:choose>
@@ -145,10 +167,17 @@
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<input type="button" value="다음" onclick="location.href='FAQList.sc?pageNum=${pageInfo.pageNum + 1}'">
 =======
 				<input type="button" value="다음" onclick="location.href='FAQList.bo?pageNum=${pageInfo.pageNum + 1}'">
 >>>>>>> master
+=======
+
+
+				<input type="button" value="다음" onclick="location.href='FAQList.sc?pageNum=${pageInfo.pageNum + 1}'">
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">

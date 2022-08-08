@@ -33,7 +33,7 @@ public class FAQDetailReplyDeleteAction implements Action {
 			service2.increaseReadcount(idx);
 			
 			FAQDTO faq = service2.getFAQ(idx);
-			
+			 
 			FAQReplyDTO reply = service2.getFAQReply(idx); 
 //			System.out.println("reply : " + reply);
 			

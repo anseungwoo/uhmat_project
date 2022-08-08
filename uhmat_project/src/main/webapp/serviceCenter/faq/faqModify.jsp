@@ -72,10 +72,16 @@
 							<option value="오류신고">오류신고</option>
 							<option value="음식점등록">음식점등록</option>
 <<<<<<< HEAD
+<<<<<<< HEAD
 							<option value="지도 오류">지도 오류</option>
 =======
 							<option value="자도 오류">지도 오류</option>
 >>>>>>> master
+=======
+
+							<option value="지도 오류">지도 오류</option>
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 						</select>
 					</td>
 				</tr>

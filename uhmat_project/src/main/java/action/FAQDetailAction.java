@@ -17,7 +17,7 @@ public class FAQDetailAction implements Action {
 		
 		int idx = Integer.parseInt(request.getParameter("idx"));
 //		System.out.println("idx : " + idx);
-		
+
 
 		FAQDetailService service = new FAQDetailService();
 		
