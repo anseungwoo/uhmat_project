@@ -1,14 +1,11 @@
 package dao;
 
-import static db.JdbcUtill.*;
+import static db.JdbcUtil.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-import vo.MateDTO;
-
+import vo.*;
+import static db.JdbcUtil.*;
 public class CommunityDAO {
 
 	// 1. 멤버변수 선언 및 인스턴스 생성

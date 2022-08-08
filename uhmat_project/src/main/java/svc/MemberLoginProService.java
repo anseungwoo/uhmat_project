@@ -1,9 +1,11 @@
 package svc;
 
-import java.sql.Connection;
-import static db.JdbcUtill.*;  
-import dao.MemberDAO;
-import vo.MemberDTO;
+import static db.JdbcUtil.*;
+
+import java.sql.*;
+
+import dao.*;
+import vo.*;
 
 public class MemberLoginProService {
 

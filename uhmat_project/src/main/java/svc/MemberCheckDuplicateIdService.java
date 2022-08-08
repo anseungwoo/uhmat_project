@@ -1,9 +1,11 @@
 package svc;
 
-import java.sql.Connection;
-import static db.JdbcUtill.close;
-import static db.JdbcUtill.getConnection;
-import dao.MemberDAO;
+import static db.JdbcUtil.close;
+import static db.JdbcUtil.getConnection;
+
+import java.sql.*;
+
+import dao.*;
 
 public class MemberCheckDuplicateIdService {
 

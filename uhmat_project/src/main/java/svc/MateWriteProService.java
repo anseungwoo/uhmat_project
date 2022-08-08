@@ -1,11 +1,11 @@
 package svc;
 
-import java.sql.Connection;
+import static db.JdbcUtil.*;
 
-import dao.CommunityDAO;
+import java.sql.*;
 
-import static db.JdbcUtill.*;
-import vo.MateDTO;
+import dao.*;
+import vo.*;
 
 public class MateWriteProService {
 
