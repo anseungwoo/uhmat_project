@@ -32,6 +32,7 @@ public class FAQDeleteAction implements Action {
 			out.println("</script>");
 
 		} else {
+
 			boolean checkReply = service.checkReply(idx);
 			
 			if(!checkReply) { // 댓글이 없을 경우
