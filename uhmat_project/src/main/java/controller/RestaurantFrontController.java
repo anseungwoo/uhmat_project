@@ -32,46 +32,11 @@ public class RestaurantFrontController extends HttpServlet {
 		String command = request.getServletPath();
 		System.out.println("Res_Controller - command : "+command);
 		
-		//리뷰 관련 요청
-		if(command.equals("/reviewList.re")) {
-			System.out.println("리뷰 글 목록 요청!!");
-			action = new reviewListAction();
-			forward = action.execute(request, response);
-		}else if(command.equals("/reviewWriteForm.re")) {
-			System.out.println("리뷰 입력 폼 요청!");
-			forward = new ActionForward();
-			forward.setPath("food/review/review_write.jsp");
-			forward.setRedirect(false);
-		}else if(command.equals("/reviewWritePro.re")) {
-			System.out.println("리뷰 글 입력 요청!");
-			action = new reviewWriteProAction();
-			forward = action.execute(request, response);
-		}else if(command.equals("/reviewDetail.re")) {
-			System.out.println("리뷰 상세보기 요청!");
-			action = new reviewDetailAction();
-			forward = action.execute(request, response);
-		}else if(command.equals("/reviewModifyForm.re")) {
-			System.out.println("리뷰 수정 폼 요청!");
-			action = new reviewModifyFormAction(); 
-			forward = action.execute(request, response);
-		}else if(command.equals("/reviewModifyPro.re")) {
-			System.out.println("리뷰 수정 업데이트 요청!");
-			action = new reviewModifyProAction();
-			forward = action.execute(request, response);
-		}else if(command.equals("/reviewDelete.re")) {
-			System.out.println("리뷰 삭제 요청!");
-			action = new reviewDeleteProAction();
-			//삭제 시 확인 필요X! 하지만 글작성자의 로그인 되어있는지 확인 필요!
-			forward = action.execute(request, response);
-		}else if(command.equals("/reviewReply.re")) {
-			System.out.println("댓글 입력 요청!");
-			action = new reviewReplyAction();
-			forward = action.execute(request, response);
-		}
+	
 		
 		
 		// 여기 밑에 부터는 식당정보 관련 요청
-		else if(command.equals("/restaurantList.re")) {
+		 if(command.equals("/restaurantList.re")) {
 			System.out.println("식당 글 목록 요청!!");
 			forward = new ActionForward();
 			forward.setPath("food/restaurant/restaurant_write.jsp");

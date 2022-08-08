@@ -4,9 +4,8 @@ import java.sql.Connection;
 
 import dao.CommunityDAO;
 
-import static db.JdbcUtill.*;
 import vo.MateDTO;
-
+import static db.JdbcUtil.*;
 public class MateWriteProService {
 
 
@@ -39,7 +38,7 @@ public class MateWriteProService {
 		} else { // 작업 실패 시
 			// 트랜잭션 취소를 위해 JdbcUtil 클래스의 rollback() 메서드를 호출하여 rollback 작업 수행
 			rollback(con);
-		}
+		} 
 		
 		// 7. Connection 객체 반환 - 공통
 		close(con);

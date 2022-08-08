@@ -5,8 +5,7 @@ import java.sql.Connection;
 import dao.CommunityDAO;
 import vo.MateDTO;
 
-import static db.JdbcUtill.*;
-
+import static db.JdbcUtil.*;
 public class MateDetailService {
 	
 	// 조회수 증가 작업을 요청하는 increaseReadcount() 메서드
@@ -17,7 +16,7 @@ public class MateDetailService {
 		CommunityDAO dao = CommunityDAO.getInstance();
 		
 		dao.setConnection(con);
-		
+		 
 		// CommunityDAO 객체의 increaseReadcount() 메서드를 호출하여 조회수 증가 작업 수행
 		// => 파라미터 : idx
 		dao.increaseReadcount(idx);
