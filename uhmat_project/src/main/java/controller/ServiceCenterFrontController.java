@@ -144,7 +144,6 @@ public class ServiceCenterFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			
 		// 관리자 삭제	
 		} else if(command.equals("/FAQDetailReplyDelete.sc")) {
 			try {

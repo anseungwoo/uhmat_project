@@ -199,7 +199,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		try {
+		try { 
 			String sql = "SELECT email FROM member WHERE email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);

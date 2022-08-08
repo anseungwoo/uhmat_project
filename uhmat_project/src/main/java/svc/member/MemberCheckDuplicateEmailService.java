@@ -3,7 +3,6 @@ package svc.member;
 import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
-
 import dao.MemberDAO;
 
 public class MemberCheckDuplicateEmailService {
@@ -20,7 +19,7 @@ public class MemberCheckDuplicateEmailService {
 		// => 파라미터 : 아이디(id)   리턴타입 : boolean(isDuplicate)
 
 		isDuplicate = dao.selectDuplicateEmail(email);
-
+ 
 		
 		close(con);
 		
