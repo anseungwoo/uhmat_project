@@ -19,7 +19,7 @@
 					<th>주제</th><td>${dto.subject }</td>
 				</tr>
 				<tr>
-					<th>Tag</th>#....</td> 
+					<th>Tag</th><td>#....</td> 
 					<!-- select box 를 통한 추가 조사 
 						DB에 추가해야함
 					-->
@@ -37,7 +37,7 @@
 				</tr>
 				<tr>
 					<!-- 파일 첨부 형식은 input 태그의 type="file" 속성 사용 -->
-					<th>이미지</th><td><img src="/upload/" + ${dto.photo } alt="파일"></td>
+					<th>이미지</th><td width="200" height="300"><img src="upload/${dto.photo }" alt="파일"></td>
 				</tr>
 			
 		</table>
