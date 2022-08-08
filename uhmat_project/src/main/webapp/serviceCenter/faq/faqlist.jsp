@@ -56,6 +56,10 @@
 	}
 	
 </style>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 		<!-- 게시판 리스트 -->
