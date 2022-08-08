@@ -71,7 +71,15 @@
 						<select id="selectBox" name="category">
 							<option value="오류신고">오류신고</option>
 							<option value="음식점등록">음식점등록</option>
+<<<<<<< HEAD
 							<option value="자도 오류">지도 오류</option>
+=======
+<<<<<<< HEAD
+							<option value="지도 오류">지도 오류</option>
+=======
+							<option value="자도 오류">지도 오류</option>
+>>>>>>> master
+>>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
 						</select>
 					</td>
 				</tr>

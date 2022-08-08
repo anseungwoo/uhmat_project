@@ -13,7 +13,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
  <div id="naver_id_login"></div>
  
   <!-- //네이버아이디로로그인 버튼 노출 영역 -->
@@ -51,12 +54,19 @@
  	</details>
  </nav>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
 <h3> <a href="NoticeList.sc">Notice</a></h3>
 <h3> <a href="FAQList.sc">FAQ</a></h3>
  <h3><a href="MateWriteForm.mate">글쓰기</a></h3>
 <h3><a href="MateList.mate">글목록</a></h3>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
 </body>
 </html>   
