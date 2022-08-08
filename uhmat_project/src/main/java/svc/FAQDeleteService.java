@@ -51,6 +51,7 @@ public class FAQDeleteService {
 		return deleteReplySuccess;
 	}
 
+
 	public boolean checkReply(int idx) {
 		boolean checkReply = false;
 		

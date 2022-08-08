@@ -119,6 +119,7 @@
 			
 		<!-- 페이지 번호 목록은 시작 페이지(startPage)부터 끝 페이지(endPage) 까지 표시 -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }" step="1">
@@ -131,6 +132,9 @@
 					<a href="NoticeList.sc?pageNum=${i}">${i}</a>
 =======
 >>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
+=======
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
 			<!-- 단, 현재 페이지 번호는 링크 없이 표시 -->
 			<c:choose>
@@ -140,9 +144,13 @@
 				<c:otherwise>
 					<a href="NoticeList.sc?pageNum=${i }">${i }</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> master
 >>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
+=======
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>

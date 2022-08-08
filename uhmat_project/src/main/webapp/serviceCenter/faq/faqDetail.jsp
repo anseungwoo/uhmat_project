@@ -108,12 +108,18 @@
 			     	<tr>
 				     	<td>답변 : </td><td> ${reply.answer }</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 				     	<td><input type="button" value="삭제" onclick="location.href='FAQDetailReplyDelete.sc?idx=${faq.idx}&pageNum=${param.pageNum}'"></td>
 =======
 >>>>>>> master
 >>>>>>> 3fa5734b834dc4929060570ee51a9b99d4634421
+=======
+
+				     	<td><input type="button" value="삭제" onclick="location.href='FAQDetailReplyDelete.sc?idx=${faq.idx}&pageNum=${param.pageNum}'"></td>
+
+>>>>>>> 96908781f46ed0df0082b24e95e3f28c6c8d975d
 			     	</tr>
 			     </table>
 			<br>

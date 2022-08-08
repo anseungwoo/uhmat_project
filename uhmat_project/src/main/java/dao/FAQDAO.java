@@ -172,7 +172,9 @@ public class FAQDAO {
 		
 		try {
 
+
 			String sql = "UPDATE FAQBoard SET nickname=?, subject=?, content=? WHERE idx=?";
+
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, faq.getNickname());
