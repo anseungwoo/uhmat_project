@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 /.metadata/
+=======
+>>>>>>> Stashed changes
 /action/
 /controller/
 /dao/
+/db/
+/mail/
 /svc/
 /vo/
 /action/
