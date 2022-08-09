@@ -7,11 +7,11 @@ import svc.ReviewDetailService;
 import vo.ActionForward;
 import vo.ReviewBoardDTO;
 
-public class ReviewDetailAction implements Action {
+public class ReviewModifyFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ReviewDetailAction");
+		System.out.println("ReviewModifyFormAction");
 		ActionForward forward = null;
 		
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -20,10 +20,11 @@ public class ReviewDetailAction implements Action {
 		ReviewBoardDTO dto = service.getReviewBoard(idx);
 		
 		request.setAttribute("dto", dto);
-		
+		request.setAttribute("originPath", dto.getPhoto());
 		forward = new ActionForward();
-		forward.setPath("food/review/reviewDetailView.jsp");
+		forward.setPath("food/review/reviewModifyForm.jsp");
 		forward.setRedirect(false);
+		
 		return forward;
 	}
 

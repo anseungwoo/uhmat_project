@@ -1,12 +1,7 @@
-/.metadata/
 /action/
 /controller/
 /dao/
+/db/
+/mail/
 /svc/
 /vo/
-/action/
-/controller/
-/svc/
-/vo/
-/dao/
-
