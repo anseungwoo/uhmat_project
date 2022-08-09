@@ -133,7 +133,7 @@ public class ServiceCenterFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 		//------------FAQList에서 Category 선택했을 때--------------------------------------
-		} else if(command.equals("FAQlistCategory.sc")) {
+		} else if(command.equals("/FAQlistCategory.sc")) {
 			try {
 				action = new FAQlistCategoryAction();
 				forward = action.execute(request, response);

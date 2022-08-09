@@ -59,21 +59,14 @@
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	
-// 	$(function(){
-// 		$("#selectBox > option").eq(1).on("selected", function(){
-			
-// 			$.ajax({
-// 				type: "get",
-// 				url: , // 값을 가져오는 곳
-// 				data: $("#category > option").val(),
-// 				dataType: "text",
-// 				success: function(response) {
-// 					$("#tr_top").html(response);
-// 				}
-// 			});
-
-// 		});
-// 	});
+	$(function(){
+		$("#selectBox > option").on("click", function(){
+			if($("#selectBox > option").eq(1).prop("selected")){
+				var selectBoxChecked = $("#selectBox > option").eq(1).val();
+				
+			}
+		})
+	})
 </script>
 </head>
 <body>
@@ -81,12 +74,12 @@
 		<section id="listForm">
 		<h2>FAQ</h2>
 		<input type="button" value="홈" onclick="location.href='index.jsp'">
-		
-<!-- 			<input type="button" value="전체" name="전체" onclick="location.href='FAQlistCategory.sc'"> -->
-			<input type="button" value="오류신고" name="오류신고" onclick="location.href='FAQlistCategory.sc?name='+name">
-			<input type="button" value="음식점등록" name="음식점등록" onclick="location.href='FAQlistCategory.sc?name='+name">
-			<input type="button" value="지도 오류" name="지도 오류" onclick="location.href='FAQlistCategory.sc?name='+name">
-		
+			<select id="selectBox" name="category">
+				<option value="카테고리 선택" >카테고리 선택</option>
+				<option value="오류신고" >오류신고</option>
+				<option value="음식점등록" >음식점등록</option>
+				<option value="지도 오류" >지도 오류</option>
+			</select>
 		<table>
 			<tr id="tr_top">
 				<td width="150px">카테고리</td>

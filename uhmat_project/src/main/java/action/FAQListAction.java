@@ -9,6 +9,7 @@ import vo.*;
 
 public class FAQListAction implements Action {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		System.out.println("NoticeListAction-execute");
@@ -19,7 +20,7 @@ public class FAQListAction implements Action {
 		int pageNum = 1; // 현재페이지 번호
 		int listLimit = 10; // 한 페이지 당 표시할 게시물 수
 		int pageLimit = 10; // 한 페이지 당 표시할 페이지 목록 수
-
+			
 		// 단, URL 파라미터로 현재 페이지번호(pageNum) 가 전달됐을 경우 가져와서 변수에 저장
 		if(request.getParameter("pageNum") != null){
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
@@ -50,11 +51,12 @@ public class FAQListAction implements Action {
 		// BoardListService 객체의 getBoardList() 메서드를 호출하여 게시물 목록 가져오기
 		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
 		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
-		
-		ArrayList<FAQDTO> list = service.getFAQList(pageNum, listLimit);
+		ArrayList<FAQDTO> list = null;
 //		System.out.println("list : " + list);
 		
 		request.setAttribute("pageInfo", pageInfo);
+		
+		list = service.getFAQList(pageNum, listLimit);
 		request.setAttribute("list", list);
 		
 		forward = new ActionForward();
