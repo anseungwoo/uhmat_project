@@ -53,13 +53,13 @@ public class FAQlistCategoryAction implements Action {
 		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
 		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
 		ArrayList<FAQDTO> categoryList = service.selectFAQCategorylist(pageNum, listLimit, category);
-//		System.out.println("list : "+ list);
+		System.out.println("Action의 list : "+ categoryList);
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("categoryList", categoryList);
+		request.setAttribute("list", categoryList);
 		
 		forward = new ActionForward();
-		forward.setPath("FAQList.sc");
-		forward.setRedirect(true);
+		forward.setPath("serviceCenter/faq/faqlist.jsp");
+		forward.setRedirect(false);
 		
 		return forward;
 	}

@@ -9,7 +9,6 @@ import vo.*;
 
 public class FAQListAction implements Action {
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		System.out.println("NoticeListAction-execute");
@@ -51,12 +50,10 @@ public class FAQListAction implements Action {
 		// BoardListService 객체의 getBoardList() 메서드를 호출하여 게시물 목록 가져오기
 		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
 		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
-		ArrayList<FAQDTO> list = null;
+		ArrayList<FAQDTO> list = service.getFAQList(pageNum, listLimit);
 //		System.out.println("list : " + list);
-		
 		request.setAttribute("pageInfo", pageInfo);
 		
-		list = service.getFAQList(pageNum, listLimit);
 		request.setAttribute("list", list);
 		
 		forward = new ActionForward();
