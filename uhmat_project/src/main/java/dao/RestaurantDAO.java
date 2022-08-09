@@ -84,4 +84,31 @@ public class RestaurantDAO {
 		
 		return list;
 	}
+
+	public int insertResInfo(RestaurantInfoDTO dto) {
+		int insertCount = 0 ;
+		System.out.println("RestaurantDAO - insertResInfo()");
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "INSERT INTO restaurant_info VALUES(?,?,?,0,?,?,?,?,?,0)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getResName());
+			pstmt.setString(2, dto.getrPostcode());
+			pstmt.setString(3, dto.getAddress());
+			pstmt.setString(4, dto.getPhoneNumber());
+			pstmt.setString(5, dto.getOpentime());
+			pstmt.setString(6, dto.getResLink());
+			pstmt.setString(7, dto.getPhoto());
+			pstmt.setString(8, dto.getResInfo());
+			
+			insertCount=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("RestaurantDAO - insertResInfo() - SQL 구문 오류!");
+		}finally {
+			close(pstmt);
+		}
+		
+		return insertCount;
+	}
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MVC 게시판</title>
+<title>식당 글쓰기 </title>
 <style type="text/css">
 #writeForm{
 	width:500px;
@@ -36,24 +36,31 @@ table{
 	text-align: center;
 }
 </style>
- <script>
-	function setThumbnail(event) {
-		var reader = new FileReader();
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+	//ready event
+	$(function(){
+		$('#photo').change(function(){
+		    setImageFromFile(this, '#image');
+		});
+
+		function setImageFromFile(input, expression) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        reader.onload = function (e) {
+		            $(expression).attr('src', e.target.result);
+		        }
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+	});
 	
-		reader.onload = function(event) {
-		var img = document.createElement("img");
-		img.setAttribute("src", event.target.result);
-		document.querySelector("div#image_container").appendChild(img);
-		};
-	
-		reader.readAsDataURL(event.target.files[0]);
-	}
 </script>
 </head>
 <body>
 	<section id="writeForm">
 		<h2>식당 글 등록</h2>
-		<form action="BoardWritePro.bo" method="post" enctype="multipart/form-data" name="boardform">
+		<form action="restaurantWritePro.re" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th><label for="res_name">식당이름</label></th>
@@ -78,7 +85,7 @@ table{
 				</tr>
 				<tr>
 					<th><label for="photo">식당 사진</label></th>
-					<td><input name="photo" type="file" id="photo"  accept="image/*" onchange="setThumbnail(event);"></td>
+					<td><input name="photo" type="file" id="photo"  accept="image/*"></td>
 				</tr>
 					
 				<tr>
@@ -87,13 +94,16 @@ table{
 				</tr>
 			</table>
 			<h3>이미지 미리보기</h3>
-			<div id="image_container"></div>
-			<h3 style="text-align: center"> 영업 시간 등록</h3>
-					<b>월</b> <input type="time">~<input type="time"> 또는 휴무<input type="checkbox" name="Monday" value="휴무"><br>
-					<b>화</b> <input type="time">~<input type="time"> 또는 휴무<input type="checkbox" name="Tuesday" value="휴무"><br>
-					<b>수</b> <input type="time">~<input type="time"> 또는 휴무<input type="checkbox" name="Wednesday" value="휴무"><br>
-					<b>목</b> <input type="time">~<input type="time"> 또는 휴무<input type="checkbox" name="Thursday" value="휴무"><br>
-					<b>금</b> <input type="time">~<input type="time"> 또는 휴무<input type="checkbox" name="Friday" value="휴무"><br>
+			<img src="" alt="등록된 이미지 없음" id="image" width="300">
+			<h3 style="text-align: center"> 영업 시간 등록</h3> 
+					(휴무시 선택X)<br>
+					<b>월</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
+					<b>화</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
+					<b>수</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
+					<b>목</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
+					<b>금</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
+					<b>토</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
+					<b>일</b> <input type="time" name="opentime">~<input type="time" name="closetime"> <br>
 					<br>
 			<section id="commandCell">
 				<input type="submit" value="등록">&nbsp;&nbsp;

@@ -17,12 +17,27 @@ public class RestaurantInfoDTO {
 	private String resName;	//식당 이름
 	private String rPostcode;	//우편번호
 	private String address;	//상세 주소 
-	private float rating;	//별점
+	private String resInfo; //식당 상세내용
 	private String phoneNumber; //식당 번호
 	private String opentime; //영업 시간
 	private String resLink; //레스토랑의 웹사이트 링크
-	private String photo; //식당 정보
+	private String photo; //식당 사진
+	private float rating;	//별점
 	private int reviewCount; //식당 리뷰 개수
+	
+	
+	@Override
+	public String toString() {
+		return "RestaurantInfoDTO [resName=" + resName + ", rPostcode=" + rPostcode + ", address=" + address
+				+ ", resInfo=" + resInfo + ", phoneNumber=" + phoneNumber + ", opentime=" + opentime + ", resLink="
+				+ resLink + ", photo=" + photo + ", rating=" + rating + ", reviewCount=" + reviewCount + "]";
+	}
+	public String getResInfo() {
+		return resInfo;
+	}
+	public void setResInfo(String content) {
+		this.resInfo = content;
+	}
 	public String getResName() {
 		return resName;
 	}
