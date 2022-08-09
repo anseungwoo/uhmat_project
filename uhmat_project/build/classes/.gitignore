@@ -1,7 +1,13 @@
 /action/
 /controller/
+<<<<<<< HEAD
 /dao/
 /db/
 /mail/
 /svc/
 /vo/
+=======
+/svc/
+/vo/
+/dao/
+>>>>>>> master

@@ -57,6 +57,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+
 		} else if(command.equals("/ReviewModifyForm.re")) {
 			 try {
 				action = new ReviewModifyFormAction();
@@ -83,6 +84,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+
 
 		} 
 	
