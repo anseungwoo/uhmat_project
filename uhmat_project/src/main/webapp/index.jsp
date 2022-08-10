@@ -51,21 +51,11 @@
  </nav>
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> f91cb76d17d1c9da2d7340bf867a694933570d96
 <h3> <a href="NoticeList.sc">Notice</a></h3>
 <h3> <a href="FAQList.sc">FAQ</a></h3>
  <h3><a href="MateWriteForm.mate">글쓰기</a></h3>
 <h3><a href="MateList.mate">글목록</a></h3>
 
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 </body>
 </html>   
