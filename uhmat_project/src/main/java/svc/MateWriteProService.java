@@ -1,5 +1,6 @@
 package svc;
 
+
 import static db.JdbcUtil.*;
 
 import java.sql.*;
@@ -11,9 +12,10 @@ import static db.JdbcUtil.commit;
 import static db.JdbcUtil.getConnection;
 import static db.JdbcUtil.rollback;
 
-import java.sql.Connection;
 
+import java.sql.Connection;
 import dao.CommunityDAO;
+
 import vo.MateDTO;
 
 public class MateWriteProService {

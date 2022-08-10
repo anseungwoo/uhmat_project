@@ -75,7 +75,7 @@
 		</c:choose>
 		
 	</section>
-	
+
 
 </body>
 </html>

@@ -31,6 +31,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+
 		}
 		/*
 		 * 여기서부터는 식당 요청!! 글쓰기 수정 삭제 등은 관리자로 로그인 되어있어야함!
@@ -96,6 +97,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			}
 		}
 		//추가로 태그와 카테고리 관련된 작업 요청이 더 필요함!!
+
 	
 		if (forward != null) {
 			if (forward.isRedirect()) {

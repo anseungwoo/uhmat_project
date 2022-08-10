@@ -87,6 +87,9 @@ public class MemberDTO {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
+	
+
+
 
 	public String getIcon() {
 		return icon;

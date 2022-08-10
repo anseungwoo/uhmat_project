@@ -191,7 +191,7 @@ public class MemberDAO {
 		boolean isDuplicate = false;
 
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		ResultSet rs = null; 
 
 		try {
 			String sql = "SELECT email FROM member WHERE email=?";
