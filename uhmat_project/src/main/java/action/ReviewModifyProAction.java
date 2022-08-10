@@ -1,5 +1,6 @@
 package action;
 
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
@@ -13,10 +14,12 @@ import svc.ReviewModifyProService;
 import vo.ActionForward;
 import vo.ReviewBoardDTO;
 
+
 public class ReviewModifyProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		System.out.println("ReviewModifyProAction");
 		ActionForward forward = null;
 		
@@ -87,4 +90,5 @@ public class ReviewModifyProAction implements Action {
 		return forward;
 	}
 }
+
 

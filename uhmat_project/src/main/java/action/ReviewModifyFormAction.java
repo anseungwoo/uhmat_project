@@ -1,5 +1,6 @@
 package action;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,10 +8,12 @@ import svc.ReviewDetailService;
 import vo.ActionForward;
 import vo.ReviewBoardDTO;
 
+
 public class ReviewModifyFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		System.out.println("ReviewModifyFormAction");
 		ActionForward forward = null;
 		
@@ -26,6 +29,7 @@ public class ReviewModifyFormAction implements Action {
 		forward.setRedirect(false);
 		
 		return forward;
+
 	}
 
 }
