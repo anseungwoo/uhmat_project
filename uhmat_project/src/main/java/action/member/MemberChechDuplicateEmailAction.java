@@ -8,6 +8,7 @@ import vo.ActionForward;
 
 public class MemberChechDuplicateEmailAction  {
 
+
 	public boolean execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	System.out.println("MemberChechDuplicateEmailAction");
 		
@@ -20,8 +21,10 @@ public class MemberChechDuplicateEmailAction  {
 		MemberCheckDuplicateEmailService service = new MemberCheckDuplicateEmailService();
 		boolean isDuplicate = service.checkDuplicateEmail(email);
 		
+
 		// ActionForward 객체를 사용하여 CheckDuplicateId.me 서블릿 주소 요청
 		// => 파라미터로 아이디와 검색결과 전달
+
 	
 		
 		return isDuplicate;

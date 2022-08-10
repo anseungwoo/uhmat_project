@@ -25,9 +25,6 @@ public class MemberFrontController extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 	
-		
-		
-	
 
 		String command = request.getServletPath();
 		System.out.println(command);

@@ -212,6 +212,7 @@
 						});
 	});
 
+
 	// 다음 우편번호 API
 	function execDaumPostcode() {
 		new daum.Postcode(
@@ -247,6 +248,7 @@
 
 				}).open();
 	}
+	
 </script>
 </head>
 <body>
@@ -259,9 +261,11 @@
 		</div>
 		<br>
 		<div>닉네임</div>
+
 		<div>
 			<input type="text" name="nickName" id="nickName" required="required">
 			<div id="checkNickNameResult"></div>
+
 
 		</div>
 		<br>
@@ -285,9 +289,11 @@
 		<br>
 
 		<div>E-Mail</div>
+
 		<div>
 			<input type="text" name="email" id="email" required="required">
 			<span id="EmailResult"></span>
+
 
 		</div>
 		<br>
@@ -326,7 +332,6 @@
 	</form>
 </body>
 </html>
-
 
 
 
