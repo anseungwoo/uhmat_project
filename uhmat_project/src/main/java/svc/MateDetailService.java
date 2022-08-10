@@ -5,7 +5,9 @@ import java.sql.Connection;
 import dao.CommunityDAO;
 import vo.MateDTO;
 
+
 import static db.JdbcUtil.*;
+
 public class MateDetailService {
 	
 	// 조회수 증가 작업을 요청하는 increaseReadcount() 메서드

@@ -22,7 +22,7 @@ public class FAQDeleteService {
 		
 		if(!deleteSuccess) {
 			JdbcUtil.rollback(con);
-			
+
 		} else {
 			JdbcUtil.commit(con);
 		}
@@ -52,6 +52,7 @@ public class FAQDeleteService {
 		return deleteReplySuccess;
 	}
 
+
 	public boolean checkReply(int idx) {
 		boolean checkReply = false;
 		
@@ -67,5 +68,6 @@ public class FAQDeleteService {
 		
 		return checkReply;
 	}
+
 
 }
