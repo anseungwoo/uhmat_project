@@ -62,5 +62,10 @@
 <h3><a href="MateList.mate">글목록</a></h3>
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 </body>
 </html>   
