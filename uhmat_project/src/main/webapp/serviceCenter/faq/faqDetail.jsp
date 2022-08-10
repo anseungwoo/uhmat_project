@@ -88,6 +88,7 @@
 	</section>
 	<section id="replyArea">
 		<!-- insertForm 섹션(댓글 작성 영역)은 세션 아이디가 존재할 경우에만 출력 -->
+
 	<section id="insertForm">
 		<c:choose>
 			<c:when test="${not empty reply.board_idx}">
@@ -107,13 +108,16 @@
 			</c:otherwise>
 		</c:choose>	
 	</section>
+
 		<section id="replyViewArea" style="position: relative; left: 40%; top:50%;">
 			<!-- ArrayList(replyList) 객체 크기만큼 for문 반복 -->
 			<br>
 			     <table>
 			     	<tr>
 				     	<td>답변 : </td><td> ${reply.answer }</td>
+
 				     	<td><input type="button" value="삭제" onclick="location.href='FAQDetailReplyDelete.sc?idx=${faq.idx}&pageNum=${param.pageNum}'"></td>
+
 			     	</tr>
 			     </table>
 			<br>
