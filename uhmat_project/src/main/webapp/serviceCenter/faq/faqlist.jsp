@@ -93,6 +93,9 @@
 			<input type="button" value="오류신고" name="오류신고" onclick="location.href='FAQlistCategory.sc?name='+name">
 			<input type="button" value="음식점등록" name="음식점등록" onclick="location.href='FAQlistCategory.sc?name='+name">
 			<input type="button" value="지도 오류" name="지도 오류" onclick="location.href='FAQlistCategory.sc?name='+name">
+			<form action="Selectanthing.sc" method="get">
+			<input type="text" placeholder="검색어를 입력하세요" name="ment"> 
+			</form>
 <!-- 		<select id="selectBox"> -->
 <!-- <!-- 			<option value="전체">전체</option> -->
 <!-- 			<option value="오류신고">오류신고</option> -->
