@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 /controller/
+=======
+/action/
+/controller/
+/dao/
+/db/
+/mail/
+/svc/
+/vo/
+>>>>>>> branch 'master' of https://github.com/navy160523/uhmat_project.git
