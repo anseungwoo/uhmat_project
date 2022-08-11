@@ -1,18 +1,18 @@
 package svc;
 
+import static db.JdbcUtil.*;
 
 import java.sql.Connection;
-import dao.CommunityDAO;
 
+import dao.CommunityDAO;
 import vo.MateDTO;
-import static db.JdbcUtil.*;
+
 public class MateWriteProService {
 
 
 	public boolean registMate(MateDTO mate) {
 		System.out.println("MateWriteProService");
 //		System.out.println("깃은 왜 고친것만 커밋 될까?");
-
 		
 		// 1. 글쓰기 작업 요청 처리 결과를 판별하여 리턴하기 위한 boolean 타입 변수 선언
 		boolean isWriteSuccess = false;
@@ -39,7 +39,7 @@ public class MateWriteProService {
 		} else { // 작업 실패 시
 			// 트랜잭션 취소를 위해 JdbcUtil 클래스의 rollback() 메서드를 호출하여 rollback 작업 수행
 			rollback(con);
-		} 
+		}
 		
 		// 7. Connection 객체 반환 - 공통
 		close(con);

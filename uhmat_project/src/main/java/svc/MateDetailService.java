@@ -1,12 +1,13 @@
 package svc;
 
+import static db.JdbcUtil.*;
+
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import dao.CommunityDAO;
 import vo.MateDTO;
-
-
-import static db.JdbcUtil.*;
+import vo.MateReplyDTO;
 
 public class MateDetailService {
 	
@@ -18,7 +19,7 @@ public class MateDetailService {
 		CommunityDAO dao = CommunityDAO.getInstance();
 		
 		dao.setConnection(con);
-		 
+		
 		// CommunityDAO 객체의 increaseReadcount() 메서드를 호출하여 조회수 증가 작업 수행
 		// => 파라미터 : idx
 		dao.increaseReadcount(idx);
@@ -49,6 +50,25 @@ public class MateDetailService {
 		close(con);
 		
 		return mate;
+	}
+
+	public ArrayList<MateReplyDTO> getMateReply(int idx) {
+		System.out.println("getMateReply");
+		
+		Connection con = getConnection();
+		
+		CommunityDAO dao = CommunityDAO.getInstance();
+		
+		dao.setConnection(con);
+		
+		ArrayList<MateReplyDTO> mateReplyList = dao.selectMateReply(idx);
+		System.out.println("mateReplyList : " + mateReplyList);
+		
+		
+		close(con);
+		
+		
+		return mateReplyList;
 	}
 
 }
