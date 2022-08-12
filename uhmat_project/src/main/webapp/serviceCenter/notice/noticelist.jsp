@@ -62,9 +62,8 @@
 		<section id="listForm">
 		<h2>Notice</h2>
 		<input type="button" value="홈" onclick="location.href='index.jsp'">
-		<input type="button" value="오류신고" name="오류신고" onclick="location.href='FAQlistCategory.sc?name='+name">
-		<input type="button" value="음식점등록" name="음식점등록" onclick="location.href='FAQlistCategory.sc?name='+name">
-		<input type="button" value="지도 오류" name="지도 오류" onclick="location.href='FAQlistCategory.sc?name='+name">
+		<input type="button" value="알림" name="알림" onclick="location.href='NoticelistCategory.sc?name='+name">
+		<input type="button" value="보도기사" name="보도기사" onclick="location.href='NoticelistCategory.sc?name='+name">
 		
 		<!-- 검색하기 기능 -->
 		<form action="NoticeSelectAnthing.sc" method="get">

@@ -7,16 +7,14 @@ import javax.servlet.http.*;
 import svc.*;
 import vo.*;
 
-public class FAQlistCategoryAction implements Action {
+public class NoticelistCategoryAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FAQlistCategoryAction - execute");
 		ActionForward forward = null;
 		
 		String category = request.getParameter("name");
-		System.out.println("category : " + category);
-		
+//		System.out.println("category : " + category);
 		
 		// 페이징 처리를 위한 변수 선언
 		int pageNum = 1; // 현재페이지 번호
@@ -28,7 +26,7 @@ public class FAQlistCategoryAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
 		
-		FAQlistCategoryService service = new FAQlistCategoryService();
+		NoticelistCategoryService service = new NoticelistCategoryService();
 		
 		int listCount = service.getListCount(category);
 		
@@ -52,16 +50,15 @@ public class FAQlistCategoryAction implements Action {
 		// BoardListService 객체의 getBoardList() 메서드를 호출하여 게시물 목록 가져오기
 		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
 		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
-		ArrayList<FAQDTO> categoryList = service.selectFAQCategorylist(pageNum, listLimit, category);
+		ArrayList<NoticeDTO> categoryList = service.selectNoticeCategorylist(pageNum, listLimit, category);
 //		System.out.println("Action의 list : "+ categoryList);
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("list", categoryList);
 		
 		forward = new ActionForward();
-		forward.setPath("serviceCenter/faq/faqlist.jsp");
+		forward.setPath("serviceCenter/notice/noticelist.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
 	}
-
 }

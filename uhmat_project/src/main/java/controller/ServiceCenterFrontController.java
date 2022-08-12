@@ -76,9 +76,11 @@ public class ServiceCenterFrontController extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+		
+		}	
 				
 		// --------------------Notice 검색기능---------		
-		} else if(command.equals("/NoticeSelectAnthing.sc")) {
+		 else if(command.equals("/NoticeSelectAnthing.sc")) {
 			try {
 				action = new NoticeSelectAnthingAction();
 				forward = action.execute(request, response);
@@ -86,7 +88,16 @@ public class ServiceCenterFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	 
+		//------------------Notice 카테고리 -----------------------
+			
+		 } else if(command.equals("/NoticelistCategory.sc")) {
+				try {
+					action = new NoticelistCategoryAction();
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
 				
 		// --------------------FAQ ------------------------------------
 	    } else if (command.equals("/FAQList.sc")) {
