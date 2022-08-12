@@ -21,6 +21,8 @@ public class ReviewModifyFormAction implements Action {
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("originPath", dto.getPhoto());
+		
+		System.out.println(dto.getPhoto());
 		forward = new ActionForward();
 		forward.setPath("food/review/reviewModifyForm.jsp");
 		forward.setRedirect(false);

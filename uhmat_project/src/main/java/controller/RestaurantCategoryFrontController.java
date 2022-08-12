@@ -76,17 +76,21 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else if(command.equals("/ReviewDelete.re")) {
+		} else if(command.equals("/ReviewDeleteForm.re")) {
+			forward = new ActionForward();
+			forward.setPath("food/review/reviewDeleteForm.jsp");
+			forward.setRedirect(false);
+			
+		} else if(command.equals("/ReviewDeleteProAction.re")) {
 			 try {
-				action = new ReviewDetailAction();
+				action = new ReviewDeleteProAction();
 				 forward = action.execute(request, response);
 			} catch (Exception e) {
 				
 				e.printStackTrace();
 			}
 
-
-		} 
+		}
 	
 		if (forward != null) {
 			if (forward.isRedirect()) {
