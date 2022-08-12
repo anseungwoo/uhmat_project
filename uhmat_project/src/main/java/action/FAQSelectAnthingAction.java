@@ -7,18 +7,14 @@ import javax.servlet.http.*;
 import svc.*;
 import vo.*;
 
-public class FAQlistCategoryAction implements Action {
+public class FAQSelectAnthingAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FAQlistCategoryAction - execute");
+		System.out.println("FAQSelectAnthingAction");
 		ActionForward forward = null;
 		
-		String category = request.getParameter("name");
-//		System.out.println("category : " + category);
-		
-		
-		// 페이징 처리를 위한 변수 선언
+		String ment = request.getParameter("ment");
 		int pageNum = 1; // 현재페이지 번호
 		int listLimit = 10; // 한 페이지 당 표시할 게시물 수
 		int pageLimit = 10; // 한 페이지 당 표시할 페이지 목록 수
@@ -28,9 +24,9 @@ public class FAQlistCategoryAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
 		
-		FAQlistCategoryService service = new FAQlistCategoryService();
-		
-		int listCount = service.getListCount(category);
+		FAQSelectAnthingService service = new FAQSelectAnthingService();
+
+		int listCount = service.getListCount(ment);
 		
 		// 1. 현재 페이지에서 표시할 전체 페이지 수 계산
 		int maxPage = (int)Math.ceil((double)listCount / listLimit);
@@ -45,20 +41,16 @@ public class FAQlistCategoryAction implements Action {
 		if(endPage > maxPage){
 			endPage = maxPage;
 		}
-		// 페이징 처리 정보를 PageInfo 객체에 저장
+		
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
-		//--------------------------------------------
-		// BoardListService 객체의 getBoardList() 메서드를 호출하여 게시물 목록 가져오기
-		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
-		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
-		ArrayList<FAQDTO> categoryList = service.selectFAQCategorylist(pageNum, listLimit, category);
-//		System.out.println("Action의 list : "+ categoryList);
+		ArrayList<FAQDTO> selectAntyhing = service.selectFAQAnthinglist(pageNum, listLimit, ment);
+		
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("list", categoryList);
+		request.setAttribute("list", selectAntyhing);
 		
 		forward = new ActionForward();
-		forward.setPath("serviceCenter/faq/faqlist.jsp");
+		forward.setPath("serviceCenter/faq/faqlist.jsp?ment="+ ment);
 		forward.setRedirect(false);
 		
 		return forward;

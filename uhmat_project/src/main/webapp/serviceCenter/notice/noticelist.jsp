@@ -62,6 +62,10 @@
 		<section id="listForm">
 		<h2>Notice</h2>
 		<input type="button" value="홈" onclick="location.href='index.jsp'">
+		<form action="SelectAnthing.sc" method="get">
+			<input type="text" placeholder="검색어를 입력하세요" name="ment" >
+			<input type="button" value="검색">
+		</form>
 		<table>
 			<tr id="tr_top">
 				<td width="150px">카테고리</td>

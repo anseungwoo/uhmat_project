@@ -132,6 +132,16 @@ public class ServiceCenterFrontController extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+		//--------------------------FAQ 검색어----------------------------------------------------------
+		} else if(command.equals("/SelectAnthing.sc")) {
+			try {
+				action = new FAQSelectAnthingAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
 
 		//------------FAQList에서 Category 선택했을 때--------------------------------------
 		} else if(command.equals("/FAQlistCategory.sc")) {
