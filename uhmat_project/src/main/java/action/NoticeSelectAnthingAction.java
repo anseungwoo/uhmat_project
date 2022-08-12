@@ -7,15 +7,14 @@ import javax.servlet.http.*;
 import svc.*;
 import vo.*;
 
-public class NoticeListAction implements Action {
+public class NoticeSelectAnthingAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		System.out.println("NoticeListAction-execute");
-		ActionForward forward = null;
+ActionForward forward = null;
 		
-		
-		// 페이징 처리를 위한 변수 선언
+		String ment = request.getParameter("ment");
+//		System.out.println("ment : " + ment);
 		int pageNum = 1; // 현재페이지 번호
 		int listLimit = 10; // 한 페이지 당 표시할 게시물 수
 		int pageLimit = 10; // 한 페이지 당 표시할 페이지 목록 수
@@ -25,13 +24,10 @@ public class NoticeListAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
 		
-		//페이징 처리에 필요한 전체 게시물 갯수 조회 작업 요청
-		// BoardListService 클래스 인스턴스 생성 후 getListCount() 메서드 호출하여 총 게시물 수 조회
-		// => 파라미터 : 없음 리턴타입 : int(listCount);
-		NoticeListService service = new NoticeListService();
-		int listCount = service.getListCount();
-		
-//		System.out.println("전체 게시물 수 " + listCount);
+		NoticeSelectAnthingService service = new NoticeSelectAnthingService();
+
+		int listCount = service.getListCount(ment);
+//		System.out.println("listCount : " + listCount);
 		
 		// 1. 현재 페이지에서 표시할 전체 페이지 수 계산
 		int maxPage = (int)Math.ceil((double)listCount / listLimit);
@@ -46,22 +42,18 @@ public class NoticeListAction implements Action {
 		if(endPage > maxPage){
 			endPage = maxPage;
 		}
-		// 페이징 처리 정보를 PageInfo 객체에 저장
+		
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
-		//--------------------------------------------
-		// BoardListService 객체의 getBoardList() 메서드를 호출하여 게시물 목록 가져오기
-		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit) 
-		// => 리턴타입 : ArrayList<BoardDTO>(boardList)
+		ArrayList<NoticeDTO> selectAntyhing = service.selectFAQAnthinglist(pageNum, listLimit, ment);
+		System.out.println("selectAntyhing : " + selectAntyhing);
 		
-		ArrayList<NoticeDTO> notice = service.getNoticeList(pageNum, listLimit);
-		System.out.println("list : " + notice);
 		
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("list", notice);
+		request.setAttribute("list", selectAntyhing);
 		
 		forward = new ActionForward();
-		forward.setPath("serviceCenter/notice/noticelist.jsp?pageNum=" +pageNum);
+		forward.setPath("serviceCenter/notice/noticelist.jsp?ment="+ ment);
 		forward.setRedirect(false);
 		
 		return forward;

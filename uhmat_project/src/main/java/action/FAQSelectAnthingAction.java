@@ -11,7 +11,7 @@ public class FAQSelectAnthingAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FAQSelectAnthingAction");
+//		System.out.println("FAQSelectAnthingAction");
 		ActionForward forward = null;
 		
 		String ment = request.getParameter("ment");

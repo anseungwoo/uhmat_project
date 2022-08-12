@@ -95,7 +95,7 @@
 			<input type="button" value="지도 오류" name="지도 오류" onclick="location.href='FAQlistCategory.sc?name='+name">
 			
 			<!-- 검색하기 기능 -->
-			<form action="SelectAnthing.sc" method="get">
+			<form action="FAQSelectAnthing.sc" method="get">
 				<input type="text" placeholder="검색어를 입력하세요" name="ment" value=${param.ment }>
 				<input type="submit" value="검색">
 			</form>
