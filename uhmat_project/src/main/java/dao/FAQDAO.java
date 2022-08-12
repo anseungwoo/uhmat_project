@@ -338,7 +338,7 @@ public class FAQDAO {
 	}
 	
 	public ArrayList<FAQDTO> selectAnythingList(int pageNum, int listLimit, String ment) {
-		System.out.println("FAQDAO - selectAnythingList");
+//		System.out.println("FAQDAO - selectAnythingList");
 		ArrayList<FAQDTO> list = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
