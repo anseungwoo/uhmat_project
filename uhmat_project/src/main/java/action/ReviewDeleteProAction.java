@@ -21,7 +21,6 @@ public class ReviewDeleteProAction implements Action {
 
 		// 전달받은 파라미터 받기
 		int idx = Integer.parseInt(request.getParameter("idx"));
-
 		String fileName = request.getParameter("fileName");
 		String filePath =  request.getServletContext().getRealPath("/upload");
 		System.out.println(filePath);
@@ -54,8 +53,9 @@ public class ReviewDeleteProAction implements Action {
 			} else {
 				
 				forward = new ActionForward();
-				forward.setPath("ReviewList.re");
-//				forward.setPath("ReviewList.re?pageNum=" + request.getParameter("pageNum")); 페이징 처리시 필요
+//				forward.setPath("ReviewList.re");
+				forward.setPath("ReviewList.re?pageNum=" + request.getParameter("pageNum")); 
+//				페이징 처리시 필요
 				forward.setRedirect(true);
 			}
 		}

@@ -15,9 +15,9 @@
 		<details>
 			<summary>∙∙∙(more button)</summary> <!-- 이 부분은 로그인 되어 있는 경우에만 사용 가능  세션이 없을 경우
 			alert("로그인이 필요합니다") 처리-->
-			<input type="button" value="수정" onclick="location.href='ReviewModifyForm.re?idx=${dto.idx}'">
-			<input type="button" value="삭제" onclick="location.href='ReviewDeleteForm.re?idx=${dto.idx}&fileName=${dto.photo }'">
-			<input type="button" value="리스트로" onclick="location.href='ReviewList.re'">
+			<input type="button" value="수정" onclick="location.href='ReviewModifyForm.re?idx=${dto.idx}&pageNum=${param.pageNum}'">
+			<input type="button" value="삭제" onclick="location.href='ReviewDeleteForm.re?idx=${dto.idx}&fileName=${dto.photo }&pageNum=${param.pageNum}'">
+			<input type="button" value="리스트로" onclick="location.href='ReviewList.re?pageNum=${param.pageNum}'">
 		</details>
 	</nav>
 	<section>

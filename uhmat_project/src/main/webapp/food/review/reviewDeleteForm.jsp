@@ -13,6 +13,7 @@
 		<form action="ReviewDeleteProAction.re" method="post">
 				<input type="hidden" name="idx" value="${param.idx }">
 				<input type="hidden" name="fileName" value="${param.fileName }">
+				<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<tr>
 					<td><input type="password" name="pass" placeholder="비밀번호를 입력하세요" required="required"></td>

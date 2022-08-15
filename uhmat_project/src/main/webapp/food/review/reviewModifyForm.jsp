@@ -13,6 +13,7 @@
 		<form  action="ReviewModifyProAction.re" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="idx" value="${dto.idx }">
 			<input type="hidden" name="path" value="${originPath }">
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table border="1">
 				<tr>
 					<td>작성자&nbsp;<input type="text" name="nickname" value="${dto.nickname }" readonly="readonly"></td>

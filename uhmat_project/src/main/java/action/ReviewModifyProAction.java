@@ -79,8 +79,8 @@ public class ReviewModifyProAction implements Action {
 			out.println("</script>");
 		} else {
 			forward = new ActionForward();
-			forward.setPath("ReviewDetail.re?idx=" + dto.getIdx());
-//			forward.setPath("ReviewDetail.re?idx=" + dto.getIdx() + "&pageNum=" + request.getParameter("pageNum"));
+//			forward.setPath("ReviewDetail.re?idx=" + dto.getIdx());
+			forward.setPath("ReviewDetail.re?idx=" + dto.getIdx() + "&pageNum=" + multi.getParameter("pageNum"));
 			forward.setRedirect(true);
 		}
 		return forward;
