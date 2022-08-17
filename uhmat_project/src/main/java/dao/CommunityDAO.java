@@ -76,7 +76,7 @@ public class CommunityDAO {
 		
 		public ArrayList<MateDTO> selectMateList(int pageNum, int listLimit) {
 			
-			ArrayList<MateDTO> mateList = null;
+			ArrayList<MateDTO> mateList = null; 
 			
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
