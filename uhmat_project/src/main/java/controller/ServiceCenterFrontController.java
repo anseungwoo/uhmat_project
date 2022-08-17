@@ -197,6 +197,29 @@ public class ServiceCenterFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		//--------------------실시간 채팅-----------------------
+		
+		else if(command.equals("/LiveTalkList.sc")) {
+			try {
+				action = new LiveTalkAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		else if(command.equals("/LiveTalkPro.sc")) {
+			try {
+				action = new LiveTalkProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 		
 		

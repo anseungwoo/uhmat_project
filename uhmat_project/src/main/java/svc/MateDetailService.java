@@ -62,8 +62,6 @@ public class MateDetailService {
 		dao.setConnection(con);
 		
 		ArrayList<MateReplyDTO> mateReplyList = dao.selectMateReply(idx);
-		System.out.println("mateReplyList : " + mateReplyList);
-		
 		
 		close(con);
 		
