@@ -1,8 +1,11 @@
 package vo;
 
+
 public class ActionForward {
 	private String path;
 	private boolean isRedirect;
+	
+	
 	public String getPath() {
 		return path;
 	}
@@ -15,11 +18,5 @@ public class ActionForward {
 	public void setRedirect(boolean isRedirect) {
 		this.isRedirect = isRedirect;
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }
