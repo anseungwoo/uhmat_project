@@ -46,7 +46,7 @@ public class FAQSelectAnthingAction implements Action {
 		
 		ArrayList<FAQDTO> selectAntyhing = service.selectFAQAnthinglist(pageNum, listLimit, ment);
 		
-		request.setAttribute("pageInfo", pageInfo);
+		request.setAttribute("SelectAnthingpageInfo", pageInfo);
 		request.setAttribute("list", selectAntyhing);
 		
 		forward = new ActionForward();
