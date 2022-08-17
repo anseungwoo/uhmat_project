@@ -46,10 +46,10 @@ ActionForward forward = null;
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
 		ArrayList<NoticeDTO> selectAntyhing = service.selectFAQAnthinglist(pageNum, listLimit, ment);
-		System.out.println("selectAntyhing : " + selectAntyhing);
+//		System.out.println("selectAntyhing : " + selectAntyhing);
 		
 		
-		request.setAttribute("pageInfo", pageInfo);
+		request.setAttribute("SelectAnthingpageInfo", pageInfo);
 		request.setAttribute("list", selectAntyhing);
 		
 		forward = new ActionForward();
