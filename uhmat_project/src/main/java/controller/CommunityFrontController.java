@@ -62,7 +62,7 @@ public class CommunityFrontController extends HttpServlet {
 		// 글쓰기 폼을 요청하는 서블릿(/MateWriteForm.co) 요청
 		if(command.equals("/TmiList.co")) {
 			// tmi 게시판 글 전체 목록 조회
-			try {
+			try { 
 				action = new TmiListAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -88,7 +88,7 @@ public class CommunityFrontController extends HttpServlet {
 				e.printStackTrace();
 
 						}
-		} else if(command.equals("/MateWritePro.mate")) {
+		} else if(command.equals("/MateWritePro.co")) {
 			action = new MateWriteProAction();
 			try {
 
@@ -99,7 +99,7 @@ public class CommunityFrontController extends HttpServlet {
 
 						}
 		// ------------------------------------------------------------------
-		} else if(command.equals("/MateDetail.mate")) {
+		} else if(command.equals("/MateDetail.co")) {
 			action = new MateDetailAction();
 			try {
 				forward = action.execute(request, response);

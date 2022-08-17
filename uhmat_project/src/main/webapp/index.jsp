@@ -53,7 +53,9 @@
 
 <h3> <a href="NoticeList.sc">Notice</a></h3>
 <h3> <a href="FAQList.sc">FAQ</a></h3>
+
 <h3> <a href="LiveTalkList.sc">실시간채팅</a></h3>
+
 
  <h3><a href="MateWriteForm.co">글쓰기</a></h3>
 <h3><a href="MateList.co">글목록</a></h3>

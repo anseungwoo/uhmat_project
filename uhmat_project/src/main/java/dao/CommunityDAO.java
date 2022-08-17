@@ -1,15 +1,6 @@
 package dao;
 
-import static db.JdbcUtil.*;
-
-
-import java.sql.*;
-
-import vo.*;
-import static db.JdbcUtil.*;
-
 import static db.JdbcUtil.close;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import vo.CommentDTO;
 import vo.CommunityTmiDTO;
 import vo.MateDTO;
 
@@ -76,7 +66,7 @@ public class CommunityDAO {
 		
 		public ArrayList<MateDTO> selectMateList(int pageNum, int listLimit) {
 			
-			ArrayList<MateDTO> mateList = null; 
+			ArrayList<MateDTO> mateList = null;  
 			
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
