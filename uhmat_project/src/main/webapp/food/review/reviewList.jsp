@@ -20,7 +20,9 @@
 				<c:choose>
 					<c:when test="${not empty reviewList and pageInfo.listCount gt 0}">
 						<c:forEach var="board" items="${reviewList}">
+
 							<tr onclick="location.href='ReviewDetail.re?idx=' + ${board.idx}+'&pageNum=' +${pageInfo.pageNum}">
+
 								<td>${board.photo }</td>
 								<td>${board.idx }</td>
 								<td>${board.nickname }</td>
@@ -40,6 +42,7 @@
 				</c:choose>
 		</table>
 	</section>
+
 	<section id="pageList">
 			<!-- 
 			현재 페이지 번호(pageNum)가 1보다 클 경우에만 [이전] 링크 동작
@@ -78,6 +81,7 @@
 				</c:otherwise>
 			</c:choose>
 		</section>
+
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package action;
 
+
 import java.io.*;
 
 import javax.servlet.*;
@@ -8,12 +9,14 @@ import javax.servlet.http.*;
 import com.oreilly.servlet.*;
 
 import svc.*;
+
 import vo.*;
 
 public class ReviewDeleteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		
 		System.out.println("ReviewDeleteProAction");
 		ActionForward forward = null;
@@ -61,6 +64,7 @@ public class ReviewDeleteProAction implements Action {
 		}
 		
 		return forward;
+
 	}
 
 }

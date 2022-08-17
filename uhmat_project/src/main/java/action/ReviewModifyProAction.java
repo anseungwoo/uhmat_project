@@ -1,5 +1,6 @@
 package action;
 
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
@@ -13,10 +14,12 @@ import svc.ReviewModifyProService;
 import vo.ActionForward;
 import vo.ReviewBoardDTO;
 
+
 public class ReviewModifyProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		System.out.println("ReviewModifyProAction");
 		ActionForward forward = null;
 		
@@ -40,6 +43,7 @@ public class ReviewModifyProAction implements Action {
 				
 		// 4. 업로드 파일이 저장되는 실제 경로를 얻어오기
 		String realPath = context.getRealPath(uploadPath); // 가상의 업로드 폴더명을 파라미터로 전달
+
 		// 5. MultipartRequest 객체 생성
 		MultipartRequest multi = new MultipartRequest(
 					request, // 1) 실제 요청 정보가 포함된 request 객체
@@ -49,10 +53,12 @@ public class ReviewModifyProAction implements Action {
 					new DefaultFileRenamePolicy() // 5) 중복 파일명에 대한 처리를 담당하는 객체(파일명 뒤에 숫자 1 부터 차례대로 부여)
 				);
 		
+
 		String originPath = multi.getParameter("path");
 //		System.out.println(originPath);  값 전달이 잘 되었는지 체크
 //		System.out.println(multi.getParameter("idx"));
 		
+
 		ReviewBoardDTO dto = new ReviewBoardDTO();
 		dto.setIdx(Integer.parseInt(multi.getParameter("idx")));
 		dto.setNickname(multi.getParameter("nickname"));
@@ -60,11 +66,13 @@ public class ReviewModifyProAction implements Action {
 		dto.setRes_name(multi.getParameter("res_name"));
 		dto.setRating(Float.parseFloat(multi.getParameter("rating")));
 		dto.setContent(multi.getParameter("content"));
+
 		dto.setPhoto(multi.getOriginalFileName("photo"));
 		dto.setPhoto(multi.getFilesystemName("photo"));
 	
 		ReviewModifyProService service = new ReviewModifyProService();
 		boolean isModifySuccess = service.modifyReview(dto, originPath, realPath);
+
 		
 		// 글 수정 작업 결과 판별
 		// 실패 시 자바스크립트를 사용하여 "글 수정 실패!" 출력 후 이전페이지로 돌아가기
@@ -79,11 +87,14 @@ public class ReviewModifyProAction implements Action {
 			out.println("</script>");
 		} else {
 			forward = new ActionForward();
+
 //			forward.setPath("ReviewDetail.re?idx=" + dto.getIdx());
 			forward.setPath("ReviewDetail.re?idx=" + dto.getIdx() + "&pageNum=" + multi.getParameter("pageNum"));
+
 			forward.setRedirect(true);
 		}
 		return forward;
 	}
 }
+
 

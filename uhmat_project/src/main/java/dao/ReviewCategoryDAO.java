@@ -190,6 +190,7 @@ public class ReviewCategoryDAO {
 		return insertCount;
 	}
 	public int updateReview(ReviewBoardDTO dto) {
+
 		
 		int updateCount = 0;
 		
@@ -265,6 +266,7 @@ public class ReviewCategoryDAO {
 		
 		return deleteCount;
 	}
+
 
 
 	

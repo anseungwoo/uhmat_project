@@ -15,6 +15,7 @@
 		<details>
 			<summary>∙∙∙(more button)</summary> <!-- 이 부분은 로그인 되어 있는 경우에만 사용 가능  세션이 없을 경우
 			alert("로그인이 필요합니다") 처리-->
+
 			<input type="button" value="수정" onclick="location.href='ReviewModifyForm.re?idx=${dto.idx}&pageNum=${param.pageNum}'">
 			<input type="button" value="삭제" onclick="location.href='ReviewDeleteForm.re?idx=${dto.idx}&fileName=${dto.photo }&pageNum=${param.pageNum}'">
 			<input type="button" value="리스트로" onclick="location.href='ReviewList.re?pageNum=${param.pageNum}'">
@@ -22,6 +23,7 @@
 	</nav>
 	<section>
 		<table border ="1">
+
 			<tr>
 				<th>작성자</th><td >${dto.nickname }</td>
 				<!--  회원가입 로그인이 연동되면 nickname을 세션값으로받습니다. -->
@@ -46,11 +48,48 @@
 				<th>내용</th><td><textarea rows="20" cols="100">${dto.content }</textarea></td>
 			</tr>
 			<tr>
+
 				<th></th><td><input type="button" value="좋아요">&nbsp;<input type="button" value="댓글작성버튼">&nbsp;<input type="button" value="공유버튼"></td></tr>
+
 			<tr>
 				<!-- 파일 첨부 형식은 input 태그의 type="file" 속성 사용 -->
 				<th>이미지</th><td width="200" height="300"><img width="90%" src="upload/${dto.photo }" alt="파일"></td>
 			</tr>
+
+</head>
+<body>
+	<h1>ReviewDetailView.jsp</h1>
+	<section>
+		<table border ="2">
+			<tr>
+				<th>작성자</th><td>${dto.nickname }</td>
+					<!--  회원가입 로그인이 연동되면 nickname을 세션값으로받습니다. -->
+				</tr>
+				<tr>
+					<th>주제</th><td>${dto.subject }</td>
+				</tr>
+				<tr>
+					<th>Tag</th><td>#....</td> 
+					<!-- select box 를 통한 추가 조사 
+						DB에 추가해야함
+					-->
+				</tr>
+				<tr>
+					<th>음식점정보</th><td>${dto.res_name }</td>
+					
+					<!-- 지도 api와 연동 -->
+				</tr>
+				<tr>
+					<th>별점</th><td>${dto.rating }</td>
+				</tr>
+				<tr>
+					<th>내용</th><td><textarea rows="20" cols="100">${dto.content }</textarea></td>
+				</tr>
+				<tr>
+					<!-- 파일 첨부 형식은 input 태그의 type="file" 속성 사용 -->
+					<th>이미지</th><td width="200" height="300"><img src="upload/${dto.photo }" alt="파일"></td>
+				</tr>
+			
 
 		</table>
 	</section>
