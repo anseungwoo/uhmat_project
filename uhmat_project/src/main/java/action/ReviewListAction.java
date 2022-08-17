@@ -50,7 +50,7 @@ public class ReviewListAction implements Action {
 			}
 		
 		// 페이징 처리 정보를 pageInfo 객체에 저장
-		PageInfo pageInfo = new PageInfo(pageNum, maxPage, endPage, startPage, listCount);
+		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
 		ArrayList<ReviewBoardDTO> reviewList = ReviewListService.getBoardList(pageNum, listLimit);
 		

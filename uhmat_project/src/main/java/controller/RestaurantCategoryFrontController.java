@@ -45,12 +45,20 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else if(command.equals("/restaurantWriteForm.re")) {
+			
+		} else if(command.equals("/restaurantList.re")) {
+			System.out.println("식당 글 목록 요청!!");
+			try {
+				action = new RestaurantListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(command.equals("/restaurantWriteForm.re")) {
 			System.out.println("식당 글 입력 폼 요청!");
 			forward = new ActionForward();
-
 			forward.setPath("food/review/reviewWriteForm.jsp");
-
 			forward.setRedirect(false);
 		}else if(command.equals("/restaurantWritePro.re")) {
 			System.out.println("식당 글 입력 요청!");
@@ -100,12 +108,36 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 		}
 		//추가로 태그와 카테고리 관련된 작업 요청이 더 필요함!!
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+		 else if(command.equals("/ReviewWriteForm.re")) {
+				
+			 forward = new ActionForward();
+				forward.setPath("food/review/reviewWriteForm.jsp");
+				forward.setRedirect(false);
 
-		 else if(command.equals("/ReviewModifyForm.re")) {
+		} else if(command.equals("/ReviewWritePro.re")) {
+			 try {
+				action = new ReviewWriteProAction();
+				 forward = action.execute(request, response);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+
+		} else if(command.equals("/ReviewDetail.re")) {
+			 try {
+				action = new ReviewDetailAction();
+				 forward = action.execute(request, response);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+
+		} else if(command.equals("/ReviewModifyForm.re")) {
 			 try {
 				action = new ReviewModifyFormAction();
-				 forward = action.execute(request, response);
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				
 				e.printStackTrace();
@@ -120,17 +152,21 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else if(command.equals("/ReviewDelete.re")) {
+		} else if(command.equals("/ReviewDeleteForm.re")) {
+			forward = new ActionForward();
+			forward.setPath("food/review/reviewDeleteForm.jsp");
+			forward.setRedirect(false);
+			
+		} else if(command.equals("/ReviewDeleteProAction.re")) {
 			 try {
-				action = new ReviewDetailAction();
+				action = new ReviewDeleteProAction();
 				 forward = action.execute(request, response);
 			} catch (Exception e) {
 				
 				e.printStackTrace();
 			}
 
-
-		} 
+		}
 
 	
 		if (forward != null) {

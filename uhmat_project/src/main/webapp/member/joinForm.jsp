@@ -123,6 +123,7 @@
 						"keyup",
 						function() {
 
+
 							var regex = /^[가-힣a-zA-Z][가-힣a-zA-Z0-9!@#$%()]{4,10}$/;
 
 
