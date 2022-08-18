@@ -2,29 +2,21 @@ package controller;
 
 
 
-import java.io.IOException;
+import java.io.*;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
 
-import action.Action;
-
+import action.*;
 import action.MateDetailAction;
-import action.MateListAction;
-
 import action.MateWriteProAction;
 import action.TmiDetailAction;
 import action.TmiListAction;
 import action.TmiModifyFormAction;
-
-
-import action.TmiModifyProAction; 
+import action.TmiModifyProAction;
 import action.TmiWirteProAction;
-import vo.ActionForward;
+import vo.*;
 
 
 // 어맛커뮤니티의 FrontController
