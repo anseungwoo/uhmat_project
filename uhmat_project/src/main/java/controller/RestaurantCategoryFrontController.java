@@ -86,7 +86,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 		} else if (command.equals("/restaurantModifyForm.re")) {
 			System.out.println("식당 수정 폼 요청!");
 			try {
-				action = new RestaurantModifyFormAction();
+				action = new RestaurantModifyFormAction(); 
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -95,7 +95,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 		} else if (command.equals("/restaurantModifyPro.re")) {
 			System.out.println("식당 수정 업데이트 요청!");
 			try {
-				action = new RestaurantModifyProAction();
+				action = new RestaurantModifyProAction();  
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -107,7 +107,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				action = new RestaurantDeleteAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				// TODO Auto-generated catch block 
 				e.printStackTrace();
 			}
 		}
@@ -116,6 +116,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 		else if (command.equals("/ReviewModifyForm.re")) {
 			try {
 				action = new ReviewModifyFormAction();
+
 				forward = action.execute(request, response);
 
 			} catch (Exception e) {
@@ -124,6 +125,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/restaurantDetail.re")) {
+
 			System.out.println("식당 상세보기 요청!");
 			try {
 				action = new RestaurantDetailAction();
@@ -135,6 +137,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			}
 		} else if (command.equals("/ReviewModifyProAction.re")) {
 			try {
+
 				action = new ReviewModifyProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -145,13 +148,16 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 		} else if (command.equals("/ReviewDelete.re")) {
 			try {
 				action = new ReviewDetailAction();
+
 				forward = action.execute(request, response);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		} else if (command.equals("/restaurantModifyForm.re")) {
+
 			System.out.println("식당 수정 폼 요청!");
 			try {
 				action = new RestaurantModifyFormAction();
@@ -160,7 +166,9 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		} else if (command.equals("/restaurantModifyPro.re")) {
+
 			System.out.println("식당 수정 업데이트 요청!");
 			try {
 				action = new RestaurantModifyProAction();
@@ -169,7 +177,9 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		} else if (command.equals("/restaurantDelete.re")) {
+
 			System.out.println("식당 삭제 요청!");
 			try {
 				action = new RestaurantDeleteAction();
@@ -177,6 +187,7 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+
 			}
 		}
 		// 추가로 태그와 카테고리 관련된 작업 요청이 더 필요함!!

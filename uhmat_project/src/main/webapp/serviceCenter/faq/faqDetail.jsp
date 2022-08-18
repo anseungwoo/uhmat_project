@@ -88,19 +88,27 @@
 	</section>
 	<section id="replyArea">
 		<!-- insertForm 섹션(댓글 작성 영역)은 세션 아이디가 존재할 경우에만 출력 -->
-		<section id="insertForm">
-			<form action="FAQDetailReply.sc" style="position: relative; left: 40%; top:50%;">
-				<!-- 댓글 전송 시 현재 게시물 글번호(idx)도 함께 전송 -->
-				<input type="hidden" name="idx" value="${param.idx }">
-				<!-- 댓글 전송 시 현재 게시물 닉네임(nickname) 함께 전송 -->
-				<input type="hidden" name="nickname" value="${faq.nickname }">
-				<!-- 페이지번호도 함께 전송 -->
-				<input type="hidden" name="pageNum" value="${param.pageNum}">
-				<textarea rows="3" cols="50" name="answer"></textarea>
-				<input type="submit" value="등록">
-			</form>
-		</section>
-		
+
+	<section id="insertForm">
+		<c:choose>
+			<c:when test="${not empty reply.board_idx}">
+			
+			</c:when>
+			<c:otherwise>
+				<form action="FAQDetailReply.sc" style="position: relative; left: 40%; top:50%;">
+					<!-- 댓글 전송 시 현재 게시물 글번호(idx)도 함께 전송 -->
+					<input type="hidden" name="idx" value="${param.idx }">
+					<!-- 댓글 전송 시 현재 게시물 닉네임(nickname) 함께 전송 -->
+					<input type="hidden" name="nickname" value="${faq.nickname }">
+					<!-- 페이지번호도 함께 전송 -->
+					<input type="hidden" name="pageNum" value="${param.pageNum}">
+					<textarea rows="3" cols="50" name="answer"></textarea>
+					<input type="submit" value="등록">
+				</form>
+			</c:otherwise>
+		</c:choose>	
+	</section>
+
 		<section id="replyViewArea" style="position: relative; left: 40%; top:50%;">
 			<!-- ArrayList(replyList) 객체 크기만큼 for문 반복 -->
 			<br>

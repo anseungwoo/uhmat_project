@@ -2,7 +2,8 @@ package controller;
 
 
 
-import java.io.IOException;
+import java.io.*;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,12 +19,14 @@ import action.MateListAction;
 import action.MateModifyFromAction;
 import action.MateModifyProAction;
 import action.MateReplyWriteAction;
+
 import action.MateWriteProAction;
 import action.TmiDeleteProAction;
 import action.TmiDetailAction;
 import action.TmiListAction;
 import action.TmiModifyFormAction;
 import action.TmiModifyProAction;
+
 import action.TmiReplyDeleteAction;
 import action.TmiReplyModifyFormAction;
 import action.TmiReplyModifyProAction;
@@ -32,6 +35,7 @@ import action.TmiRereplyFormAction;
 import action.TmiRereplyWriteProAction;
 import action.TmiWriteProAction;
 import vo.ActionForward;
+
 
 
 // 어맛커뮤니티의 FrontController
@@ -66,11 +70,13 @@ public class CommunityFrontController extends HttpServlet {
 
 		// 추출된 서블릿 주소를 if문을 사용하여 판별하고 각 주소에 따른 액션(작업) 요청
 		// 글쓰기 폼을 요청하는 서블릿(/MateWriteForm.co) 요청
+
 		// 리스트를 요청하는 서블릿(/MateListForm.co) 요청
 		if(command.equals("/MateList.co")) {
 			action = new MateListAction();
 
 			try {
+
 				action = new TmiListAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -240,7 +246,7 @@ public class CommunityFrontController extends HttpServlet {
 
 			try {
 				action = new TmiModifyFormAction();
-				forward = action.execute(request, response);
+				forward = action.execute(request, response); 
 			} catch (Exception e) {
 				System.out.println("TmiModifyFormAction 오류 - " + e.getMessage());
 				e.printStackTrace();

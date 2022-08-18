@@ -45,6 +45,7 @@
 		<h1>댓글의 답글 작성</h1>
 		<form action="TmiRereplyWritePro.co" name="TmiRereplyForm" method="post">
 			<!-- 글번호와 페이지번호 전달 -->
+
 			<input type="hidden" name="board_idx" value="${tmiRereply.board_idx }">
 			<input type="hidden" name="idx" value="${tmiRereply.idx }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
@@ -52,23 +53,30 @@
 			<input type="hidden" name="re_ref" value="${tmiRereply.re_ref }">
 			<input type="hidden" name="re_lev" value="${tmiRereply.re_lev }">
 			<input type="hidden" name="re_seq" value="${tmiRereply.re_seq }">
+
 			<table>
 				<tr>
 					<td class="td_left"><label for="nickname">글쓴이</label></td>
 					<td class="td_right">
+
 						<input type="text" name="nickname" value="${tmiRereply.nickname }" required="required" />
+
 					</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="content">댓글 내용</label></td>
 					<td class="td_right">
+
 						<input type="text" name="cotent" value="Re:${tmiRereply.content }" required="required" />
+
 					</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="content">내용</label></td>
 					<td class="td_right">
+
 						<textarea id="content" name="content" cols="40" rows="15" required="required"></textarea>
+
 					</td>
 				</tr>
 			</table>

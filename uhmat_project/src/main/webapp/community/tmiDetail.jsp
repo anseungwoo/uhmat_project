@@ -97,10 +97,12 @@
 				<td>
 				<input type="button" value="답글" onclick="location.href='TmiRereplyWriteForm.co?idx=${tmiReply.idx }&board_idx=${tmiReply.board_idx }&nickname=${tmiReply.nickname }&pageNum=${param.pageNum}'">
 				</td>
+
 			</tr>
      		</c:forEach>
      		
      		<!-- 답글 리스트 -->
+
      		<c:choose>
      			<c:when test="${not empty tmiRereplyList }">
      				<c:forEach var="tmiRereply" items="${tmiRereplyList }">
@@ -118,6 +120,7 @@
 				<tr><td colspan="5">게시물이 존재하지 않습니다.</td></tr>
 			</c:otherwise>
      		</c:choose>
+
 
       </table>
 	<br>

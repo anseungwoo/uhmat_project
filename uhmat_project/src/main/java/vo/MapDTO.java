@@ -10,6 +10,7 @@ public class MapDTO {
 	private String resName;
 	private double longitude;
 	private double latitude;
+
 	public String getResName() {
 		return resName;
 	}
@@ -33,4 +34,6 @@ public class MapDTO {
 		return "MapDTO [resName=" + resName + ", longitude=" + longitude + ", latitude=" + latitude + "]";
 	}
 	
+
 }
+

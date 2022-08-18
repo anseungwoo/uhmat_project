@@ -1,6 +1,7 @@
 package dao;
 
 
+
 import static db.JdbcUtil.*;
 
 
@@ -13,6 +14,7 @@ import static db.JdbcUtil.close;
 
 
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,9 +22,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
+
 import com.mysql.cj.protocol.Resultset;
 
 import vo.CommentDTO;
+
 import vo.CommunityTmiDTO;
 import vo.MateDTO;
 import vo.MateReplyDTO;
@@ -95,31 +99,55 @@ public class CommunityDAO {
 			e.printStackTrace();
 		}
 
-		return insertCount;
-	}
+		
+		public ArrayList<MateDTO> selectMateList(int pageNum, int listLimit) {
+			
+			ArrayList<MateDTO> mateList = null;  
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 현재 페이지 번호를 활용하여 조회 시 시작행 번호 계산
+			int startRow = (pageNum - 1) * listLimit;
+			
+			try {
+				// 답글에 대한 처리 과정 추가
+				String sql = "SELECT * FROM community_mate ORDER BY idx desc LIMIT ?,?";
+						
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, listLimit);
+				
+				rs = pstmt.executeQuery();
+				
+				// 전체 게시물을 저장할 ArrayList<MateDTO> 객체 생성
+				mateList = new ArrayList<MateDTO>();
+				
+				// while 문을 사용하여 조회 결과에 대한 반복 작업 수행
+				while(rs.next()) {
+					// 1개 게시물 정보를 저장할 MateDTO 객체 생성
+					MateDTO mate = new MateDTO();
+					// 게시물 정보 저장
+					mate.setIdx(rs.getInt("idx"));
+					mate.setNickname(rs.getString("nickname"));
+					mate.setSubject(rs.getString("subject"));
+					mate.setContent(rs.getString("content"));
+					mate.setReadcount(rs.getInt("readcount"));
+					mate.setDatetime(rs.getTimestamp("datetime"));
+					System.out.println(mate);
+					
+					// 전체 게시물 정보를 저장하는 ArrayList 객체에 1개 게시물 정보 MateDTO 객체 추가
+					mateList.add(mate);
+				}
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("SQL 구문 오류 발생! - selectMateList()");
+			} finally {
+				close(rs);
+				close(pstmt);
 
-	// -----------------------------------------------------------------------------------------
-
-	// 글 갯수 조회
-	// 전체 게시물 수를 조회할 mateCount() 메서드 정의
-	// => 파라미터 : 없음 리턴타입 : int(listCount)
-	public int selectMateCount() {
-
-		int listCount = 0;
-
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-
-		try {
-			// 3단계
-			String sql = "SELECT COUNT(*) FROM community_mate";
-			pstmt = con.prepareStatement(sql);
-
-			// 4단계
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				listCount = rs.getInt(1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
