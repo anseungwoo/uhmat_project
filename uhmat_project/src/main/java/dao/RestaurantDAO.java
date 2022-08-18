@@ -180,9 +180,13 @@ public class RestaurantDAO {
 			pstmt.setDouble(1, map.getLongitude());
 			pstmt.setDouble(2, map.getLatitude());
 			pstmt.setString(3, map.getResName());
+<<<<<<< HEAD
 			
 			insertCount=pstmt.executeUpdate();
 			
+=======
+			insertCount=pstmt.executeUpdate();
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("RestaurantDAO - insertMapInfo() - SQL 구문 오류!");
@@ -192,4 +196,8 @@ public class RestaurantDAO {
 		return insertCount;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611

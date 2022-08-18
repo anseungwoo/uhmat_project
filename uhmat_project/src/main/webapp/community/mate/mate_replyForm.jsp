@@ -18,6 +18,10 @@
 <%-- 		<input type="hidden" name="re_ref" value="${mateReply.re_ref }"> --%>
 <%-- 		<input type="hidden" name="re_lev" value="${mateReply.re_lev }"> --%>
 <%-- 		<input type="hidden" name="re_seq" value="${mateReply.re_seq }"> --%>
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 		<table>
 			<tr>
 				<td><input type="text" name="nickname" required="required" ></td>

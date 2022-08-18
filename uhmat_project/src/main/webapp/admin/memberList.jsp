@@ -69,25 +69,47 @@
 	<input type="button" value="SMS 발송" onclick="location.href='SMS 발송페이지'">
 	
 	<!-- 회원정보 나중에 ajax - append로 처리해야함 -->
-	<div>
+	<form action="" method="get">
 	<table border="1">
-	<tr><td colspan="4" style="text-align: right">가입일 :  로그인 횟수:  마지막 로그인 :</td></tr>
-	<tr><td>아이디</td><td><input type="text" name="id"></td><td>비밀번호</td><td><input type="text" name="passwd"></td></tr>
-	<tr><td>이름</td><td><input type="text" name="name"></td><td>회원등급</td><td><select><option>일반회원</option><option>골드회원</option></select></td></tr>
-	<tr><td>휴대폰</td><td colspan="3" ><input type="text" name="phonenumber1">-<input type="text" name="phonenumber2">-<input type="text" name="phonenumber3"></td></tr>
-	<tr><td>이메일</td><td  colspan="3"><input type="text" name="email1">@<input type="text" name="email2"></td></tr>
-	<tr><td>이메일 수신</td><td  colspan="3"><input type="radio" name="emailaccept">예 <input type="radio" name="emaildeny">아니오</td></tr>
-	<tr><td>SMS 수신</td><td  colspan="3"><input type="radio" name="smsaccept">예 <input type="radio" name="smsdeny">아니오</td></tr>
-	<tr><td rowspan="3">주소</td><td rowspan="3"><input type="text" placeholder="우편번호" name="address1"><input type="button" value="우편번호검색" onclick="우편번호 검색 링크"></td></tr>
-	<tr><td  colspan="3"><input type="text" placeholder="상세주소1" name="address2"></td></tr>
-	<tr><td  colspan="3"><input type="text" placeholder="상세주소2" name="address3"></td></tr>
-	<tr><td>추천 닉네임</td><td colspan="3"><input type="text" name="recommendNickname"></td></tr>
-	<tr><td>관리자메모</td><td><textarea rows="5" cols="20"></textarea></td></tr>
-	
+		<tr>
+			<td colspan="4" style="text-align: right">가입일 :  로그인 횟수:  마지막 로그인 :</td>
+		</tr>
+		<tr>
+			<td>아이디</td><td><input type="text" name="id"></td><td>비밀번호</td><td><input type="text" name="passwd"></td>
+		</tr>
+		<tr>
+			<td>이름</td><td><input type="text" name="name"></td><td>회원등급</td><td><select><option>일반회원</option><option>골드회원</option></select></td>
+		</tr>
+		<tr>
+			<td>휴대폰</td><td colspan="3" ><input type="text" name="phonenumber1">-<input type="text" name="phonenumber2">-<input type="text" name="phonenumber3"></td>
+		</tr>
+		<tr>
+			<td>이메일</td><td  colspan="3"><input type="text" name="email1">@<input type="text" name="email2"></td>
+		</tr>
+		<tr>
+			<td>이메일 수신</td><td  colspan="3"><input type="radio" name="emailaccept">예 <input type="radio" name="emaildeny">아니오</td>
+		</tr>
+		<tr>
+			<td>SMS 수신</td><td  colspan="3"><input type="radio" name="smsaccept">예 <input type="radio" name="smsdeny">아니오</td>
+		</tr>
+		<tr>
+			<td rowspan="3">주소</td><td><input type="text" placeholder="우편번호" name="address1"><input type="button" value="우편번호검색" onclick="우편번호 검색 링크"></td>
+		</tr>
+		<tr>
+			<td  colspan="3"><input type="text" placeholder="상세주소1" name="address2"></td>
+		</tr>
+		<tr>
+			<td  colspan="3"><input type="text" placeholder="상세주소2" name="address3"></td>
+		</tr>
+		<tr>
+			<td>추천 닉네임</td><td colspan="3"><input type="text" name="recommendNickname"></td>
+		</tr>
+		<tr>
+			<td>관리자메모</td><td><textarea rows="5" cols="20"></textarea></td>
+		</tr>
 	</table>
-	</div>
-	
-
-
+		<input type="submit" value="확인">
+		<input type="button" value="목록" onclick="location.href='목록링크'">
+	</form>
 </body>
 </html>  

@@ -45,6 +45,7 @@
 		<h1>댓글의 답글 작성</h1>
 		<form action="TmiRereplyWritePro.co" name="TmiRereplyForm" method="post">
 			<!-- 글번호와 페이지번호 전달 -->
+<<<<<<< HEAD
 			<input type="hidden" name="board_idx" value="${tmiReply.board_idx }">
 			<input type="hidden" name="idx" value="${tmiReply.idx }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
@@ -52,23 +53,44 @@
 			<input type="hidden" name="re_ref" value="${tmiReply.re_ref }">
 			<input type="hidden" name="re_lev" value="${tmiReply.re_lev }">
 			<input type="hidden" name="re_seq" value="${tmiReply.re_seq }">
+=======
+			<input type="hidden" name="board_idx" value="${tmiRereply.board_idx }">
+			<input type="hidden" name="idx" value="${tmiRereply.idx }">
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
+			<!-- 답글에 대한 원본글 정보 담고 있는 re_ref, re_lev, re_seq 도 전달 -->
+			<input type="hidden" name="re_ref" value="${tmiRereply.re_ref }">
+			<input type="hidden" name="re_lev" value="${tmiRereply.re_lev }">
+			<input type="hidden" name="re_seq" value="${tmiRereply.re_seq }">
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 			<table>
 				<tr>
 					<td class="td_left"><label for="nickname">글쓴이</label></td>
 					<td class="td_right">
+<<<<<<< HEAD
 						<input type="text" name="nickname" value="${tmiReply.nickname }" required="required" />
+=======
+						<input type="text" name="nickname" value="${tmiRereply.nickname }" required="required" />
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 					</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="content">댓글 내용</label></td>
 					<td class="td_right">
+<<<<<<< HEAD
 						<input type="text" name="cotent" value="Re:${tmiReply.content }" required="required" />
+=======
+						<input type="text" name="cotent" value="Re:${tmiRereply.content }" required="required" />
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 					</td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="content">내용</label></td>
 					<td class="td_right">
+<<<<<<< HEAD
 						<textarea id="board_content" name="cotent" cols="40" rows="15" required="required"></textarea>
+=======
+						<textarea id="content" name="content" cols="40" rows="15" required="required"></textarea>
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 					</td>
 				</tr>
 			</table>

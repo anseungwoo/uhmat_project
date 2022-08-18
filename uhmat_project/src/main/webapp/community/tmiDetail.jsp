@@ -92,18 +92,46 @@
 				</td> 
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<td>
 				<input type="button" value="답글" onclick="location.href='TmiRereplyWriteForm.co?idx=${tmiReply.idx }&board_idx=${tmiReply.board_idx }&nickname=${tmiReply.nickname }&pageNum=${param.pageNum}'">
 				</td>
 				<td><input type="button" value="수정" onclick="location.href='TmiReplyModifyForm.co?idx=${tmiReply.idx}&pageNum=${param.pageNum }'"></td>
 				<td><input type="button" value="삭제" onclick="location.href='TmiReplyDeleteForm.co?idx=${tmiReply.idx}&board_idx=${tmiReply.board_idx }&nickname=${tmiReply.nickname }&pageNum=${param.pageNum }'"></td>
+=======
+				<td><input type="button" value="수정" onclick="location.href='TmiReplyModifyForm.co?idx=${tmiReply.idx}&pageNum=${param.pageNum }'"></td>
+				<td><input type="button" value="삭제" onclick="location.href='TmiReplyDeleteForm.co?idx=${tmiReply.idx}&board_idx=${tmiReply.board_idx }&nickname=${tmiReply.nickname }&pageNum=${param.pageNum }'"></td>
+				<td>
+				<input type="button" value="답글" onclick="location.href='TmiRereplyWriteForm.co?idx=${tmiReply.idx }&board_idx=${tmiReply.board_idx }&nickname=${tmiReply.nickname }&pageNum=${param.pageNum}'">
+				</td>
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 			</tr>
      		</c:forEach>
      		
      		<!-- 답글 리스트 -->
+<<<<<<< HEAD
 <%--      		<c:forEach var="tmiRereply" items="${tmiRereplyList }"> --%>
      		
 <%--      		</c:forEach> --%>
+=======
+     		<c:choose>
+     			<c:when test="${not empty tmiRereplyList }">
+     				<c:forEach var="tmiRereply" items="${tmiRereplyList }">
+     					<tr>
+     						<td>
+     							<c:forEach var="tmiRereply" begin="1" end="${tmiRereply.re_lev }">
+     								&nbsp;&nbsp;
+     							</c:forEach>
+     							${tmiRereply.content }
+     						 </td>
+     					</tr>
+     				</c:forEach>
+     			</c:when>
+     			<c:otherwise>
+				<tr><td colspan="5">게시물이 존재하지 않습니다.</td></tr>
+			</c:otherwise>
+     		</c:choose>
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 
       </table>
 	<br>

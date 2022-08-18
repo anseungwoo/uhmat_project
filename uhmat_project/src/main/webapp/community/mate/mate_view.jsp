@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<%@page import="vo.MateReplyDTO"%>
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
@@ -31,18 +35,26 @@
 	<hr>
 	
 	<section>
+<<<<<<< HEAD
 		<input type="button" value="댓글" onclick="location.href='MateReplyForm.co?idx=${param.idx}&pageNum=${param.pageNum}&nickname=${mate.nickname}'">
+=======
+		<input type="button" value="댓글" onclick="location.href='MateReplyForm.co?idx=${param.idx}&pageNum=${param.pageNum}'">
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 		<input type="button" value="수정" onclick="location.href='MateModifyForm.co?idx=${mate.idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='MateDeleteForm.co?idx=${mate.idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='MateList.co?pageNum=${param.pageNum}'">
 	
 	</section>
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 	<section>
 		<table border="1">
 		<c:forEach items="${mateReplyList }" var="mateReplyList">
 			<tr>
+<<<<<<< HEAD
 				<td>${mateReplyList.nickname } | ${mateReplyList.content }</td>
 			</tr>
 			<tr>
@@ -50,16 +62,28 @@
 			</tr>
 			<tr>
 				<td>${mateReplyList.date }</td>
+=======
+				<td width="500">${mateReplyList.nickname } | ${mateReplyList.content } 
+				<br>
+				${mateReplyList.date } | <input type="button" value="댓글삭제" onclick="location.href='MateReplyDeleteForm.co?idx=${mate.idx}&pageNum=${param.pageNum}&reply_idx=${mateReplyList.idx}&nickname=${mateReplyList.nickname}'">
+				</td>
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 			</tr>
 		</c:forEach>
 		</table>
 	</section>
 	
+<<<<<<< HEAD
 	<section>
 	<input type="button" value="댓글삭제" onclick="location.href='MateReplyDeleteForm.co?idx=${mate.idx}&pageNum=${param.pageNum}'">
 	
 	
 	</section>
+=======
+	
+	
+	
+>>>>>>> 12d6daae7722c81bcfb179bc331188d66ab1c611
 	
 	
 </body>
