@@ -13,6 +13,7 @@ public class RestaurantDeleteAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		System.out.println("RestaurantDeleteAction");
+				
 		RestaurantDeleteService service = new RestaurantDeleteService();
 		String resName = request.getParameter("resName");
 		String photo = service.bringPhoto(resName);

@@ -27,6 +27,8 @@ public class ReviewDetailAction implements Action {
 		request.setAttribute("dto", dto);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("replyList", replyList);
+		HttpSession session = request.getSession();
+		session.setAttribute("reviewer", dto.getNickname());
 		
 		System.out.println(dto);
 		forward = new ActionForward();
