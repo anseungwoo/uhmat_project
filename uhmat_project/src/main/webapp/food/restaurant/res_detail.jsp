@@ -74,7 +74,6 @@
 		        center: new kakao.maps.LatLng(${map.latitude},${map.longitude}), // 지도의 중심좌표
 		        level: 3 // 지도의 확대 레벨
 		    };
-
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
 			// 지도를 클릭한 위치에 표출할 마커입니다
@@ -89,6 +88,9 @@
         
         <button onclick="location.href='restaurantDelete.re?resName=${resInfo.resName}'">글 삭제</button>
         <button onclick="location.href='restaurantModifyForm.re?resName=${resInfo.resName}'">글 수정</button>
-        <button onclick="location.href='restaurantList.re'">글 목록으로 돌아가기</button>
+        <button onclick="location.href='restaurantList.re'">글 전체 목록</button>
+        <%if(request.getParameter("category")!=null) {%>
+        	<button onclick="location.href='restaurantList.re?category=${param.category }'">${param.category } 목록</button>
+        <%} %>
 </body>
 </html>
