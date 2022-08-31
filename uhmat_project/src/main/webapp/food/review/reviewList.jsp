@@ -44,7 +44,12 @@
 					$.ajax({
 						type: "post",
 						url: "ReviewList.re?pageNum=${pageInfo.pageNum + 1}",
-						data: $("#list").serialize(),
+						data: {
+							pageNum: ${pageInfo.pageNum}+1,
+							<%if(request.getParameter("resName")!=null){%>
+							resName: '${param.resName}'
+							<%}%>
+						},
 						dataType: "text",
 						success: 
 							function(response) {

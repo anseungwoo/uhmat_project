@@ -14,7 +14,6 @@ public class ReviewListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("ReviewListAction");
-		
 		ActionForward forward = null;
 		
 		//페이징 처리를 위한 변수 선언
@@ -60,7 +59,13 @@ public class ReviewListAction implements Action {
 		// 페이징 처리 정보를 pageInfo 객체에 저장
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
-		ArrayList<ReviewBoardDTO> reviewList = ReviewListService.getBoardList(pageNum, listLimit, targetTag);
+		ArrayList<ReviewBoardDTO> reviewList = null;
+		String resName = request.getParameter("resName");
+		if(resName!=null) {
+			reviewList = ReviewListService.getBoardList(resName, pageNum, listLimit);
+		}else {
+			reviewList = ReviewListService.getBoardList(pageNum, listLimit, targetTag);			
+		}
 		
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("reviewList", reviewList);
