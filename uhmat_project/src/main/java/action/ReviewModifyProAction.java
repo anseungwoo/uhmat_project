@@ -68,7 +68,7 @@ public class ReviewModifyProAction implements Action {
 		dto.setRating(Float.parseFloat(multi.getParameter("rating")));
 		dto.setContent(multi.getParameter("content"));
 
-		dto.setPhoto(multi.getOriginalFileName("photo"));
+//		dto.setPhoto(multi.getOriginalFileName("photo"));
 		dto.setPhoto(multi.getFilesystemName("photo"));
 	
 		ReviewModifyProService service = new ReviewModifyProService();

@@ -69,12 +69,6 @@ input:checked ~ label:hover ~ label {
 </style>
 </head>
 <body>
-	<c:if test="${ empty sessionScope.getAttribute('sNickName')  }">
-		<script>
-			alert("글쓰기는 로그인이 필요합니다!");
-			location.href="MemberLogin.me";
-		</script>
-	</c:if>
 	<h1>ReviewModifyForm</h1>
 	<nav><input type="button" value="이전으로" onclick="history.back()"></nav>
 	<section>
@@ -86,7 +80,7 @@ input:checked ~ label:hover ~ label {
 			<table border="1">
 
 				<tr>
-					<td>작성자&nbsp;<input type="text" name="nickname" value="${sessionScope.NickName }" readonly="readonly"></td>
+					<td>작성자&nbsp;<input type="text" name="nickname" value="${dto.nickname }" readonly="readonly"></td>
 					<!--  회원가입 로그인이 연동되면 nickname을 세션값으로받습니다. -->
 				</tr>
 				<tr>

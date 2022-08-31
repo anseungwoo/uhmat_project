@@ -27,6 +27,14 @@ public class ReviewListAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
 		
+		
+		
+		String targetTag = "";
+		
+		if(request.getParameter("targetTag") != null) {
+			
+			targetTag = request.getParameter("targetTag");
+		}	
 		//페이징 처리에 필요한 전체 게시물 갯수 조회 작업
 		
 		ReviewListService reviewListService = new ReviewListService();
@@ -47,23 +55,22 @@ public class ReviewListAction implements Action {
 		// 4. 끝페이지를 총 페이지 수로 대체
 		if(endPage > maxPage) {
 			endPage = maxPage;
-			}
+		}
 		
 		// 페이징 처리 정보를 pageInfo 객체에 저장
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
-		ArrayList<ReviewBoardDTO> reviewList = ReviewListService.getBoardList(pageNum, listLimit);
-		
+		ArrayList<ReviewBoardDTO> reviewList = ReviewListService.getBoardList(pageNum, listLimit, targetTag);
 		
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("reviewList", reviewList);
 		
 		forward = new ActionForward();
-		forward.setPath("food/review/reviewList.jsp");
+		forward.setPath("food/review/reviewList.jsp?tagTag=" + targetTag);
 		forward.setRedirect(false);
 	
-		return forward;
 		
+		return forward;
 	}
-
 }
+

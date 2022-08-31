@@ -147,6 +147,6 @@
 	<section id="append" style="display:none;">
 	</section>
 	
-	<jsp:include page="/inc/footer.jsp" />
+		<section id="ft"><jsp:include page="/inc/footer.jsp" /></section>
 </body>
 </html>

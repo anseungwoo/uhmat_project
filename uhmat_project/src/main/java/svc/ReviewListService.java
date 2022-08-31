@@ -34,7 +34,7 @@ public class ReviewListService {
 		return listCount;
 	}
 
-	public static ArrayList<ReviewBoardDTO> getBoardList(int pageNum, int listLimit) {
+	public static ArrayList<ReviewBoardDTO> getBoardList(int pageNum, int listLimit, String targetTag) {
 		System.out.println("ReviewListService - getBoardList()");
 		
 		// 리턴할 데이터를 저장할 변수 선언
@@ -50,12 +50,18 @@ public class ReviewListService {
 		dao.setConnection(con);
 		
 		// 게시물 목록 조회 호출
-		reviewList = dao.selectReviewBoardList(pageNum, listLimit);
-		
+		if(targetTag.equals("")) {
+			
+			reviewList = dao.selectReviewBoardList(pageNum, listLimit);
+			
+		} else {
+			
+			reviewList = dao.selectReviewBoardList(pageNum, listLimit, targetTag);
+		}
 		// Connection 객체 반환
 		close(con);
 		
 		return reviewList;
 	}
-
+	
 }
