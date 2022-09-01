@@ -32,6 +32,7 @@ table{
 }
 </style>
 <script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35185e429e5d9c68170c91b88e2d3a84"></script>
 <script>
 	//ready event
 	$(function(){

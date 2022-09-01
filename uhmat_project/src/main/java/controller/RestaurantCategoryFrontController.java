@@ -230,20 +230,8 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 		}else if (command.equals("/map.re")) {
 
 //			MapAction mapGet = new MapAction();	//여기서부턴 지도  import 작업이 필요함!
-//			
-//			String keyword= "";
-//			
-//			if(request.getParameter("keyword")!=null) {
-//				keyword = request.getParameter("keyword");
-//			}
-//			System.out.println("keyword : " + keyword);
-//			
-//			ArrayList<RestaurantInfoDTO> list = mapGet.execute(keyword);
-//
-//			String gson = new Gson().toJson(list);
-//			System.out.println(list);
-//			response.setContentType("application/json; charset=utf-8");
-//			response.getWriter().write(gson);
+			
+			
 		
 		// 지도 보여주기
 		} else if (command.equals("/mapForm.re")) {

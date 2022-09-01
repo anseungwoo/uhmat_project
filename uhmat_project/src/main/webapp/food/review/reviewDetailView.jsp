@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link href="food/review/reviewDetail.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35185e429e5d9c68170c91b88e2d3a84"></script>
 <script type="text/javascript">
 	
 	function likeAdd(target) {
@@ -35,6 +36,22 @@
 		
 	});
 	
+	//식당 정보를 아래에 합치는 ajax
+	$(function(){
+		$.ajax({
+			type:"post",
+			url:"restaurantDetail.re",
+			data:{
+				resName: "${dto.res_name}"
+			},
+			dataType:"text",
+			success:function(response){
+				alert("식당 정보 추가됨!");
+				$("#restaurantInfo").html(response);
+			}
+		});
+	})
+	
 </script>
 <style>
 	.star-rating {width:205px; }
@@ -43,11 +60,7 @@
 </style>
 </head>
 <body>
-	<header id="header">
-		<hr>
-			<h1>헤더라인</h1>
-		<hr>
-	<nav>
+	<jsp:include page="../../inc/header.jsp"></jsp:include>
 		<details>
 			<summary>∙∙∙(more button)</summary> <!-- 이 부분은 로그인 되어 있는 경우에만 사용 가능  세션이 없을 경우
 			alert("로그인이 필요합니다") 처리-->
@@ -56,8 +69,6 @@
 			<input type="button" value="삭제" onclick="location.href='ReviewDeleteForm.re?idx=${dto.idx}&fileName=${dto.photo }&pageNum=${param.pageNum}'">
 			<input type="button" value="리스트로" onclick="location.href='ReviewList.re'">
 		</details>
-	</nav>
-	</header>
 	<section>
 		<section border ="1" id="content">
 			<section id="imgBox">
@@ -98,10 +109,10 @@
 			
 		</section>
 	</section>
-		<footer id="footer">
-		<hr>
-			<h1>푸터라인</h1>
-		<hr>
-	</footer>
+	
+	<section id="restaurantInfo">
+		<!-- 식당정보가 추가되는 장소 -->
+	</section>
+	<jsp:include page="../../inc/header.jsp"></jsp:include>
 </body>
 </html>
