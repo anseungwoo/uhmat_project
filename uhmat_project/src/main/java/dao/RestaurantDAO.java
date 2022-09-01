@@ -639,8 +639,8 @@ public class RestaurantDAO {
 				pstmt2.setString(1, rs.getString("res_name"));
 				rs2 = pstmt2.executeQuery();
 				while(rs2.next()) {
-					dto.setLatitude(rs.getDouble("latitude"));
-					dto.setLongitude(rs.getDouble("longitude"));
+					dto.setLatitude(rs2.getDouble("latitude"));
+					dto.setLongitude(rs2.getDouble("longitude"));
 				}
 				list.add(dto);
 			}

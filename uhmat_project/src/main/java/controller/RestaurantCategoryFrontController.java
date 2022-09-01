@@ -1,11 +1,17 @@
 package controller;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import action.Action;
 import action.CheckHashAction;
@@ -229,14 +235,30 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			}
 
 		}else if (command.equals("/map.re")) {
-			System.out.println("지도 보여주기 요청됨!");
-			try {
-				action = new MapAction(); 
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+
+			MapAction mapGet = new MapAction();	//여기서부턴 지도  import 작업이 필요함!
 			
+			String keyword= "";
+			
+			if(request.getParameter("keyword")!=null) {
+				keyword = request.getParameter("keyword");
+			}
+			System.out.println("keyword : " + keyword);
+			
+			ArrayList<RestaurantInfoDTO> list = mapGet.execute(keyword);
+
+			String gson = new Gson().toJson(list);
+			System.out.println(list);
+			response.setContentType("application/json; charset=utf-8");
+			response.getWriter().write(gson);
+		
+		// 지도 보여주기
+		} else if (command.equals("/mapForm.re")) {
+
+			forward = new ActionForward();
+			forward.setPath("/food/map/map.jsp");
+			forward.setRedirect(false);
+
 		}
 
 		if (forward != null)
