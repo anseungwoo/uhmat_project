@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.*;
 
 import vo.*;
@@ -352,7 +353,7 @@ public class ReviewCategoryDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				double avgRating = rs.getInt("AVG(rating)");
+				double avgRating = Math.round(rs.getDouble("AVG(rating)")*10)/10;
 				int reviewCount = rs.getInt("Count(idx)");
 				sql = "UPDATE restaurant_info SET rating=?, reviewcount=? WHERE res_name=?";
 				pstmt2 = con.prepareStatement(sql);

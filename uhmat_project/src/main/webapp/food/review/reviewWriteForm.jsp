@@ -26,6 +26,14 @@
 			}
 		}	
 	}
+	
+	$(function(){
+		$("#find").on("click",function(){
+// 			alert("음식점 찾기!");
+			window.open("restaurantList.re?keyword="+$("#searchRes").val(),"findRes","height=500,scrollbars");
+		});
+	});
+	
 	//해쉬태그 검색 로직
 // 	function checkHash(target) {
 	
@@ -73,7 +81,8 @@
 					-->
 				</tr>
 				<tr>
-					<td><input type="text" name="res_name" placeholder="음식점 위치 찾기" required="required">&nbsp;<button class="btn">찾기</button></td>
+					<td><input type="text" name="res_name" id="searchRes" placeholder="음식점 찾기" readonly="readonly" required="required">&nbsp;
+					<button class="btn" id="find">찾기</button></td>
 					
 					<!-- 지도 api와 연동 -->
 				</tr>

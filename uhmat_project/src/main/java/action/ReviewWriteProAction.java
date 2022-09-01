@@ -2,6 +2,7 @@ package action;
 
 
 import java.io.*;
+import java.util.List;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,7 +22,22 @@ public class ReviewWriteProAction implements Action {
 		System.out.println("ReviewWriteProAction");
 		ActionForward forward = null;
 		
-		
+		//리뷰하는 식당이 존재하는지 확인
+				String resName = request.getParameter("res_name");
+				System.out.println("resName: "+resName);
+				// 1) response 객체의 setContentType() 메서드를 호출하여 응답 문서 타입(ContentType) 지정
+				response.setContentType("text/html; charset=UTF-8");
+				// 2. response 객체의 getWriter() 메서드를 호출하여 출력 스트림(PrintWriter) 객체 리턴받기
+				PrintWriter out = response.getWriter();
+				// 3. PrintWriter(out) 객체의 println() 메서드를 호출하여 출력할 HTML 태그 작성
+				
+				RestaurantListService svc = new RestaurantListService();
+				//전체 식당을 조회하여 리뷰글에 입력된 식당이 존재하는지 확인하는 메서드
+				boolean isRes = svc.checkRestaurant(resName);
+				
+				if(!isRes) {
+					out.print("<script>alert('존재하지 않는 식당');history.back(); </script>");
+				}
 		
 		// 포워딩 정보를 저장하는 ActionForward 타입 변수 선언
 				// -----------------------------------------------------------------------
@@ -90,11 +106,7 @@ public class ReviewWriteProAction implements Action {
 					// => jsp 페이지에서는 out.println() 메서드를 통해 HTML 코드 등을 출력하지만
 					//    자바 클래스에서는 response 객체를 통해 문서 타입 설정 및 출력 객체를 가져와서
 					//    웹브라우저에 HTML 코드를 출력해야한다!
-					// 1) response 객체의 setContentType() 메서드를 호출하여 응답 문서 타입(ContentType) 지정
-					response.setContentType("text/html; charset=UTF-8");
-					// 2. response 객체의 getWriter() 메서드를 호출하여 출력 스트림(PrintWriter) 객체 리턴받기
-					PrintWriter out = response.getWriter();
-					// 3. PrintWriter(out) 객체의 println() 메서드를 호출하여 출력할 HTML 태그 작성
+					
 					out.println("<script>");
 					out.println("alert('글 쓰기 실패!')");
 					out.println("history.back()");

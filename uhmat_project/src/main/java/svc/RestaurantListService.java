@@ -105,5 +105,17 @@ public class RestaurantListService {
 		return list;
 	}
 
+	public boolean checkRestaurant(String resName) {
+		System.out.println("RestaurantListService-checkRestaurant()");
+		Connection con = getConnection();
+		boolean isRes = false;
+		RestaurantDAO dao = RestaurantDAO.getInstance();
+		dao.setConnection(con);
+		isRes = dao.selectRestaurantList(resName);
+		
+		close(con);
+		return isRes;
+	}
+
 	
 }

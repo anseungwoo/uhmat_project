@@ -44,10 +44,20 @@
 	}
 	
 	$(function(){
+		//키워드 검색시 서블릿으로 이동
 		$("#keywordSelect").on("click",function(){
 			location.href="restaurantList.re?keyword="+$("#keyword").val();
 		});
+		
+		//클릭시 window.opener.document.getElementById('archiveimages').value = address.src; 로 부모창에 값을 전달
+		$(".append").on("click",function(){
+// 			alert($(".append>td").eq(0).html());
+			window.opener.document.getElementById('searchRes').value = $(".append>td").eq(0).html();
+			window.close();
+		});
 	});
+	
+	
 </script>
 </head>
 <body>

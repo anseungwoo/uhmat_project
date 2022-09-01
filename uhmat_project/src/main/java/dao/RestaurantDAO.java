@@ -651,5 +651,30 @@ public class RestaurantDAO {
 				return list;
 			}
 
+			//리뷰에 입력된 식당이 존재하는지 확인하는 메서드
+			public boolean selectRestaurantList(String resName) {
+				boolean isRes = false;
+				System.out.println("restaurantDAO - selectRestaurantList(resName)");
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				try {
+					String sql = "SELECT * FROM restaurant_info WHERE res_name=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, resName);
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
+						isRes=true;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close(rs);
+					close(pstmt);
+				}
+				
+				return isRes;
+			}
+
 	
 }
