@@ -556,8 +556,55 @@ public class RestaurantDAO {
 		return updateCount;
 	}
 
-	public ArrayList<RestaurantInfoDTO> selectMapList(String keyword) {
+	//전체 식당 위치정보 조회
+	public ArrayList<RestaurantInfoDTO> selectMapList() {
 		System.out.println("RestaurantDAO - selectMapList");
+		ArrayList<RestaurantInfoDTO> list =null;
+		
+		PreparedStatement pstmt = null, pstmt2=null;
+		ResultSet rs = null,rs2=null;
+		
+		try {
+			String sql = "SELECT * FROM restaurant_info";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			list = new ArrayList<RestaurantInfoDTO>();
+			while(rs.next()) {
+				RestaurantInfoDTO dto = new RestaurantInfoDTO();
+				dto.setResName(rs.getString("res_name"));
+				dto.setrPostcode(rs.getString("r_postcode"));
+				dto.setAddress(rs.getString("address"));
+				dto.setRating(rs.getFloat("rating"));
+				dto.setPhoneNumber(rs.getString("phone_number"));
+				dto.setOpentime(rs.getString("opentime"));
+				dto.setResLink(rs.getString("res_link"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setResInfo(rs.getString("res_info"));
+				dto.setReviewCount(rs.getInt("reviewCount"));
+				dto.setCategory(rs.getString("category"));
+				
+				//식당 이름에 해당하는 식당 위치정보 입력!
+				String sql2 = "SELECT * FROM map WHERE res_name=?";
+				pstmt2 = con.prepareStatement(sql2);
+				pstmt2.setString(1, (String)rs.getString("res_name"));
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()) {
+					dto.setLongitude(rs2.getDouble("longitude"));
+					dto.setLatitude(rs2.getDouble("latitude"));
+				}
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("map.re SQL 구문 오류!");
+		}
+		
+		return list;
+	}
+	//지도에서 검색된 식당위치정보만 조회
+	public ArrayList<RestaurantInfoDTO> selectMapList(String keyword) {
+		System.out.println("RestaurantDAO - selectMapList(String keyword)");
 		ArrayList<RestaurantInfoDTO> list =null;
 		
 		PreparedStatement pstmt = null, pstmt2=null;
@@ -597,10 +644,10 @@ public class RestaurantDAO {
 				}
 				list.add(dto);
 			}
-			System.out.println("selectMapList - list : " + list);
+			System.out.println("selectMapList(String keyword) - list : " + list);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("selectMapList() - SQL 구문 오류!");
+			System.out.println("selectMapList(String keyword) - SQL 구문 오류!");
 		}finally {
 			close(pstmt);
 			close(rs);

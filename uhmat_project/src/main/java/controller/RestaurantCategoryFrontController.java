@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import action.Action;
 import action.CheckHashAction;
+import action.MapAction;
 import action.RestaurantDeleteAction;
 import action.RestaurantDetailAction;
 import action.RestaurantListAction;
@@ -228,18 +229,14 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			}
 
 		}else if (command.equals("/map.re")) {
-
-//			MapAction mapGet = new MapAction();	//여기서부턴 지도  import 작업이 필요함!
+			System.out.println("지도 보여주기 요청됨!");
+			try {
+				action = new MapAction(); 
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
-			
-		
-		// 지도 보여주기
-		} else if (command.equals("/mapForm.re")) {
-
-			forward = new ActionForward();
-			forward.setPath("/food/map/map.jsp");
-			forward.setRedirect(false);
-
 		}
 
 		if (forward != null)
