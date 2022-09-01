@@ -756,5 +756,11 @@ public class ReviewCategoryDAO {
 		
 		return replyList;
 	}
+	public ArrayList<ReviewBoardDTO> selectMainReviewBoardList(String search) {
+		return null;
+	}
+	public ArrayList<ReviewBoardDTO> selectMainReviewBoardList() {
+		return null;
+	}
 		
 }
