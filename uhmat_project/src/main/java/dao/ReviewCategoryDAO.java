@@ -94,6 +94,7 @@ public class ReviewCategoryDAO {
 					dto.setContent(rs.getString("content"));
 					dto.setLikes(rs.getInt("likes"));
 					dto.setRating(rs.getFloat("rating"));
+					dto.setDate(rs.getDate("date"));
 					
 						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 						pstmt2  = con.prepareStatement(sql2);
@@ -173,6 +174,7 @@ public class ReviewCategoryDAO {
 							dto.setContent(rs.getString("content"));
 							dto.setLikes(rs.getInt("likes"));
 							dto.setRating(rs.getFloat("rating"));
+							dto.setDate(rs.getDate("date"));
 							
 								String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 								pstmt2  = con.prepareStatement(sql2);
@@ -243,6 +245,7 @@ public class ReviewCategoryDAO {
 					dto.setContent(rs.getString("content"));
 					dto.setLikes(rs.getInt("likes"));
 					dto.setRating(rs.getFloat("rating"));
+					dto.setDate(rs.getDate("date"));
 				
 					String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 					pstmt2  = con.prepareStatement(sql2);
@@ -288,6 +291,7 @@ public class ReviewCategoryDAO {
 				dto.setRating(rs.getFloat("rating"));
 				dto.setRes_name(rs.getString("res_name"));
 				dto.setSubject(rs.getString("subject"));
+				dto.setDate(rs.getDate("date"));
 				
 				String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 				pstmt2  = con.prepareStatement(sql2);
@@ -368,13 +372,12 @@ public class ReviewCategoryDAO {
 				pstmt2.executeUpdate();
 			}
 			
-			close(rs);
+//			close(rs);
+//			close(pstmt); close(pstmt2);
 			close(pstmt);
-			close(pstmt2);
-			
 			
 			//Insert작업 수행
-			sql = "INSERT INTO reviewboard VALUES(?,?,?,?,?,?,0,?)";
+			sql = "INSERT INTO reviewboard VALUES(?,?,?,?,?,?,0,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, dto.getRes_name());
