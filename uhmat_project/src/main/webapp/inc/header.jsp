@@ -72,7 +72,7 @@
     			<div class="dropdownContent">
 				<ul>
 					<li><a href="ReviewList.re">어맛리뷰</a></li>
-					<li><a href="resList.re">식당 리스트</a></li>
+					<li><a href="restaurantList.re">식당 리스트</a></li>
 					<li><a href="mapForm.re">지도로 찾기</a></li>
 				</ul>	
 				</div>

@@ -77,11 +77,10 @@
 							<section>
 								<a href="ReviewBest.ma">아무거나</a>
 									<div id="bestReviewList">
-										<tr>
-											<td><img src="image/sample1.jpg" width="200" height="100"></td>
-											<td><img src="image/sample2.jpg" width="200" height="100"></td>
-											<td><img src="image/sample3.jpg" width="200" height="100"></td>
-										</tr>
+										<img src="image/sample1.jpg" width="200" height="100">
+										<img src="image/sample2.jpg" width="200" height="100">
+										<img src="image/sample3.jpg" width="200" height="100">
+					
 									</div>
 							</section>
 						</section>
@@ -96,7 +95,9 @@
 			<div class="rankReview">
 				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
 					<div id="bestResList">
-		
+						<img src="image/sample1.jpg" width="200" height="100">
+						<img src="image/sample2.jpg" width="200" height="100">
+						<img src="image/sample3.jpg" width="200" height="100">
 					</div>
 				</div>
 			</div>
