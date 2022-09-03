@@ -8,8 +8,11 @@
 <script src="js/jquery-3.6.0.js"></script>
 <script>
 	$(function(){
-		$("a").on("click",function(){
-			 var idx = $('a').index(this);
+		$("#category_show a").on("click",function(){
+			alert($('#category_show a').index(this));
+			 var idx = $('category_show a').index(this);
+			 alert("idx: "+idx);
+			 alert($("select>option").eq(idx).html());
 			 $("select>option").eq(idx+1).attr("selected","selected");
 		})
 	});
@@ -72,6 +75,7 @@
 </head>
 
 <body>
+<section id="category_show">
 	<div class='K2-grid coll-3 icon-p-2'>
        
 	<ul>
@@ -138,5 +142,6 @@
 		
 	</ul>
 </div>
+</section> 
 </body>
 </html>
