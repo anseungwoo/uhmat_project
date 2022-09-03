@@ -19,7 +19,7 @@
 	<!-- 		헤더 들어가는 곳 -->
 	
 	<div align="center" class="mateBanner">
-		<img alt="메이트 배너" src="./image/mate/mate_banner.png">
+		<img alt="메이트 배너" src="image/mate/mate_banner.png">
 		
 	</div>
 	

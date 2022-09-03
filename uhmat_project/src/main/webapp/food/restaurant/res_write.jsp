@@ -66,6 +66,7 @@ table{
 </script>
 </head>
 <body>
+	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<c:if test="${sessionScope.sNickName ne 'admin'}">
 		<script>
 			alert("관리자가 아닙니다!");
@@ -202,6 +203,6 @@ table{
 			</section>
 		</form>
 	</section>
-	
+	<jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
