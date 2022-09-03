@@ -760,11 +760,187 @@ public class ReviewCategoryDAO {
 		
 		return replyList;
 	}
-	public ArrayList<ReviewBoardDTO> selectMainReviewBoardList(String search) {
-		return null;
-	}
-	public ArrayList<ReviewBoardDTO> selectMainReviewBoardList() {
-		return null;
-	}
+	
+	//태그 업데이트
+	public int updateTag(int idx, String tag) {
+			
+			PreparedStatement pstmt = null;
+			String sql= "";
+			int updateCount = 0;
+			tag = tag.replaceAll("#", "");
+			String str[] = tag.split(" ");
+
+			try {
+					sql="DELETE FROM tag_relation WHERE review_idx=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, idx);
+					pstmt.executeUpdate();
+					close(pstmt);
+					commit(con);
+					
+					for(String s : str) {
+						sql="INSERT INTO tag_relation VALUES(?, ?)";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, idx);
+						pstmt.setString(2, s);
+						updateCount = pstmt.executeUpdate();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("SQL 구문 작성 및 실행 오류 - updateTag()");
+			} finally {
+				close(pstmt);
+			}
+			return updateCount;
+		}
+		
+		// 목민수파트
+		public ArrayList<ReviewBoardDTO> selectReviewBestLikeBoardList(int pageNum, int listLimit) {
+			System.out.println("selectReviewBestLikeBoardList()");
+			ArrayList<ReviewBoardDTO> reviewList = null;
+			
+			String sql = "";
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 시작행 번호 계산
+			int startRow = (pageNum  - 1) * listLimit;
+
+				try {
+					sql = "SELECT * FROM reviewboard "
+								+ "ORDER BY likes DESC "
+								+ "LIMIT ?, ?";
+					
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, startRow);
+					pstmt.setInt(2, listLimit);
+					
+					rs = pstmt.executeQuery();
+					
+					reviewList = new ArrayList<ReviewBoardDTO>();
+						
+					while(rs.next()) {	
+						ReviewBoardDTO dto = new ReviewBoardDTO();
+						// 게시물 정보 저장
+						dto.setIdx(rs.getInt("idx"));
+						dto.setRes_name(rs.getString("res_name"));
+						dto.setNickname(rs.getString("nickname"));
+						dto.setSubject(rs.getString("subject"));
+						dto.setPhoto(rs.getString("photo"));
+						dto.setContent(rs.getString("content"));
+						dto.setLikes(rs.getInt("likes"));
+						dto.setRating(rs.getFloat("rating"));
+					
+						
+						reviewList.add(dto);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("SQL 구문작성오류 - selectReviewList()");
+				} finally {
+					close(rs);
+					close(pstmt);
+				}
+			return reviewList;
+		}
+
+		//박영재
+		public ArrayList<ReviewBoardDTO> selectMainReviewBoardList(String search) {
+
+			ArrayList<ReviewBoardDTO> reviewList = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			PreparedStatement pstmt2 = null;
+			ResultSet rs2 = null;
+			
+			/*************************************
+			 * 댓글 부분 구현될 경우 새로 sql 문 작성 해야 함
+			 ****************************************/
+				
+				try {
+					String sql = "SELECT * FROM reviewboard WHERE subject LIKE ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, "%" + search + "%");
+					
+					rs = pstmt.executeQuery();
+					
+					reviewList = new ArrayList<ReviewBoardDTO>();
+						
+					while(rs.next()) {
+						
+						ReviewBoardDTO dto = new ReviewBoardDTO();
+						String tagResult = "";
+						// 게시물 정보 저장
+						dto.setIdx(rs.getInt("idx"));
+						dto.setRes_name(rs.getString("res_name"));
+						dto.setNickname(rs.getString("nickname"));
+						dto.setSubject(rs.getString("subject"));
+						dto.setPhoto(rs.getString("photo"));
+						dto.setContent(rs.getString("content"));
+						dto.setLikes(rs.getInt("likes"));
+						dto.setRating(rs.getFloat("rating"));
+						
+						
+						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
+						pstmt2  = con.prepareStatement(sql2);
+						pstmt2.setInt(1, dto.getIdx());
+						rs2 = pstmt2.executeQuery();
+						
+						tagResult = "#";
+						StringJoiner joiner = new StringJoiner("#");
+						while(rs2.next()) {
+							
+							joiner.add(rs2.getString("tag_name"));;
+						}
+						
+						tagResult = tagResult + joiner;
+						System.out.println(tagResult);
+//					System.out.println(dto);
+						dto.setTag_name(tagResult);
+						reviewList.add(dto);
+						close(rs2);
+						close(pstmt2);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("SQL 구문작성오류 - selectReviewList()");
+				} finally {
+					close(rs);
+					close(pstmt);
+				}
+			return reviewList;
+		}
+		public int selectResearchReviewListCount(String search) {
+			int listCount = 0;
+			
+			//구문 작성 전 Setting
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 구문 작성 및 실행
+			try {
+				String sql = "SELECT COUNT(*) FROM reviewboard WHERE subject LIKE ?	";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search + "%");
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					listCount = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("SQL 구문 작성 및 실행 오류 - selectReviewListCount()" + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return listCount;
+		}
 		
 }

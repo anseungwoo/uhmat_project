@@ -1,15 +1,22 @@
 package controller;
 
-import java.io.*;
+import java.io.IOException;
 
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import action.*;
-import action.main.*;
-import vo.*;
+import action.Action;
+import action.main.MainFormAction;
+import action.main.ReviewBestAction;
+import action.main.UhmatSearchAction;
+import vo.ActionForward;
 
+/**
+ * Servlet implementation class MainController
+ */
 @WebServlet("/")
 public class MainController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -22,16 +29,27 @@ public class MainController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		// 메인 화면 이동
-		if(command.equals("/")) {
+		try {
+			action = new MainFormAction();
+			forward = action.execute(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 검색 이동
+		if(command.equals("/UhmatSearch.sch")) {
 			try {
-				action = new MainAction();
+				action = new UhmatSearchAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		
+	
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
