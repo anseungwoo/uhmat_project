@@ -116,7 +116,9 @@
 	</div>
 <!-- 메인페이지 영역 끝 -->		
 <!-- <hr> -->
-		
+	
+	<!-- 식당 카테고리 페이지 추가 -->
+		<jsp:include page="food/restaurant/category_page.jsp" />
 	<!-- 푸터 들어가는곳 시작 -->
 		<jsp:include page="inc/footer.jsp" flush="false" />
 	<!-- 푸터 들어가는곳 끝 -->		
