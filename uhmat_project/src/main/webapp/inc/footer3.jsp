@@ -25,14 +25,16 @@
 				<table id="footerTable"> 
 					<tr>
 						<td id="footerWhatUhmat"><a href="CompanyDetail.cp">어맛 소개</a></td>
-						<td id="footerWhoDeveloper"><a href="DeveloperDetail.cp">개발자 소개</a></td>
-						<td id="footerPolicy"><a href="Policy.cp">이용약관</a></td>
+						<td id="footerNotice"><a href="NoticeList.sc">공지사항</a></td>
 					</tr>
 					<tr>
-						<td id="footerNotice"><a href="NoticeList.sc">공지사항</a></td>
+						<td id="footerWhoDeveloper"><a href="DeveloperDetail.cp">개발자 소개</a></td>
 						<td id="footerServiceCenter"><a href="NoticeList.sc">고객센터</a></td>
-						<td id="footerEvent"><a href="#">이벤트</a></td>
 					</tr>
+					<tr>
+						<td id="footerPolicy"><a href="Policy.cp">이용약관</a></td>
+						<td id="footerEvent"><a href="#">이벤트</a></td>
+					<tr>
 				</table>
 			</section>
 			

@@ -6,7 +6,7 @@
 <head> 
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/headerYelpVer.css" rel="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/5382a0d7e0.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
@@ -31,15 +31,15 @@
 		<div class="loginPart">
 		<c:choose>
 			<c:when test="${empty sessionScope.sNickName}">
-				<a href="MemberLogin.me">로그인</a>&nbsp; <a href="MemberJoinForm.me">회원가입</a>
+				<a class="loginBtn" href="MemberLogin.me">로그인</a>&nbsp; <a class="joinBtn" href="MemberJoinForm.me">회원가입</a>
 			</c:when>
 			<c:otherwise>
 				<%-- 하이퍼링크에 자바스크립트 함수 연결 시 href 속성에 아무 경로도 지정하지 않는 방법 --%>
 				<a href="MemberDetailForm.me?nickName=${sessionScope.sNickName }">${sessionScope.sNickName }
 					님 </a>&nbsp; <a href="MemberLogout.me">로그아웃</a>
 				<%-- 세션 아이디가 "admin" 일 때만 관리자페이지 링크("AdminMain.me") 표시 --%>
-				<c:if test="${sessionScope.sNickName eq 'admin'}"> &nbsp; <a
-						href="AdminMain.ad">관리자페이지</a>
+				<c:if test="${sessionScope.sNickName eq 'admin'}"> | <a
+						href="AdminMain.me">관리자페이지</a>
 				</c:if>
 			</c:otherwise>
 		</c:choose>
@@ -71,9 +71,11 @@
     		<a href="ReviewList.re">어맛리뷰</a>
     			<div class="dropdownContent">
 				<ul>
-					<li><a href="ReviewList.re">어맛리뷰</a></li>
-					<li><a href="resCategory.re">카테고리별 리뷰</a></li>
-					<li><a href="mapForm.re">지도로 찾기</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link2</a></li>
 				</ul>	
 				</div>
   	  	</div>
@@ -133,9 +135,9 @@
 				<table class="pullRight">
 					<tr>
 						<td>
-							<i class="fa-solid fa-magnifying-glass" style="font-size: 1.1em"></i>
+							<i class="fa-solid fa-magnifying-glass" style="font-size: 1.8em"></i>
 							<input class="searchControl" type="search" id="searchControl"
-								placeholder="검색할 음식명이나 음식점명" name="search" value="" maxlength="100" autocomplete="off">
+								placeholder="검색할 음식명이나 음식점명" name="searchText" value="" maxlength="100" autocomplete="off">
 						</td>
 						<td>
 							<button id="searchBtn" type="submit" title="검색"
