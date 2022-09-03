@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.main.ResBestAction;
 import action.main.ReviewBestAction;
 import action.main.UhmatSearchAction;
 import vo.ActionForward;
@@ -46,15 +45,7 @@ public class MainFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(command.equals("/ResBest.ma")) {
-			try {
-				action = new ResBestAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		} 
 		
 		if (forward != null) {
 			if (forward.isRedirect()) {

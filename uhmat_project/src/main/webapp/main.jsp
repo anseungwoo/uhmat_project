@@ -29,7 +29,7 @@
 	   			dataType: "text",
 	   			async : false,
 	   			success: function(response) {
-  					var content = $("#bestReview").html(response).find("#listView");
+  					var content = $("#bestReview").html(response).find("#list");
 //   					alert(response);
   					$("#bestReview").html(content);
 	   		   }
