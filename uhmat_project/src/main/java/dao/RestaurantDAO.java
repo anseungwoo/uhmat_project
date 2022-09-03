@@ -11,6 +11,7 @@ import java.util.List;
 
 import vo.MapDTO;
 import vo.RestaurantInfoDTO;
+import vo.ReviewBoardDTO;
 
 
 public class RestaurantDAO {
@@ -721,6 +722,54 @@ public class RestaurantDAO {
 			}
 			
 			return isRes;
+		}
+
+		public ArrayList<RestaurantInfoDTO> selectResBoardList(int pageNum, int listLimit) {
+			System.out.println("selectReviewBestLikeBoardList()");
+			ArrayList<RestaurantInfoDTO> resInfo = null;
+			
+			String sql = "";
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 시작행 번호 계산
+			int startRow = (pageNum  - 1) * listLimit;
+
+				try {
+					sql = "SELECT * FROM restaurant_info ORDER BY rating DESC,reviewcount DESC";
+					
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, startRow);
+					pstmt.setInt(2, listLimit);
+					
+					rs = pstmt.executeQuery();
+					
+					resInfo = new ArrayList<RestaurantInfoDTO>();
+						
+					while(rs.next()) {	
+						RestaurantInfoDTO dto = new RestaurantInfoDTO();
+						// 게시물 정보 저장
+						dto.setResName(rs.getString("res_name"));
+						dto.setrPostcode(rs.getString("r_postcode"));
+						dto.setAddress(rs.getString("address"));
+						dto.setPhoneNumber(rs.getString("phone_number"));
+						dto.setOpentime(rs.getString("opentime"));
+						dto.setResLink(rs.getString("res_link"));
+						dto.setPhoto(rs.getString("photo"));
+						dto.setReviewCount(rs.getInt("reviewCount"));
+						dto.setRating(rs.getFloat("rating"));
+											
+						resInfo.add(dto);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("SQL 구문작성오류 - selectResBoardList()");
+				} finally {
+					close(rs);
+					close(pstmt);
+				}
+			return resInfo;
 		}
 	
 }
