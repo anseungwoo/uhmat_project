@@ -9,10 +9,7 @@
 <script>
 	$(function(){
 		$("#category_show a").on("click",function(){
-			alert($('#category_show a').index(this));
-			 var idx = $('category_show a').index(this);
-			 alert("idx: "+idx);
-			 alert($("select>option").eq(idx).html());
+			 var idx = $('#category_show a').index(this);
 			 $("select>option").eq(idx+1).attr("selected","selected");
 		})
 	});
