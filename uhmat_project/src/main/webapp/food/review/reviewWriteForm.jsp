@@ -30,7 +30,7 @@
 	$(function(){
 		$("#find").on("click",function(){
 // 			alert("음식점 찾기!");
-			window.open("restaurantList.re?keyword="+$("#searchRes").val(),"findRes","height=500,scrollbars");
+			window.open("restaurantList.re?windowOpen=true","findRes","height=500,scrollbars");
 		});
 	});
 	

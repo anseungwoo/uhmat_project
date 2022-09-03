@@ -24,8 +24,11 @@
 						category : "${param.category}",
 						<%} 
 						if(request.getParameter("keyword")!=null){%>
-						keyword : "${param.keyword}"
+						keyword : "${param.keyword}" ,
 						<%} %>
+						<%if(request.getParameter("windowOpen")!=null){ %>
+						windowOpen : true
+						<%}%>
 					},
 					dataType: "text",
 					async : false,
@@ -47,10 +50,19 @@
 	$(function(){
 		//키워드 검색시 서블릿으로 이동
 		$("#keywordSelect").on("click",function(){
+			<%if(request.getParameter("windowOpen")!=null){ %>
+			location.href="restaurantList.re?windowOpen=true&keyword="+$("#keyword").val();
+			<%}else{%>
 			location.href="restaurantList.re?keyword="+$("#keyword").val();
+			<%}%>
 		});
 		
-		//클릭시 window.opener.document.getElementById('archiveimages').value = address.src; 로 부모창에 값을 전달
+		<%if(Boolean.parseBoolean(request.getParameter("windowOpen"))){%>
+			$("header").remove();
+			$("footer").remove();
+		<%}%>
+		
+		//클릭시 부모창에 값을 전달
 		$(".append").on("click",function(){
 // 			alert($(".append>td").eq(0).html());
 			window.opener.document.getElementById('searchRes').value = $(".append>td").eq(0).html();
@@ -61,7 +73,7 @@
 	
 </script>
 </head>
-<body>
+<body class="windowChild">
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	<!-- 식당 검색  -->
 	<section id="mother">
