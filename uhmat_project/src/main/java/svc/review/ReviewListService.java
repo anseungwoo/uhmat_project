@@ -86,7 +86,7 @@ public class ReviewListService {
 		return reviewList;
 	}
 
-	public ArrayList<ReviewBoardDTO> getBestLikeBoardList(int pageNum, int listLimit) {
+	public ArrayList<ReviewBoardDTO> getBestLikeBoardList(int pageNum, int listLimit,String targetTag) {
 		
 		// 리턴할 데이터를 저장할 변수 선언
 		ArrayList<ReviewBoardDTO> reviewList = null;
@@ -100,7 +100,7 @@ public class ReviewListService {
 		dao.setConnection(con);		
 		
 		//식당으로 검색된 리뷰
-		reviewList = dao.selectReviewBestLikeBoardList(pageNum, listLimit);
+		reviewList = dao.selectReviewBestLikeBoardList(pageNum, listLimit,targetTag);
 		
 		close(con);
 		return reviewList;

@@ -128,11 +128,12 @@
 		
 		</section>
 		
-		<section id="buttons">
-			<button class="btn" onclick="location.href='restaurantWriteForm.re'">글쓰기</button>
-			<button class="btn" onclick="location.href='resCategory.re'">카테고리 보기</button>
-			<button class="btn" onclick="location.href='index.jsp'">홈으로</button>
-		</section>
+		<c:if test="${sessionScope.sNickName eq 'admin' }">
+			<section id="buttons">
+				<button class="btn" onclick="location.href='restaurantWriteForm.re'">글쓰기</button>
+				<button class="btn" onclick="location.href='resCategory.re'">카테고리 보기</button>
+			</section>
+		</c:if>
 	</section>
 	<jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>

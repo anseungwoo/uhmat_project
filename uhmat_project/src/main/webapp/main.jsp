@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}css/reviewList.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-3.6.0.js"></script>
 <!-- <link href="css/header.css" rel="stylesheet" type="text/css"> -->
 <!-- <link href="css/footer.css" rel="stylesheet" type="text/css"> -->
@@ -23,29 +22,23 @@
 	    });
 	    
 	  window.onload = function(){
-// 	   	   $.ajax({
-	   		 
-// 	   			type: "post",
-// 	   			url: "ReviewBest.ma",	//리뷰를 좋아요 순으로 가져오는 요청
+	   	   $.ajax({
+	   			type: "post",
+	   			url: "ReviewBest.ma",	//리뷰를 좋아요 순으로 가져오는 요청
 	   		
-// 	   			dataType: "text",
-// 	   			async : false,
-// 	   			success: function(response) {
-// 	   					var content = $("#bestReviewList").html(response).find("#listView>img").eq(0);
-// 	   					$("#bestReviewList").html(content.attr('src'));
-// 	   					alert(content.attr('src'));
-// 	   		   }
-// 	   		});
+	   			dataType: "text",
+	   			async : false,
+	   			success: function(response) {
+  					var content = $("#bestReview").html(response).find("#listView");
+  					alert(response);
+  					$("#bestReview").html(content);
+	   		   }
+	   		});
 	  }
 	
 	});
 	
 </script>
-<style>
-	.star-rating {width:205px; }
-	.star-rating,.star-rating span {display:inline-block; height:39px; overflow:hidden; background:url(image/star3.png)no-repeat; }
-	.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
-</style>
 </head>
 <body>
 	<!-- 헤더 들어가는곳 -->
@@ -73,26 +66,15 @@
 		<div class="mainViewContainer">	
 			<div class="rankContainer">
 				<div class = "imgContainer" ><h2>최다 좋아요 리뷰</h2>
-						<section id="mother">
-							<section>
-								<a href="ReviewBest.ma">아무거나</a>
-									<div id="bestReviewList">
-										<img src="image/sample1.jpg" width="200" height="100">
-										<img src="image/sample2.jpg" width="200" height="100">
-										<img src="image/sample3.jpg" width="200" height="100">
-					
-									</div>
-							</section>
-						</section>
-						<section id="append" style="display:none;">
+						<div id="bestReview">
 						
-						</section>
+						</div>
 				</div>
 			</div>
 		<!-- 최고의 리뷰 순위 끝 -->
 		
 		<!-- 최신 리뷰 시작 -->
-			<div class="rankReview">
+			<div class="rankReview" id="recentReview">
 				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
 					<div id="bestResList">
 						<img src="image/sample1.jpg" width="200" height="100">
@@ -104,8 +86,9 @@
 		<!-- 최신 리뷰 끝 -->
 		
 		<!-- 어맛 추천 리뷰 시작 -->
-			<div class="rankReview">
-				<div class = "imgContainer"><h2>어맛 추천 리뷰</h2>
+			<div class="rankReview" id="bestRes">
+				<div class = "imgContainer"><h2>어맛 추천 식당</h2>
+					<!-- 별점, 댓글의 개수 순으로 내림차순 정렬된 식당의 값 -->
 					
 				</div>
 			</div>

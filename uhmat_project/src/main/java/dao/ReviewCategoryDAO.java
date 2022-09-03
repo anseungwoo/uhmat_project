@@ -796,13 +796,13 @@ public class ReviewCategoryDAO {
 		}
 		
 		// 목민수파트
-		public ArrayList<ReviewBoardDTO> selectReviewBestLikeBoardList(int pageNum, int listLimit) {
+		public ArrayList<ReviewBoardDTO> selectReviewBestLikeBoardList(int pageNum, int listLimit, String targetTag) {
 			System.out.println("selectReviewBestLikeBoardList()");
 			ArrayList<ReviewBoardDTO> reviewList = null;
 			
 			String sql = "";
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
+			PreparedStatement pstmt = null,pstmt2=null;
+			ResultSet rs = null,rs2=null;
 			
 			// 시작행 번호 계산
 			int startRow = (pageNum  - 1) * listLimit;
@@ -819,7 +819,7 @@ public class ReviewCategoryDAO {
 					rs = pstmt.executeQuery();
 					
 					reviewList = new ArrayList<ReviewBoardDTO>();
-						
+					String tagResult = "";
 					while(rs.next()) {	
 						ReviewBoardDTO dto = new ReviewBoardDTO();
 						// 게시물 정보 저장
@@ -831,9 +831,25 @@ public class ReviewCategoryDAO {
 						dto.setContent(rs.getString("content"));
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
-					
-						
+						dto.setDate(rs.getDate("date"));
+							String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
+							pstmt2  = con.prepareStatement(sql2);
+							pstmt2.setInt(1, dto.getIdx());
+							rs2 = pstmt2.executeQuery();
+							
+							tagResult = "#";
+							StringJoiner joiner = new StringJoiner("#");
+								while(rs2.next()) {
+									
+									joiner.add(rs2.getString("tag_name"));;
+								}
+							
+							tagResult = tagResult + joiner;
+							System.out.println(tagResult);
+							dto.setTag_name(tagResult);
 						reviewList.add(dto);
+						System.out.println("=====================");
+						System.out.println(dto);
 					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -883,7 +899,7 @@ public class ReviewCategoryDAO {
 						dto.setContent(rs.getString("content"));
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
-						
+						dto.setDate(rs.getDate("date"));
 						
 						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 						pstmt2  = con.prepareStatement(sql2);
@@ -951,7 +967,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 						dto.setContent(rs.getString("content"));
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
-						
+						dto.setDate(rs.getDate("date"));
 						
 						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 						pstmt2  = con.prepareStatement(sql2);

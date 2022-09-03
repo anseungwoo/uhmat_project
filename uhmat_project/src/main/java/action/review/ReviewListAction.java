@@ -29,8 +29,6 @@ public class ReviewListAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
 		
-		
-		
 		String targetTag = "";
 		
 		if(request.getParameter("targetTag") != null) {
@@ -64,6 +62,7 @@ public class ReviewListAction implements Action {
 		
 		ArrayList<ReviewBoardDTO> reviewList = null;
 		String resName = request.getParameter("resName");
+		
 		if(resName!=null) {
 			reviewList = ReviewListService.getBoardList(resName, pageNum, listLimit);
 		}else {

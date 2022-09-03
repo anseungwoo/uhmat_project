@@ -71,7 +71,7 @@ public class ResBestAction implements Action {
 //		request.setAttribute("reviewBestLikeList", resUhmatList);
 		
 		forward = new ActionForward();
-		forward.setPath("main/review.jsp");
+		forward.setPath("food/review/reviewList.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

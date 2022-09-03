@@ -15,6 +15,7 @@ public class ReviewBestAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("ReviewBestAction");
 		ActionForward forward = null;
 		
 		
@@ -28,9 +29,13 @@ public class ReviewBestAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
 		
+		String targetTag = "";
 		
+		if(request.getParameter("targetTag") != null) {
+			
+			targetTag = request.getParameter("targetTag");
+		}	
 		
-	
 		//페이징 처리에 필요한 전체 게시물 갯수 조회 작업
 		
 		ReviewListService reviewListService = new ReviewListService();
@@ -57,23 +62,21 @@ public class ReviewBestAction implements Action {
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		// 최다 좋아요 리뷰 
 		ArrayList<ReviewBoardDTO> reviewBestLikeList = null;
-		reviewBestLikeList = reviewListService.getBestLikeBoardList(pageNum,listLimit);
+		reviewBestLikeList = reviewListService.getBestLikeBoardList(pageNum,listLimit,targetTag);
 		
 //		// 최고 식당 리뷰
 //		ArrayList<RestaurantInfoDTO> reviewUhmatList = null;
 //		reviewUhmatList = service.getBestResBoardList(pageNum,listLimit);
 		
-		
-		
 		request.setAttribute("pageInfo", pageInfo);
 		// 최다 좋아요 리뷰 리턴
-		request.setAttribute("list", reviewBestLikeList);
+		request.setAttribute("reviewList", reviewBestLikeList);
 //		request.setAttribute("reviewUhmatList", reviewUhmatList);
 //		request.setAttribute("reviewBestLikeList", resBestList);
 //		request.setAttribute("reviewBestLikeList", resUhmatList);
 		
 		forward = new ActionForward();
-		forward.setPath("main/review.jsp");
+		forward.setPath("food/review/reviewList.jsp?tagTag=\" + targetTag");
 		forward.setRedirect(false);
 		
 		return forward;

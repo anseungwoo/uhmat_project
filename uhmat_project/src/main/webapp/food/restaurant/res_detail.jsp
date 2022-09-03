@@ -51,10 +51,12 @@
        			<th>식당 상세정보: </th>
        			<td>${resInfo.resInfo } </td>
             </tr>
-            <tr>
-       			<th><a href="${resInfo.resLink }">식당링크 </a></th>
-       			<td> </td>
-            </tr>
+            <c:if test="${not empty resInfo.resLink }">
+	            <tr>
+	       			<th><a href="${resInfo.resLink }">식당링크 </a></th>
+	       			<td> </td>
+	            </tr>
+            </c:if>
             <tr>
                 <td colspan="4"></td>
             </tr>
