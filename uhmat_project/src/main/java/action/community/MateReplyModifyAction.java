@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import svc.community.MateReplyModifyProService;
 import vo.ActionForward;
-import vo.MateReplyDTO;
 
 public class MateReplyModifyAction implements Action {
 

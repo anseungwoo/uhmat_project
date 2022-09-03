@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import svc.community.RecipeRereplyWriteService;
 import vo.ActionForward;
-
 import vo.RecipeReplyDTO;
 
 public class RecipeRereplyWriteAction implements Action {
