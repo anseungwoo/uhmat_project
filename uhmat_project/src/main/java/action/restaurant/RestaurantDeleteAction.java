@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.*;
 
 import action.Action;
-import svc.RestaurantDeleteService;
+import svc.restaurant.RestaurantDeleteService;
 import vo.*;
 
 public class RestaurantDeleteAction implements Action {

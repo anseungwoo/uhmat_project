@@ -1,12 +1,15 @@
 package action.serviceCenter;
 
-import java.util.*;
+import java.util.ArrayList;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.*;
-import vo.*;
+import svc.serviceCenter.FAQListService;
+import vo.ActionForward;
+import vo.FAQDTO;
+import vo.PageInfo;
 
 public class FAQListAction implements Action {
 

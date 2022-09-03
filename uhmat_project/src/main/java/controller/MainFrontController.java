@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.main.ResBestAction;
 import action.main.ReviewBestAction;
-import action.mainsrh.UhmatSearchAction;
+import action.main.UhmatSearchAction;
 import vo.ActionForward;
 
 /**

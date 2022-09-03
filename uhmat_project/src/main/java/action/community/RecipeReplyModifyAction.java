@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.RecipeReplyModifyProService;
+import svc.community.RecipeReplyModifyProService;
 import vo.ActionForward;
 
 public class RecipeReplyModifyAction implements Action {

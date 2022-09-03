@@ -11,7 +11,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
-import svc.ReviewModifyProService;
+import svc.review.ReviewModifyProService;
 import vo.ActionForward;
 import vo.ReviewBoardDTO;
 
@@ -57,9 +57,6 @@ public class ReviewModifyProAction implements Action {
 		
 
 		String originPath = multi.getParameter("path");
-//		System.out.println(originPath);  값 전달이 잘 되었는지 체크
-//		System.out.println(multi.getParameter("idx"));
-		
 
 		ReviewBoardDTO dto = new ReviewBoardDTO();
 		dto.setIdx(Integer.parseInt(multi.getParameter("idx")));
@@ -71,16 +68,17 @@ public class ReviewModifyProAction implements Action {
 
 //		dto.setPhoto(multi.getOriginalFileName("photo"));
 		dto.setPhoto(multi.getFilesystemName("photo"));
-	
+		int idx = dto.getIdx();
+		String tag = multi.getParameter("tag");
 		ReviewModifyProService service = new ReviewModifyProService();
 		boolean isModifySuccess = service.modifyReview(dto, originPath, realPath);
-
+		boolean isTagWrite = service.registTag(idx, tag);
 		
 		// 글 수정 작업 결과 판별
 		// 실패 시 자바스크립트를 사용하여 "글 수정 실패!" 출력 후 이전페이지로 돌아가기
 		// 성공 시 ActionForward 객체 생성하여 BoardDetail.bo 페이지 요청
 		// => 파라미터 : 글번호, 페이지번호
-		if(!isModifySuccess) {
+		if(!(isModifySuccess && isTagWrite)) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");

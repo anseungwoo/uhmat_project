@@ -12,7 +12,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
-import svc.RecipeDeleteService;
+import svc.community.RecipeDeleteService;
 import vo.ActionForward;
 import vo.RecipeDTO;
 

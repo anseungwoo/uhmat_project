@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.RecipeSearchService;
+import svc.community.RecipeSearchService;
 import vo.ActionForward;
 import vo.PageInfo;
 import vo.RecipeDTO;

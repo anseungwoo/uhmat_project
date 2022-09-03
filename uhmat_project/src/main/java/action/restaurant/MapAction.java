@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import action.*;
 import svc.*;
+import svc.restaurant.MapService;
 import vo.*;
 
 public class MapAction  {

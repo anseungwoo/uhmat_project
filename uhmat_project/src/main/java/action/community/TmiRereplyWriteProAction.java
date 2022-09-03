@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.TmiRereplyWriteProService;
+import svc.community.TmiRereplyWriteProService;
 import vo.ActionForward;
 import vo.TmiReplyDTO;
 

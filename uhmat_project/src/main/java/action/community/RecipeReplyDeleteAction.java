@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.RecipeReplyDeleteProService;
-import svc.TmiReplyDeleteProService;
+import svc.community.RecipeReplyDeleteProService;
+import svc.community.TmiReplyDeleteProService;
 import vo.ActionForward;
 
 public class RecipeReplyDeleteAction implements Action {

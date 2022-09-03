@@ -10,6 +10,8 @@ import com.oreilly.servlet.multipart.*;
 
 import action.Action;
 import svc.*;
+import svc.restaurant.MapWriteProService;
+import svc.restaurant.RestaurantWriteProService;
 import vo.*;
 
 public class RestaurantWriteProAction implements Action {

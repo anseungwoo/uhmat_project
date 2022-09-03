@@ -1,10 +1,12 @@
 package action.serviceCenter;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.*;
-import vo.*;
+import svc.serviceCenter.FAQDetailService;
+import vo.ActionForward;
+import vo.FAQDTO;
 
 public class FAQModifyFormAction implements Action {
 

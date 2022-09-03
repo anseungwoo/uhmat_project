@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import action.Action;
 import svc.*;
+import svc.restaurant.RestaurantListService;
 import vo.*;
 
 public class RestaurantListAction implements Action {

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.MateReplyDeleteService;
+import svc.community.MateReplyDeleteService;
 import vo.ActionForward;
 
 public class MateReplyDeleteAction implements Action {

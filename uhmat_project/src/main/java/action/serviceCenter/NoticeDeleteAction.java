@@ -1,12 +1,13 @@
 package action.serviceCenter;
 
-import java.io.*;
+import java.io.PrintWriter;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.*;
-import vo.*;
+import svc.serviceCenter.NoticeDeleteService;
+import vo.ActionForward;
 
 public class NoticeDeleteAction implements Action {
 

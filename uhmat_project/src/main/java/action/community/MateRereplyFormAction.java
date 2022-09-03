@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.MateRereplyFormService;
+import svc.community.MateRereplyFormService;
 import vo.ActionForward;
 import vo.MateReplyDTO;
 

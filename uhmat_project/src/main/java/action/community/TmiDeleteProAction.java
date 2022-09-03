@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.TmiDeleteProService;
+import svc.community.TmiDeleteProService;
 import vo.ActionForward;
 
 public class TmiDeleteProAction implements Action {

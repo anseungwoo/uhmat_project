@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import action.Action;
 import svc.*;
+import svc.review.ReviewLikeService;
 import vo.*;
 
 public class ReviewLikeAction implements Action {

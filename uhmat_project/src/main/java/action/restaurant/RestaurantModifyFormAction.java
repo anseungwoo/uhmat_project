@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.*;
 
 import action.Action;
-import svc.RestaurantModifyFormService;
+import svc.restaurant.RestaurantModifyFormService;
 import vo.*;
 
 public class RestaurantModifyFormAction implements Action {

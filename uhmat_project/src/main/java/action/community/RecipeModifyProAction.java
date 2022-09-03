@@ -16,9 +16,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
-import svc.RecipeDetailService;
-
-import svc.RecipeModifyProService;
+import svc.community.RecipeDetailService;
+import svc.community.RecipeModifyProService;
 import vo.ActionForward;
 import vo.RecipeDTO;
 

@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import action.Action;
 import svc.*;
+import svc.serviceCenter.FAQDeleteService;
 import vo.*;
 
 public class FAQDeleteAction implements Action {

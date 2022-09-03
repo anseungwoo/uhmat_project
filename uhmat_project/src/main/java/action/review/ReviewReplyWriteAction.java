@@ -1,12 +1,13 @@
 package action.review;
 
-import java.io.*;
+import java.io.PrintWriter;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.*;
-import vo.*;
+import svc.review.ReviewReplyWriteService;
+import vo.ActionForward;
 
 public class ReviewReplyWriteAction implements Action {
 
@@ -18,6 +19,7 @@ public class ReviewReplyWriteAction implements Action {
 		
 		int board_idx = Integer.parseInt(request.getParameter("idx"));
 		String nickname = request.getParameter("nickname");
+		System.out.println(nickname);
 		String content = request.getParameter("content");
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.MateModifyProService;
+import svc.community.MateModifyProService;
 import vo.ActionForward;
 import vo.MateDTO;
 

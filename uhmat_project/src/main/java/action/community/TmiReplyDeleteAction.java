@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.TmiReplyDeleteProService;
+import svc.community.TmiReplyDeleteProService;
 
 public class TmiReplyDeleteAction implements Action{
 	

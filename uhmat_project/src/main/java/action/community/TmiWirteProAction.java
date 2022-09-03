@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.TmiWriteProService;
+import svc.community.TmiWriteProService;
 import vo.ActionForward;
 import vo.CommunityTmiDTO;
 

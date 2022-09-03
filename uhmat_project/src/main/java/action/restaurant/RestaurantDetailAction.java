@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.RestaurantDetailService;
+import svc.restaurant.RestaurantDetailService;
 import vo.*;
 
 public class RestaurantDetailAction implements Action {

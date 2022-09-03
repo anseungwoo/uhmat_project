@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import action.Action;
 import svc.*;
+import svc.serviceCenter.FAQDetailReplyService;
 import vo.*;
 
 public class FAQDetailReplyAction implements Action {
