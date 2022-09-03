@@ -23,19 +23,19 @@
 	    });
 	    
 	  window.onload = function(){
-	   	   $.ajax({
+// 	   	   $.ajax({
 	   		 
-	   			type: "post",
-	   			url: "ReviewBest.ma",	//리뷰를 좋아요 순으로 가져오는 요청
+// 	   			type: "post",
+// 	   			url: "ReviewBest.ma",	//리뷰를 좋아요 순으로 가져오는 요청
 	   		
-	   			dataType: "text",
-	   			async : false,
-	   			success: function(response) {
-	   					var content = $("#bestReviewList").html(response).find("#listView>img").eq(0);
-	   					$("#bestReviewList").html(content.attr('src'));
-	   					alert(content.attr('src'));
-	   		   },
-	   	});
+// 	   			dataType: "text",
+// 	   			async : false,
+// 	   			success: function(response) {
+// 	   					var content = $("#bestReviewList").html(response).find("#listView>img").eq(0);
+// 	   					$("#bestReviewList").html(content.attr('src'));
+// 	   					alert(content.attr('src'));
+// 	   		   }
+// 	   		});
 	  }
 	
 	});
@@ -78,9 +78,9 @@
 								<a href="ReviewBest.ma">아무거나</a>
 									<div id="bestReviewList">
 										<tr>
-											<td><img src="image/sample1.jpg" width="400" height="300"></td>
-											<td><img src="image/sample2.jpg" width="400" height="300"></td>
-											<td><img src="image/sample3.jpg" width="400" height="300"></td>
+											<td><img src="image/sample1.jpg" width="200" height="100"></td>
+											<td><img src="image/sample2.jpg" width="200" height="100"></td>
+											<td><img src="image/sample3.jpg" width="200" height="100"></td>
 										</tr>
 									</div>
 							</section>
