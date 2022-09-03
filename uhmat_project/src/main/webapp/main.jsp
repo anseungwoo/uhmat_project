@@ -30,7 +30,7 @@
 	   			async : false,
 	   			success: function(response) {
   					var content = $("#bestReview").html(response).find("#listView");
-  					alert(response);
+//   					alert(response);
   					$("#bestReview").html(content);
 	   		   }
 	   		});

@@ -64,8 +64,14 @@
 		
 		//클릭시 부모창에 값을 전달
 		$(".append").on("click",function(){
-// 			alert($(".append>td").eq(0).html());
-			window.opener.document.getElementById('searchRes').value = $(".append>td").eq(0).html();
+// 			alert($(this).closest("tr").html());
+			var currentTr = $(this).closest("tr");
+			var insertValue = currentTr.find("td:eq(0)").html();
+// 			alert($(".append").eq(index));
+// 			alert( $(".append").eq(index).find("td:eq(0)").html());
+			var index = $(".append").index(this);
+			window.opener.document.getElementById('searchRes').value = insertValue;
+// 			window.opener.document.getElementById('searchRes').value = $(".append>td").eq(insertResValue).html();
 			window.close();
 		});
 	});

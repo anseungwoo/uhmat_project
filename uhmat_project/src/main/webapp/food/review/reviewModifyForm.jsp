@@ -18,6 +18,13 @@
 		}
 	});
 	
+	// 음식점 찾기 
+	$(function(){
+		$("#find").on("click",function(){
+// 			alert("음식점 찾기!");
+			window.open("restaurantList.re?windowOpen=true","findRes","height=500,scrollbars");
+		});
+	});
 </script>
 </head>
 <body>
@@ -45,9 +52,10 @@
 				<div class="dv"><span class="lv">태그명</span>
 				<input type="text" name="tag" value="${dto.tag_name }" onfocus="this.select()">
 				</div> 
-				<div class="dv"><span class="lv">식당 이름</span>
-				<input type="text" name="res_name" value="${dto.res_name }" required="required" onfocus="this.select()">&nbsp;<button class="btn">찾기</button>
-				</div>
+				<div class="dv"><span class="lv">음식점 찾기</span>
+				<input type="text" name="res_name" id="searchRes" readonly="readonly" required="required">&nbsp;
+				<button class="btn" id="find">찾기</button>
+			</div>
 				
 				<div class="row"><span class="lv">별점 재선택</span>
 					  <fieldset class="rate">

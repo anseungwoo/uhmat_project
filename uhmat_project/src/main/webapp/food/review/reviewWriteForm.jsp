@@ -27,6 +27,7 @@
 		}	
 	}
 	
+	// 음식점 찾기 
 	$(function(){
 		$("#find").on("click",function(){
 // 			alert("음식점 찾기!");
