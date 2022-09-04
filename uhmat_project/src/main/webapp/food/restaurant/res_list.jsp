@@ -107,7 +107,7 @@
 		</section>
 		
 		<!-- 리스트 ajax 부분 -->
-		<section id="bestRes">
+		<section id="bestResCall">
 			<table id="repeat">
 				<c:choose>
 					<c:when test="${empty restaurantInfo }">
