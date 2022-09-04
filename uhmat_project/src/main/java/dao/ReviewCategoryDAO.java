@@ -617,6 +617,14 @@ public class ReviewCategoryDAO {
 				System.out.println(resName);
 				System.out.println("--------------------------------------");
 				pstmt2.executeUpdate();
+			}else {
+				//삭제하고 연동된 리뷰가 아예 없을 때는 0으로 변경
+				sql = "UPDATE restaurant_info SET rating=0, reviewcount=0 WHERE res_name=?";
+				pstmt2 = con.prepareStatement(sql);
+				pstmt2.setString(1, resName);
+				System.out.println("-------------------------------------");
+				System.out.println("--------------------------------------");
+				pstmt2.executeUpdate();
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
