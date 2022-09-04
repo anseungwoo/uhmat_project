@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-
-import javax.servlet.http.HttpServletResponse;
-
 import mail.GenerateUserAuthenticationCode;
 import mail.GmailSMTPAuthenticator;
 import svc.member.MemberSendAuthMailService;

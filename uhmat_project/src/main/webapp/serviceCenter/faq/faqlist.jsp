@@ -14,7 +14,6 @@
 <link href="css/faq/faqlist.css" rel="stylesheet">
 
 
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
 		<jsp:include page="../../inc/header.jsp"></jsp:include>
@@ -130,16 +129,3 @@
 			<jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
