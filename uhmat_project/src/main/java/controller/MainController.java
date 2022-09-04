@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.main.MainFormAction;
 import action.main.UhmatSearchAction;
 import vo.ActionForward;
 
@@ -28,13 +27,6 @@ public class MainController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		try {
-			action = new MainFormAction();
-			forward = action.execute(request, response);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		// 검색 이동
 		if(command.equals("/UhmatSearch.sch")) {

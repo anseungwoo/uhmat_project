@@ -34,6 +34,22 @@
   					$("#bestReview").html(content);
 	   		   }
 	   		});
+	   	   
+	   	$.ajax({
+   			type: "post",
+   			url: "restaurantList.re",	//식당을 가져오는 요청
+   			data: {
+   				bestRes : true
+   			},
+   			dataType: "text",
+   			async : false,
+   			success: function(response) {
+					var content = $("#bestRes").html(response).find("#bestRes");
+					alert(content);
+					$("#bestRes").html(content);
+   		   }
+   		});
+   	   
 	  }
 	
 	});
@@ -76,10 +92,8 @@
 		<!-- 최신 리뷰 시작 -->
 			<div class="rankReview" id="recentReview">
 				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
-					<div id="bestResList">
-						<img src="image/sample1.jpg" width="200" height="100">
-						<img src="image/sample2.jpg" width="200" height="100">
-						<img src="image/sample3.jpg" width="200" height="100">
+					<div id="recentReview">
+						
 					</div>
 				</div>
 			</div>
@@ -89,7 +103,11 @@
 			<div class="rankReview" id="bestRes">
 				<div class = "imgContainer"><h2>어맛 추천 식당</h2>
 					<!-- 별점, 댓글의 개수 순으로 내림차순 정렬된 식당의 값 -->
-					
+					<div id="bestRes">
+						<img src="image/sample1.jpg" width="200" height="100">
+						<img src="image/sample2.jpg" width="200" height="100">
+						<img src="image/sample3.jpg" width="200" height="100">
+					</div>
 				</div>
 			</div>
 		<!-- 어맛 추천 리뷰 끝 -->
@@ -110,8 +128,6 @@
 			</div>
 		</div>	
 		<!-- 리뷰어 창 끝 -->
-		
-		
 		
 	</div>
 <!-- 메인페이지 영역 끝 -->		
