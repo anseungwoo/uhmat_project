@@ -58,6 +58,7 @@
 				$("#restaurantInfo").html(response);
 				$("#restaurantInfo header").remove();
 				$("#restaurantInfo footer").remove();
+				$("#buttons").remove();
 			}
 		});
 	})

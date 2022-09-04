@@ -88,14 +88,11 @@
 			marker.setMap(map);
 			</script>
 			
-        
-        <button onclick="location.href='restaurantDelete.re?resName=${resInfo.resName}'">글 삭제</button>
-        <button onclick="location.href='restaurantModifyForm.re?resName=${resInfo.resName}'">글 수정</button>
-        <button onclick="location.href='restaurantList.re'">글 전체 목록</button>
-        <%if(request.getParameter("category")!=null) {%>
-        	<button onclick="location.href='restaurantList.re?category=${param.category }'">${param.category } 목록</button>
-        <%} %>
-        
+        <c:if test="${sessionScope.sNickName == 'admin' }">
+	        <button onclick="location.href='restaurantDelete.re?resName=${resInfo.resName}'">글 삭제</button>
+	        <button onclick="location.href='restaurantModifyForm.re?resName=${resInfo.resName}'">글 수정</button>
+	        <button onclick="location.href='restaurantList.re'">글 전체 목록</button>
+        </c:if>
         <jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
