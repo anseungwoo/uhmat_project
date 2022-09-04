@@ -265,7 +265,8 @@ public class RestaurantCategoryFrontController extends HttpServlet {
 			System.out.println("keyword : " + keyword);
 			
 			ArrayList<RestaurantInfoDTO> list = mapGet.execute(keyword);
-
+			
+			request.setAttribute("list", list);
 			String gson = new Gson().toJson(list);
 			System.out.println(list);
 			response.setContentType("application/json; charset=utf-8");

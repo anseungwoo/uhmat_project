@@ -51,6 +51,7 @@ text-align: center;
 		var emailFlag=false;
 		var nicknameFlag=false;
 		var passwdFlag=false;
+		var passwdCheckFlag=false;
 		$("input[type=reset]").on("click", function() {
 			$("#checkPasswdResult").html("");
 			$("#confirmPasswdResult").html("");
@@ -96,7 +97,19 @@ text-align: center;
 						if (specRegex.exec(password)) { // 특수문자(!@#$%) 검사
 							count++;
 						}
-
+						let passwd2 = $("#passwd2").val();
+					
+						
+					
+							if (password == passwd2) {
+								$("#confirmPasswdResult").html("일치 합니다");
+								$("#confirmPasswdResult").css("color", "GREEN");
+								passwdCheckFlag = true;
+							} else {
+								$("#confirmPasswdResult").html("일치 하지 않습니다");
+								$("#confirmPasswdResult").css("color", "RED");
+								passwdCheckFlag = false;
+							}
 						// 패턴 카운팅 결과를 사용하여 복잡도 판별 결과 출력(if 문 또는 switch-case 문 사용)
 						if (count == 4) {
 							$("#checkPasswdResult").html("사용 가능 : 안전");
@@ -135,12 +148,12 @@ text-align: center;
 			if (passwd == passwd2) {
 				$("#confirmPasswdResult").html("일치 합니다");
 				$("#confirmPasswdResult").css("color", "GREEN");
-				passwdFlag=true;
+				passwdCheckFlag=true;
 
 			} else {
 				$("#confirmPasswdResult").html("일치 하지 않습니다");
 				$("#confirmPasswdResult").css("color", "RED");
-				passwdFlag=false;
+				passwdCheckFlag=false;
 
 			}
 
@@ -271,12 +284,16 @@ text-align: center;
 			if(!emailFlag){
 				 $('#email').focus();
 				return false
+			}else if(!passwdCheckFlag){
+				$('#passwd2').focus();
+				return false
+				
 			}
-			if(!passwdFlag){
+			else if(!passwdFlag){
 				 $('#passwd').focus();
 				return false
 			}
-			if(!nicknameFlag){
+			else if(!nicknameFlag){
 				 $('#nickName').focus();
 				return false
 			}else{
@@ -328,7 +345,9 @@ text-align: center;
 </script>
 </head>
 <body>
+
 <jsp:include page="../inc/header.jsp" flush="false" />
+
 <div class="joinFrom" id="container">
 	<h1>회원가입</h1>
 	<br>
