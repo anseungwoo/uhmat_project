@@ -465,7 +465,10 @@ public class ReviewCategoryDAO {
 			pstmt.setString(4, dto.getContent());
 			pstmt.setString(5, dto.getPhoto());
 			pstmt.setInt(6, dto.getIdx());
-			
+			System.out.println("========================");
+			System.out.println(sql);
+			System.out.println(dto.getRes_name());
+			System.out.println("========================");
 			updateCount = pstmt.executeUpdate();
 			try {
 				sql = "SELECT AVG(rating), COUNT(idx) FROM reviewboard "
@@ -499,7 +502,7 @@ public class ReviewCategoryDAO {
 			System.out.println("SQL 구문 작성 및 실행오류 - " + e.getMessage());
 			e.printStackTrace();
 		} finally {
-			close(rs);
+//			close(rs);
 			close(pstmt);
 			close(pstmt2);
 		}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,12 +109,12 @@ window.onload = function(){
 		            '        </div>' + 
 		            '    </div>' +    
 		            '</div>';
-		      		$("#list").append(content);
+		      		$("#list").append(content + "<hr>");
 		         
 		         });
 				function makeOverListener(map, marker, infowindow,resName) {
 				    return function() {
-// 				    	alert(resName);
+				    	alert(resName);
 				    	 $.ajax({
 					   			type: "post",
 					   			url: "ReviewList.re",	//리뷰를 좋아요 순으로 가져오는 요청
@@ -151,18 +152,44 @@ window.onload = function(){
 <body>
 
 	<!-- 헤더 들어가는곳 -->
-	<jsp:include page="../../inc/header.jsp" flush="false" />
+<%-- 	<jsp:include page="../../inc/header.jsp" flush="false" /> --%>
+<div class="mainLogo">
+    		<a href="/uhmat_project/"><img src="image/uhmatMainLogo.png"></a>
+    	</div>
+		<!-- 로고 들어가는 곳 끝 -->
+		
+		<!-- 로그인 및 회원가입 부분 시작 -->
+		<div class="loginPart">
+		<c:choose>
+			<c:when test="${empty sessionScope.sNickName}">
+				<a href="MemberLogin.me">로그인</a>&nbsp; <a href="MemberJoinForm.me">회원가입</a>
+			</c:when>
+			<c:otherwise>
+				<a href="MemberDetailForm.me?nickName=${sessionScope.sNickName }">${sessionScope.sNickName }
+					님 </a>&nbsp; <a href="MemberLogout.me">로그아웃</a>
+				<c:if test="${sessionScope.sNickName eq 'admin'}"> &nbsp; <a
+						href="AdminMain.me">관리자페이지</a>
+				</c:if>
+			</c:otherwise>
+		</c:choose>
+		</div>
+	<hr id="hdLine">
 	<!-- 헤더 들어가는곳 -->
-	
+	<!-- 전체 -->
 	<div class="flex-container">
-	<div class="left" style="border: 1px solid blue;">
-		<input type="button" value="홈" onclick="location.href='index.jsp'">
-		<input type="button" value="음식점 전체 보기"
-			onclick="location.href='mapForm.re'">
-	
+	<div class="left">
+		<section id="searchTab">
+<!-- 		<input type="button" value="홈" onclick="location.href='index.jsp'"> -->
+			<section id="insideTab">
+			<span>Uhmat Map </span><br>
 			<input type="text" placeholder="음식적을 검색하세요" id="keyword"
-				name="keyword" val size="15"> <input type="button" value="검색"
+				name="keyword" val size="15"> <input class="btn" type="button" value="검색"
 				id="keywordSelect" ><br>
+			<input class="btn" type="button" value="음식점 전체 보기"
+			onclick="location.href='mapForm.re'">
+			</section>
+		</section>
+				<!-- 왼쪽 부분 -->
 				<div id="list">
 					<table>
 					
@@ -179,7 +206,7 @@ window.onload = function(){
 	
 	
 	<!-- 푸터 들어가는곳 -->
-	<jsp:include page="../../inc/footer.jsp" flush="false" />
+<%-- 	<jsp:include page="../../inc/footer.jsp" flush="false" /> --%>
 	<!-- 푸터 들어가는곳 -->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc765c4cdf63c6a5bcc8181887cebf33"></script>
@@ -290,7 +317,7 @@ $("#keywordSelect").on("click", function() {
 		         });
 				function makeOverListener(map, marker, infowindow,resName) {
 				    return function() {
-// 				    	alert(resName);
+				    	alert(resName);
 				    	 $.ajax({
 					   			type: "post",
 					   			url: "ReviewList.re",	//리뷰를 좋아요 순으로 가져오는 요청
@@ -343,13 +370,7 @@ $("#keywordSelect").on("click", function() {
 // 	}
 	
 // 	});
-		 
-		 
-		 
-	   
 });
-
-
 </script>
 </body>
 </html>

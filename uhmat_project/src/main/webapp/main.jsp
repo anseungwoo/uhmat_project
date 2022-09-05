@@ -46,8 +46,8 @@ $(document).ready(function(){
 			dataType: "text",
 			async : false,
 			success: function(response) {
-					var content = $("#bestReview").html(response).find("#list");
-					$("#bestReview").html(content);
+// 					var content = $("#bestReview").html(response).find("#list");
+// 					$("#bestReview").html(content);
 		   }
 		});
    	   
@@ -58,12 +58,8 @@ $(document).ready(function(){
 			dataType: "text",
 			async : false,
 			success: function(response) {
-				var content = $("#recentReview").html(response).find("#list img");
-//				alert(response);
-// 				$("#recentReview").html(content);
-				$("#recentReview").append(
-						
-				);
+// 				var image = $("#recentReview").html(response).find("#list");
+// 				$("#recentReview img").eq(0).attr('src',image.src);
 		   }
 		});
    	   
@@ -84,7 +80,7 @@ $(document).ready(function(){
 			$("#bestRes td").eq(0).text(td.text());
 			$("#bestRes img").eq(0).attr('src',td2);
 			
-			for(var i=0;i<3;i++){
+			for(var i=0;i<4;i++){
 				var td = table.find("tr:eq("+i+") td:eq(0)");
 				var td2 = table.find("tr:eq("+i+") td:eq(3) img").prop('src');
 				$("#bestRes td").eq(i).text(td.text());
@@ -134,9 +130,15 @@ $(document).ready(function(){
 						<div id="bestReview">
 							<table>
 							<tr>
+								<td>empty</td>
+								<td>Hello</td>
+								<td></td>
 								<td></td>
 							</tr>
 							<tr>
+								<td><img src="#" width="300" height="200"></td>
+								<td><img src="#" width="300" height="200"></td>
+								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
 							</tr>
 						</table>	
@@ -152,11 +154,13 @@ $(document).ready(function(){
 						<div id="bestRes">
 						<table>
 							<tr>
+								<td>Helo</td>
 								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
 							<tr>
+								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
