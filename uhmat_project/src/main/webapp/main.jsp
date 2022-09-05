@@ -61,7 +61,9 @@ $(document).ready(function(){
 				var content = $("#recentReview").html(response).find("#list img");
 //				alert(response);
 // 				$("#recentReview").html(content);
-				$("#recentReview").append("hello");
+				$("#recentReview").append(
+						
+				);
 		   }
 		});
    	   
@@ -144,7 +146,7 @@ $(document).ready(function(){
 		<!-- 최고의 리뷰 순위 끝 -->
 		<div class="clear"></div>
 		<!-- 최신 리뷰 시작 -->
-			<div class="rankReview" id="recentReview">
+			<div class="rankReview">
 				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
 					<div id="recentReview">
 						<div id="bestRes">

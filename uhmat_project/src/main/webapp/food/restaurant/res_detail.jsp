@@ -10,8 +10,8 @@
 <link href="food/restaurant/res_detail.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-<%-- <jsp:include page="../../inc/header.jsp"></jsp:include>C\ --%>
+<body id="resDetailBody">
+<jsp:include page="../../inc/header.jsp"></jsp:include>
     <h2>${resInfo.resName } <small style="font-size: 0.5em">별점 ${resInfo.rating } &nbsp; | &nbsp; <a href="ReviewList.re?resName=${resInfo.resName }">${resInfo.reviewCount }개의 리뷰</a></small></h2>
 	<img src="upload/${resInfo.photo }" width="200">
 	<!-- 식당 정보 출력 -->
@@ -63,6 +63,6 @@
 	        <button onclick="location.href='restaurantModifyForm.re?resName=${resInfo.resName}'">글 수정</button>
 	        <button onclick="location.href='restaurantList.re'">글 전체 목록</button>
         </c:if>
-<%--         <jsp:include page="../../inc/footer.jsp"></jsp:include> --%>
+        <jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
