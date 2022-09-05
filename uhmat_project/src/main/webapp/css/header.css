@@ -79,7 +79,7 @@
 /* 	border-color: #FF4A4A; */
 }
 
-::placeholder {
+header ::placeholder {
 	position:relative;
 	left: 0px;
 	font-size: 16px;
@@ -93,14 +93,14 @@ header i {
 	z-index: 999;
 }
 
-.searchContainer .icon {
+header .searchContainer .icon {
 	position: albsolute;
 	top: 50%;
 	margin-left: 15px;
 	margin-top: 15px;
 }
 
-#searchBtn {
+header #searchBtn {
 	position: relative;
 	border-radius: 5px;
 	background-color: #FF1818;; 
@@ -114,7 +114,7 @@ header i {
 }
 
 
-.loginPart {
+header .loginPart {
 	position: relative;
 	float: right;
 /* 	margin-right: 15em; */
@@ -122,14 +122,14 @@ header i {
 	margin-right: 1em;
 }
 
-.loginPart > a {
+header .loginPart > a {
 	text-decoration: none;
 	font-size: 14px;
 	position: relative;
 }
 
 
-.topMenu {
+header .topMenu {
 	position: absolute;
 	margin-top: 1.85em;
 	background-color: transparent;
