@@ -113,7 +113,7 @@ window.onload = function(){
 		         });
 				function makeOverListener(map, marker, infowindow,resName) {
 				    return function() {
-				    	alert(resName);
+// 				    	alert(resName);
 				    	 $.ajax({
 					   			type: "post",
 					   			url: "ReviewList.re",	//리뷰를 좋아요 순으로 가져오는 요청
@@ -290,7 +290,7 @@ $("#keywordSelect").on("click", function() {
 		         });
 				function makeOverListener(map, marker, infowindow,resName) {
 				    return function() {
-				    	alert(resName);
+// 				    	alert(resName);
 				    	 $.ajax({
 					   			type: "post",
 					   			url: "ReviewList.re",	//리뷰를 좋아요 순으로 가져오는 요청
