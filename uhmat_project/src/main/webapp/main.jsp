@@ -58,9 +58,10 @@ $(document).ready(function(){
 			dataType: "text",
 			async : false,
 			success: function(response) {
-				var content = $("#recentReview").html(response).find("#list");
+				var content = $("#recentReview").html(response).find("#list img");
 //				alert(response);
-				$("#recentReview").html(content);
+// 				$("#recentReview").html(content);
+				$("#recentReview").append("hello");
 		   }
 		});
    	   
@@ -77,14 +78,13 @@ $(document).ready(function(){
 			var table = $(response).find("#repeat");
 			var td = table.find("td:eq(0)");
 			var td2 = table.find("tr:eq(0) td:eq(3) img").prop('src');
-			var inputTd = $("#bestRes td:eq(0)").text();
+// 			var inputTd = $("#bestRes td:eq(0)").text();
 			$("#bestRes td").eq(0).text(td.text());
 			$("#bestRes img").eq(0).attr('src',td2);
 			
 			for(var i=0;i<3;i++){
 				var td = table.find("tr:eq("+i+") td:eq(0)");
 				var td2 = table.find("tr:eq("+i+") td:eq(3) img").prop('src');
-				var inputTd = $("#bestRes td:eq("+i+")").text();
 				$("#bestRes td").eq(i).text(td.text());
 				$("#bestRes img").eq(i).attr('src',td2);
 			}
@@ -130,7 +130,14 @@ $(document).ready(function(){
 			<div class="rankContainer">
 				<div class = "imgContainer" ><h2>최다 좋아요 리뷰</h2>
 						<div id="bestReview">
-							<button id="nextBestReview">다음</button>
+							<table>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td><img src="#" width="300" height="200"></td>
+							</tr>
+						</table>	
 						</div>
 				</div>
 			</div>
@@ -140,7 +147,20 @@ $(document).ready(function(){
 			<div class="rankReview" id="recentReview">
 				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
 					<div id="recentReview">
-						
+						<div id="bestRes">
+						<table>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><img src="#" width="300" height="200"></td>
+								<td><img src="#" width="300" height="200"></td>
+								<td><img src="#" width="300" height="200"></td>
+							</tr>
+						</table>						
+					</div>
 					</div>
 				</div>
 			</div>
