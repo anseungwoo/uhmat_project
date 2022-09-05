@@ -154,7 +154,7 @@
 				$('#passwd').focus();
 				return false
 
-			}else if(!passwdCheckFlag){
+			}if(!passwdCheckFlag){
 				$('#passwd2').focus();
 				return false
 				
