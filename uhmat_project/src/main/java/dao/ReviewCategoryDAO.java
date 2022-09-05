@@ -467,7 +467,7 @@ public class ReviewCategoryDAO {
 			pstmt.setInt(6, dto.getIdx());
 			System.out.println("========================");
 			System.out.println(sql);
-			System.out.println(dto.getRes_name());
+			System.out.println(dto.getRes_name()+", subject"+ dto.getSubject()+dto.getRating()+dto.getContent()+dto.getIdx());
 			System.out.println("========================");
 			updateCount = pstmt.executeUpdate();
 			try {
@@ -504,7 +504,7 @@ public class ReviewCategoryDAO {
 		} finally {
 //			close(rs);
 			close(pstmt);
-			close(pstmt2);
+//			close(pstmt2);
 		}
 		
 		return updateCount;
