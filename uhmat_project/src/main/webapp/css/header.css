@@ -70,16 +70,16 @@
 
 .searchControl {
 	position: relative;
-	width: 400px;
+	width: 500px;
 	height: 30px;
-	padding-left: 35px;
-	left: 600px;
+	padding-left: 32px;
+	left: 590px;
 	top: 27px;
 	border-radius: 10px;
 /* 	border-color: #FF4A4A; */
 }
 
-header ::placeholder {
+::placeholder {
 	position:relative;
 	left: 0px;
 	font-size: 16px;
@@ -89,18 +89,18 @@ header ::placeholder {
 header i {
 	position: relative;
 	top: 30px;
-	left: 635px;
+	left: 623px;
 	z-index: 999;
 }
 
-header .searchContainer .icon {
-	position: albsolute;
+.searchContainer .icon {
+	position: relative;
 	top: 50%;
 	margin-left: 15px;
 	margin-top: 15px;
 }
 
-header #searchBtn {
+#searchBtn {
 	position: relative;
 	border-radius: 5px;
 	background-color: #FF1818;; 
@@ -110,11 +110,11 @@ header #searchBtn {
 	width: 60px;
 	height: 27.5px;
 	top: 27.5px;
-	left: 535px;
+	left: 525px;
 }
 
 
-header .loginPart {
+.loginPart {
 	position: relative;
 	float: right;
 /* 	margin-right: 15em; */
@@ -122,21 +122,21 @@ header .loginPart {
 	margin-right: 1em;
 }
 
-header .loginPart > a {
+.loginPart > a {
 	text-decoration: none;
 	font-size: 14px;
 	position: relative;
 }
 
 
-header .topMenu {
+.topMenu {
 	position: absolute;
 	margin-top: 1.85em;
 	background-color: transparent;
 /* 	border: 1px solid; */
 /* 	height: 35px; */
 	width: 500px;
-	left: 285px;
+	left: 230px;
 }
 
 .topMenu > ul {
