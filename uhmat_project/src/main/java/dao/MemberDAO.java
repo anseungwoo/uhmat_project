@@ -87,7 +87,7 @@ public class MemberDAO {
 		String sql = "";
 		
 		try {
-			sql = "INSERT INTO member VALUES (?,?,?,?,?,?,?,?,1-1.jpg,?,?)";
+			sql = "INSERT INTO member VALUES (?,?,?,?,?,?,?,?,null,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getNickname());
 			pstmt.setString(2, dto.getName());
@@ -347,7 +347,6 @@ public class MemberDAO {
 				member.setPostCode(rs.getString("postcode"));
 				member.setAddress1(rs.getString("address1"));
 				member.setAddress2(rs.getString("address2"));
-				member.setIcon(rs.getString("icon"));
 
 //				System.out.println(member);
 			}
@@ -372,13 +371,11 @@ public class MemberDAO {
 			String sql = "SELECT * FROM member WHERE email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
-			
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 				member = new MemberDTO();
 				member.setNickname(rs.getString("nickname"));
-				member.setIcon(rs.getString("icon"));
 
 			}
 		} catch (SQLException e) {
@@ -399,7 +396,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			String sql = "UPDATE member SET nickname=?,name=?,birthdate=?, postcode=?,address1=?,address2=?,icon=? WHERE email=?";
+			String sql = "UPDATE member SET nickname=?,name=?,birthdate=?, postcode=?,address1=?,address2=? WHERE email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member.getNickname());
 			pstmt.setString(2, member.getName());
@@ -407,8 +404,7 @@ public class MemberDAO {
 			pstmt.setString(4, member.getPostCode());
 			pstmt.setString(5, member.getAddress1());
 			pstmt.setString(6, member.getAddress2());
-			pstmt.setString(7, member.getIcon());
-			pstmt.setString(8, member.getEmail());
+			pstmt.setString(7, member.getEmail());
 
 			updateCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
