@@ -184,7 +184,7 @@ window.onload = function(){
 			<span>Uhmat Map </span><br>
 			<input type="text" placeholder="음식적을 검색하세요" id="keyword"
 				name="keyword" val size="15"> <input class="btn" type="button" value="검색"
-				id="keywordSelect" ><br>
+				id="keywordSelect" >
 			<input class="btn" type="button" value="음식점 전체 보기"
 			onclick="location.href='mapForm.re'">
 			</section>
