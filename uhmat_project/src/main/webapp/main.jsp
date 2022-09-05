@@ -54,7 +54,7 @@
 	   	$.ajax({
    			type: "post",
    			url: "ReviewRecent.ma",	//리뷰를 좋아요 순으로 가져오는 요청
-   		
+
    			dataType: "text",
    			async : false,
    			success: function(response) {
