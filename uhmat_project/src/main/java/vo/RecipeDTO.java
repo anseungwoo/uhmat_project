@@ -20,6 +20,7 @@ public class RecipeDTO {
 	private String real_File5;
 	private Timestamp date;
 	private String report;
+	private String category;
 	
 	public int getIdx() {
 		return idx;
@@ -112,12 +113,7 @@ public class RecipeDTO {
 		this.real_File5 = real_File5;
 	}
 	
-	public Timestamp getDate() {
-		return date;
-	}
-	public void setDate(Timestamp date) {
-		this.date = date;
-	}
+	
 	public String getReport() {
 		return report;
 	}
@@ -125,6 +121,18 @@ public class RecipeDTO {
 		this.report = report;
 	}
 	
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	@Override
 	public String toString() {
 		return "RecipeDTO [idx=" + idx + ", nickname=" + nickname + ", subject=" + subject + ", content=" + content
