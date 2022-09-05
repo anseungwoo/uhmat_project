@@ -59,6 +59,18 @@ $(document).ready(function(){
 			async : false,
 			success: function(response) {
 // 				var image = $("#recentReview").html(response).find("#list");
+// 				alert("반환 성공!");
+				var result = $(response).find("#list");
+				var image = result.find("img:eq(0)");
+				$("#recentReview img:eq(0)").attr('src',image.prop('src'));
+				alert(image.prop('src'));	//이미지 경로 찾음
+				//반복문으로 고치기!!
+				
+				
+// 				for(var i=0;i<4;i++){
+					
+// 					$("#recentReview img").eq(i).attr('src',image)
+// 				}
 // 				$("#recentReview img").eq(0).attr('src',image.src);
 		   }
 		});
@@ -150,8 +162,8 @@ $(document).ready(function(){
 		<!-- 최신 리뷰 시작 -->
 			<div class="rankReview">
 				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
-					<div id="recentReview">
-						<div id="bestRes">
+					<div>
+						<div id="recentReview">
 						<table>
 							<tr>
 								<td>Helo</td>
