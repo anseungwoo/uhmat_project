@@ -75,10 +75,8 @@
 	
 	<div class="btn">
 		
-				<input type="button" value="댓글" onclick="location.href='RecipeReplyForm.co?idx=${param.idx}&pageNum=${param.pageNum}'">
-		<c:if test="${sessionScope.sNickName == recipe.nickname }">
-			<input type="button" value="수정" onclick="location.href='RecipeModifyForm.co?idx=${recipe.idx}&pageNum=${param.pageNum}'">
-			<input type="button" value="삭제" onclick="location.href='RecipeDeleteForm.co?idx=${recipe.idx}&pageNum=${param.pageNum}&nickname=${recipe.nickname}&file1=${recipe.real_File1 }&file2=${recipe.real_File2 }&file3=${recipe.real_File3 }&file4=${recipe.real_File4 }&file5=${recipe.real_File5 }'">
+		<c:if test="${sessionScope.sNickName == 'admin' }">
+			<input type="button" value="삭제" onclick="location.href='AllBoardDelete.ad?idx=${recipe.idx}&pageNum=${param.pageNum}&title=${param.title}&nickname=${recipe.nickname}&file1=${recipe.real_File1 }&file2=${recipe.real_File2 }&file3=${recipe.real_File3 }&file4=${recipe.real_File4 }&file5=${recipe.real_File5 }'">
 		</c:if>
 		<input type="button" value="목록" onclick="location.href='RecipeList.co?pageNum=${param.pageNum}'">
 	</div>
