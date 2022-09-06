@@ -12,6 +12,7 @@
 </head>
 <body id="resDetailBody">
 <jsp:include page="../../inc/header.jsp"></jsp:include>
+	<section id="all">
     <h2>${resInfo.resName } <small style="font-size: 0.5em">별점 ${resInfo.rating } &nbsp; | &nbsp; <a href="ReviewList.re?resName=${resInfo.resName }">${resInfo.reviewCount }개의 리뷰</a></small></h2>
 	<img src="upload/${resInfo.photo }" width="200">
 	<!-- 식당 정보 출력 -->
@@ -33,7 +34,7 @@
         </section>
         
         <!-- 지도 정보 출력 -->
-        <div id="map" style="width:100%;height:350px;"></div>
+        <div id="map" style="width:100%;height:500px;"></div>
 			<p><!-- 지도가 나오는 위치 --></p> 
 			<div id="clickLatlng">
 			</div>
@@ -63,6 +64,7 @@
 	        <button onclick="location.href='restaurantModifyForm.re?resName=${resInfo.resName}'">글 수정</button>
 	        <button onclick="location.href='restaurantList.re'">글 전체 목록</button>
         </c:if>
+        </section>
         <jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
