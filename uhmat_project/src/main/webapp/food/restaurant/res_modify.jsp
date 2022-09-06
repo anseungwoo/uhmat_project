@@ -140,7 +140,7 @@ table{
 		</script>
 	</c:if>
 	<section id="writeForm">
-		<h2>식당 글 수정 </h2>
+		<h2>식당 글 수정 ${resInfo.rPostcode }${resInfo.address }</h2>
 		<div id="showCategory">
 		</div>
 		<form action="restaurantModifyPro.re" method="post" enctype="multipart/form-data">
