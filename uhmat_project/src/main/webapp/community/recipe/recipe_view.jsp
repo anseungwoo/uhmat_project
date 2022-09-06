@@ -22,7 +22,7 @@
 		<table>
 			<tr>
 <!-- 				아이콘 넣는 곳 -->
-				<td rowspan="2"><img alt="아이콘" src="image/recipe/recipe_default_img.png" width="70px"></td>
+				<td rowspan="2"><img alt="아이콘" src="image/character/${recipe.icon }" width="70px"></td>
 				<td>${recipe.nickname }</td>
 			</tr>
 			<tr>
@@ -87,7 +87,7 @@
 						&nbsp;&nbsp;<i class="material-icons" style="font-size:20px;color:#6C757D;">subdirectory_arrow_right</i>
 					</c:forEach>
 <!-- 					댓글 아이콘 넣는 곳 -->
-					<img alt="아이콘" src="image/recipe/recipe_default_img.png" width="40px"> ${recipeReplyList.nickname } | ${recipeReplyList.date }
+					<img alt="아이콘" src="image/character/${recipeReplyList.icon }" width="40px"> ${recipeReplyList.nickname } | ${recipeReplyList.date }
 				</td>
 			</tr>
 			<tr>

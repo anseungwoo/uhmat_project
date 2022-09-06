@@ -73,7 +73,8 @@ public class MateDTO {
 	@Override
 	public String toString() {
 		return "MateDTO [idx=" + idx + ", nickname=" + nickname + ", subject=" + subject + ", content=" + content
-				+ ", readcount=" + readcount + ", datetime=" + date + "]";
+				+ ", readcount=" + readcount + ", date=" + date + ", category=" + category + ", report=" + report
+				+ ", icon=" + icon + "]";
 	}
 	
 	

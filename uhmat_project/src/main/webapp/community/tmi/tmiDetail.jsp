@@ -25,7 +25,7 @@
 		<table>
 			<tr>
 <!-- 				아이콘 넣는 곳 -->
-				<td rowspan="2"><img alt="아이콘" src="image/recipe/recipe_default_img.png" width="70px"></td>
+				<td rowspan="2"><img alt="아이콘" src="image/character/${tmiBoard.icon }" width="70px"></td>
 				<td>${tmiBoard.nickname }</td>
 			</tr>
 			<tr>
@@ -55,7 +55,7 @@
 					<c:forEach begin="1" end="${tmiReply.re_lev }">
 						<i class="material-icons" style="font-size:20px;color:#6C757D;">subdirectory_arrow_right</i>
 					</c:forEach>
-					<img alt="아이콘" src="image/recipe/recipe_default_img.png" width="40px"> ${tmiReply.nickname } | ${tmiReply.date }
+					<img alt="아이콘" src="image/character/${tmiReply.icon }" width="40px"> ${tmiReply.nickname } | ${tmiReply.date }
 				</td>
 				
 			</tr>
