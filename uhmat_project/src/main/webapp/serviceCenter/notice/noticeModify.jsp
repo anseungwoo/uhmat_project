@@ -59,12 +59,12 @@
 			</div>
 			
 			<div class="form-floating mb-3">	
-				<input type="text" class="form-control" name="subject" id="subject" value="${notice.subject }" required="required" >
+				<input type="text" class="form-control" name="subject" id="subject" value="${notice.subject }" required="required" maxlength="20">
 				<label for ="subject">제목</label>
 			</div>
 			
 			<div class="form-floating mb-3">
-				<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required" >${notice.content }</textarea>
+				<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required" maxlength="2000">${notice.content }</textarea>
 				<label for ="content">내용</label>
 			</div>
 			

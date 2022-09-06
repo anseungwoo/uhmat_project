@@ -33,7 +33,7 @@ public class EventController extends HttpServlet {
 		
 		if(command.equals("/Roulette.ev")) {
 			forward = new ActionForward();
-			forward.setPath("roulette/roulette.jsp");
+			forward.setPath("event/roulette/roulette.jsp");
 			forward.setRedirect(false);
 		}
 		// ------------------------------------------------------------------

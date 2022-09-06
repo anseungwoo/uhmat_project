@@ -150,7 +150,7 @@ $(document).ready(function(){
 		<div class="mainViewContainer">	
 			<div class="rankContainer">
 				<div class = "imgContainer" ><h2>어맛 최다 좋아요 리뷰 <i class="fa-regular fa-heart"></i></h2>
-				<p><div class="moreInformation01" onclick="location.href='ReviewList.re'" style="cursor:pointer;">모두 보기</div></p>
+				<p><button class="moreInformation01" onclick="location.href='ReviewList.re'" style="cursor:pointer;">모두 보기</button></p>
 						<div id="bestReview">
 							<table class="mainReviewTable">
 							<tr>

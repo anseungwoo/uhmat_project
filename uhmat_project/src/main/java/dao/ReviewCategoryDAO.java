@@ -70,7 +70,7 @@ public class ReviewCategoryDAO {
 		 ****************************************/
 
 			try {
-				sql = "SELECT * FROM reviewboard "
+				sql = "SELECT * FROM reviewboard JOIN member on reviewboard.nickname = member.nickname "
 							+ "ORDER BY idx DESC "
 							+ "LIMIT ?, ?";
 				
@@ -96,6 +96,7 @@ public class ReviewCategoryDAO {
 					dto.setLikes(rs.getInt("likes"));
 					dto.setRating(rs.getFloat("rating"));
 					dto.setDate(rs.getDate("date"));
+					dto.setIcon(rs.getString("icon"));
 					
 						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 						pstmt2  = con.prepareStatement(sql2);
