@@ -212,7 +212,7 @@
 			<br> <input class="w-btn-outline w-btn-green-outline"
 				type="submit" value="변경하기">
 		</form>
-		<br> <a href="MemberFindPasswordForm.me">비밀번호 찾기</a>
+		<br> <a href="MemberFindPasswordForm.me"><button class="w-btn-outline w-btn-green-outline">비밀번호 찾기</button></a>
 
 	</div>
 	<!-- 푸터 들어가는곳 -->

@@ -296,7 +296,8 @@ function attachSignin(element) {
 			</form>
 
 			<div style="text-align:center;">
-			<a href="MemberFindPasswordForm.me" >비밀번호 찾기</a>
+			 <br>
+			 <a href="MemberFindPasswordForm.me" ><button class="w-btn-outline w-btn-green-outline"> 비밀번호 찾기 </button></a>
 			</div>
 		</div>
 	</div>
