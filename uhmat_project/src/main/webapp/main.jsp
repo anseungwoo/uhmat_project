@@ -47,7 +47,7 @@ $(document).ready(function(){
 			dataType: "text",
 			async : false,
 			success: function(response) {
-// 					var content = $("#bestReview").html(response).find("#list");
+// 					var co ntent = $("#bestReview").html(response).find("#list");
 // 					$("#bestReview").html(content);
 				var result = $(response).find("#list");
 				var title = $(response).find("#subject").eq(0);
@@ -88,7 +88,7 @@ $(document).ready(function(){
    	   
    	$.ajax({
 			type: "post",
-			url: "restaurantList.re",	//식당을 가져오는 요청
+			url: "restaurantList.re",	//식당 정보를 가져오는 요청
 			data: {
 				bestRes : true
 			},
@@ -97,17 +97,21 @@ $(document).ready(function(){
 			success: function(response) {
 //				alert($(response).find("#repeat").html());
 			var table = $(response).find("#repeat");
-			var td = table.find("td:eq(0)");
-			var td2 = table.find("tr:eq(0) td:eq(3) img").prop('src');
+			var td = table.find("tr.append > td:eq(1)").text();
+			var td2 = table.find("tr:eq(0) td:eq(4) img").prop('src');
 // 			var inputTd = $("#bestRes td:eq(0)").text();
-			$("#bestRes td").eq(0).text(td.text());
-			$("#bestRes img").eq(0).attr('src',td2);
+// 			alert(td);
+// 			alert(td2);
+// 			$("#bestRes td").eq(0).text(td.text());
+// 			$("#bestRes img").eq(0).attr('src',td2);
 			
 			for(var i=0;i<4;i++){
-				var td = table.find("tr:eq("+i+") td:eq(0)");
-				var td2 = table.find("tr:eq("+i+") td:eq(3) img").prop('src');
-				$("#bestRes td").eq(i).text(td.text());
-				$("#bestRes img").eq(i).attr('src',td2);
+				var td = table.find("tr:eq("+i+").append > td:eq(1)").text();
+				var td2 = table.find("tr:eq("+i+") td:eq(4) img").prop('src');
+// 				alert(td);
+// 				alert(td2);
+				$("#bestRes tr:eq(0) td:eq("+i+")").text(td);
+				$("#bestRes img:eq("+i+")").attr('src',td2);
 			}
 				
 		   }
@@ -205,10 +209,10 @@ $(document).ready(function(){
 					<div id="bestRes">
 						<table class="mainReviewTable">
 							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>gdgd</td>
+								<td>das</td>
+								<td>abc</td>
+								<td>def</td>
 							</tr>
 							<tr>
 								<td><img src="#" width="300" height="200"></td>
