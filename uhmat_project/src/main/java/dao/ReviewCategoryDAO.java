@@ -904,7 +904,7 @@ public class ReviewCategoryDAO {
 			int startRow = (pageNum  - 1) * listLimit;
 
 				try {
-					sql = "SELECT * FROM reviewboard "
+					sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname=member.nickname"
 								+ "ORDER BY likes DESC "
 								+ "LIMIT ?, ?";
 					
@@ -928,6 +928,7 @@ public class ReviewCategoryDAO {
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
 						dto.setDate(rs.getDate("date"));
+						dto.setIcon(rs.getString("icon"));
 							String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 							pstmt2  = con.prepareStatement(sql2);
 							pstmt2.setInt(1, dto.getIdx());
@@ -974,7 +975,7 @@ public class ReviewCategoryDAO {
 			 ****************************************/
 				
 				try {
-					String sql = "SELECT * FROM reviewboard WHERE subject LIKE ?";
+					String sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname = member.nickname WHERE subject LIKE ?";
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, "%" + search + "%");
 					
@@ -996,6 +997,7 @@ public class ReviewCategoryDAO {
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
 						dto.setDate(rs.getDate("date"));
+						dto.setIcon(rs.getString("icon"));
 						
 						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 						pstmt2  = con.prepareStatement(sql2);
@@ -1043,7 +1045,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 			 ****************************************/
 				
 				try {
-					String sql = "SELECT * FROM reviewboard ORDER BY likes DESC";
+					String sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname = member.nickname ORDER BY likes DESC";
 					pstmt = con.prepareStatement(sql);
 					
 					rs = pstmt.executeQuery();
@@ -1064,6 +1066,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
 						dto.setDate(rs.getDate("date"));
+						dto.setIcon(rs.getString("icon"));
 						
 						String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 						pstmt2  = con.prepareStatement(sql2);
@@ -1135,7 +1138,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 			int startRow = (pageNum  - 1) * listLimit;
 
 				try {
-					sql = "SELECT * FROM reviewboard "
+					sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname = member.nickname"
 								+ "ORDER BY date DESC "
 								+ "LIMIT ?, ?";
 					
@@ -1159,6 +1162,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 						dto.setLikes(rs.getInt("likes"));
 						dto.setRating(rs.getFloat("rating"));
 						dto.setDate(rs.getDate("date"));
+						dto.setIcon(rs.getString("icon"));
 							String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 							pstmt2  = con.prepareStatement(sql2);
 							pstmt2.setInt(1, dto.getIdx());
