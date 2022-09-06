@@ -114,7 +114,7 @@ window.onload = function(){
 		         });
 				function makeOverListener(map, marker, infowindow,resName) {
 				    return function() {
-				    	alert(resName);
+// 				    	alert(resName);
 				    	 $.ajax({
 					   			type: "post",
 					   			url: "ReviewList.re",	//리뷰를 좋아요 순으로 가져오는 요청
@@ -199,7 +199,7 @@ window.onload = function(){
 	
 	</div>
 	<div class="right">
-	<div id="map" style="width: 100%; height: 800px;"></div>
+	<div id="map" style="width: 100%; height: 1000px;"></div>
 	
 	</div>
 	</div>
@@ -317,7 +317,7 @@ $("#keywordSelect").on("click", function() {
 		         });
 				function makeOverListener(map, marker, infowindow,resName) {
 				    return function() {
-				    	alert(resName);
+// 				    	alert(resName);
 				    	 $.ajax({
 					   			type: "post",
 					   			url: "ReviewList.re",	//리뷰를 좋아요 순으로 가져오는 요청
@@ -371,7 +371,9 @@ $("#keywordSelect").on("click", function() {
 	
 // 	});
 });
+
 </script>
+<jsp:include page="../../inc/footer.jsp"></jsp:include>
 </body>
 </html>
 

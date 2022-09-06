@@ -66,7 +66,7 @@
 		$(".append").on("click",function(){
 // 			alert($(this).closest("tr").html());
 			var currentTr = $(this).closest("tr");
-			var insertValue = currentTr.find("td:eq(0)").html();
+			var insertValue = currentTr.find("td:eq(1)").html();
 // 			alert($(".append").eq(index));
 // 			alert( $(".append").eq(index).find("td:eq(0)").html());
 			var index = $(".append").index(this);

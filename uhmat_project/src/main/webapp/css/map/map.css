@@ -114,18 +114,18 @@
 	padding: 0;
 	width: 99%;
 	display: flex;
-
+	height:1000px;
 }
 
 .flex-container>.left {
-	height: 800px;
+	height: 1000px;
 	overflow: scroll;
 	width: 25%;
 	text-align: left;
 
 }
 .flex-container>.right {
-	height: 800px;
+	height: 1000px;
 	width: 80%;
 	text-align: left;
 }
@@ -210,8 +210,9 @@ body {
 
 /*reviewList의 영역을 조절*/
 #list img{
-	width: 50px;
+	width: 80px;
 	height: 50px;
+	float: left;
 }
 
 #tdName .tdName,#cnt,#nickname{
@@ -220,12 +221,12 @@ body {
 #list .star-rating{
 	display: initial;
 }
-#heart{
+#tdName span{
 	color: red;
 }
 #tdName{
 	display: inline;
 }
 .star-rating {width:205px; }
-	.star-rating,.star-rating span {display:inline-block; height:39px; overflow:hidden; background:url(image/star3.png) no-repeat; }
-	.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
+.star-rating,.star-rating span {display:inline-block; height:39px; overflow:hidden; background:url(/uhmat_project/image/star3.png)no-repeat; }
+.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
