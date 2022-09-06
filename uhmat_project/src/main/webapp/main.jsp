@@ -78,7 +78,9 @@ $(document).ready(function(){
 				
 				for(var i=0;i<4;i++){
 					var image = result.find("img:eq("+i+")");
+					var title = $(response).find("#subject").eq(i);
 					$("#recentReview img:eq("+i+")").attr('src',image.prop('src'));	
+					$("#recentReview tr:eq(0) td:eq("+i+")").html(title);
 				}
 		   }
 		});
