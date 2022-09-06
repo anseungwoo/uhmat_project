@@ -904,7 +904,7 @@ public class ReviewCategoryDAO {
 			int startRow = (pageNum  - 1) * listLimit;
 
 				try {
-					sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname=member.nickname"
+					sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname=member.nickname "
 								+ "ORDER BY likes DESC "
 								+ "LIMIT ?, ?";
 					
@@ -1127,7 +1127,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 			return listCount;
 		}
 		public ArrayList<ReviewBoardDTO> selectRecentReview(int pageNum, int listLimit, String targetTag) {
-			System.out.println("selectReviewBestLikeBoardList()");
+			System.out.println("selectRecentReview()");
 			ArrayList<ReviewBoardDTO> reviewList = null;
 			
 			String sql = "";
@@ -1138,7 +1138,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 			int startRow = (pageNum  - 1) * listLimit;
 
 				try {
-					sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname = member.nickname"
+					sql = "SELECT * FROM reviewboard JOIN member ON reviewboard.nickname = member.nickname "
 								+ "ORDER BY date DESC "
 								+ "LIMIT ?, ?";
 					
@@ -1188,6 +1188,7 @@ ArrayList<ReviewBoardDTO> reviewList = null;
 					System.out.println("SQL 구문작성오류 - selectReviewList()");
 				} finally {
 					close(rs);
+					close(rs2);
 					close(pstmt);
 				}
 			return reviewList;
