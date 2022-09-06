@@ -103,7 +103,7 @@
 			<section id="son">
 				<!--  샘플이미지 -->
 				<section id="imgBox">
-					<p><img id="sample" src ="upload/${dto.photo }" alt="default" ></p>
+					<p><img id="sample" src ="image/character/${dto.icon }" alt="default" ></p>
 					<p class="name">작성자 : ${dto.nickname }</p>
 <%-- 					<p class="name">작성일 : ${dto.date }</p> --%>
 				</section>

@@ -19,12 +19,11 @@
 	<!-- 		헤더 들어가는 곳 -->
 		<jsp:include page="../../inc/header.jsp"/>
 	<!-- 		헤더 들어가는 곳 -->
-	
 	<div class="view">
 		<table>
 			<tr>
 <!-- 				아이콘 넣는 곳 -->
-				<td rowspan="2"><img alt="아이콘" src="image/recipe/recipe_default_img.png" width="70px"></td>
+				<td rowspan="2"><img alt="아이콘" src="image/character/${mate.icon}" width="70px"></td>
 				<td>${mate.nickname }</td>
 			</tr>
 			<tr>
@@ -56,7 +55,7 @@
 					<c:forEach begin="1" end="${mateReplyList.re_lev }">
 						&nbsp;&nbsp;<i class="material-icons" style="font-size:20px;color:#6C757D;">subdirectory_arrow_right</i>
 					</c:forEach>
-					<img alt="아이콘" src="image/recipe/recipe_default_img.png" width="40px"> ${mateReplyList.nickname } | ${mateReplyList.date }
+					<img alt="아이콘" src="image/character/${mateReplyList.icon }" width="40px"> ${mateReplyList.nickname } | ${mateReplyList.date }
 				</td>
 				
 			</tr>
