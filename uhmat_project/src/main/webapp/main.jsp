@@ -50,7 +50,7 @@ $(document).ready(function(){
 // 					$("#bestReview").html(content);
 				var result = $(response).find("#list");
 				var title = $(response).find("#subject").eq(0);
-				alert(title.text());
+// 				alert(title.text());
 				var image = result.find("img:eq(0)");
 				$("#bestReview img:eq(0)").attr('src',image.prop('src'));
 				

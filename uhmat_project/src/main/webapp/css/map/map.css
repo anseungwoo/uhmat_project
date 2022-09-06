@@ -15,10 +15,6 @@
 	line-height: 1.5;
 }
 
-.title{
-/* 	height: 200px; */
-/* 	background-color: red; */
-}
 .wrap * {
 	padding: 0;
 	margin: 0;
@@ -226,6 +222,9 @@ body {
 }
 #heart{
 	color: red;
+}
+#tdName{
+	display: inline;
 }
 .star-rating {width:205px; }
 	.star-rating,.star-rating span {display:inline-block; height:39px; overflow:hidden; background:url(image/star3.png)no-repeat; }
