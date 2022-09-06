@@ -88,6 +88,7 @@
 			<div class="dv"><span class="lv">음식점 찾기</span>
 			<input type="text" placeholder="음식점을 검색하세요" id="keyword" name="keyword" size="15"> 
 			<input class="btn" type="button" value="검색" id="keywordSelect">
+			<input type="button" value="카테고리별로 보기" onclick="location.href='resCategory.re'" class="btn">
 			</div>
 		</section>
 		
