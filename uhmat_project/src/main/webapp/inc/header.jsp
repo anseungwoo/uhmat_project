@@ -96,10 +96,10 @@
   	  	<!-- 이벤트 게시판 주소 추가하시면 됩니다 -->
   	  	<li>
   	  	<div class="dropdown">
-    		<a href="./event/NewFile.jsp">이벤트</a>
+    		<a href="Roulette.ev">이벤트</a>
     			<div class="dropdownContent">
 				<ul>
-					<li><div onclick="" style="cursor:pointer;">어맛 룰렛</div></li>
+					<li><div onclick="location.href='Roulette.ev'" style="cursor:pointer;">어맛 룰렛</div></li>
 				</ul>	
 				</div>
   	  	</div>
