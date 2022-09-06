@@ -72,15 +72,15 @@
 
 		});
 
-		$("#nickName")
+		$("#newNickName")
 				.on(
 						"keyup",
 						function() {
 
 							var regex = /^[가-힣a-zA-Z][가-힣a-zA-Z0-9!@#$%()]{4,10}$/;
 
-							if (!regex.exec($("#nickName").val())
-									|| $("#nickName").val() == null) { // 부적합한 아이디일 경우
+							if (!regex.exec($("#newNickName").val())
+									|| $("#newNickName").val() == null) { // 부적합한 아이디일 경우
 
 								$("#checkNickNameResult")
 										.html(
@@ -94,7 +94,7 @@
 											type : "post",
 											url : "http://localhost:8080/uhmat_project/CheckDuplicateNickName.me",
 											data : {
-												nickName : $("#nickName").val(),
+												nickName : $("#newNickName").val(),
 											},
 											dataType : "text",
 											success : function(data) {
@@ -107,12 +107,16 @@
 																	"GREEN");
 													nicknameFlag = true
 												} else {
+													if($("#newNickName").val() ==$('#nickName').val()){
+														nicknameFlag=true;
+													}else{
 													$('#checkNickNameResult')
 															.text(
 																	'이미 사용 중인 닉네임입니다.');
 													$("#checkNickNameResult")
 															.css("color", "RED");
 													nicknameFlag = false
+												}
 												}
 											},
 											error : function(data, textStatus) {
@@ -206,12 +210,12 @@
 		$("#prev").click(function() {
 			i--;
 			$("#imgSlide").attr("src", imgList[i]);
-			selectjpg = i + "-1.jpg";
+			selectjpg = (i+1) + "-1.jpg";
 			$("#icon").val(selectjpg);
 			if (i < 0) {
 				i = imgList.length - 1;
 				$("#imgSlide").attr("src", imgList[i]);
-				selectjpg = i + "-1.jpg";
+				selectjpg = (i+1) + "-1.jpg";
 				$("#icon").val(selectjpg);
 			}
 
@@ -220,12 +224,12 @@
 		$("#next").click(function() {
 			i++;
 			$("#imgSlide").attr("src", imgList[i]);
-			selectjpg = i + "-1.jpg";
+			selectjpg = (i+1) + "-1.jpg";
 			$("#icon").val(selectjpg);
 			if (i >= imgList.length) {
 				i = 0;
 				$("#imgSlide").attr("src", imgList[i]);
-				selectjpg = i + "-1.jpg";
+				selectjpg = (i+1)+ "-1.jpg";
 				$("#icon").val(selectjpg);
 			}
 

@@ -81,6 +81,12 @@
 	});
 </script>
 
+<style type="text/css">
+   .form-control {
+      font-family: 'lato';
+   }
+</style>
+
 </head>
 <body>
 

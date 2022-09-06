@@ -13,8 +13,9 @@
 	<link href="css/styles.css" rel="stylesheet" />
 	
 <style type="text/css">
-
-	
+	.form-control {
+		font-family: 'lato';
+	}
 </style>
 
 </head>
@@ -60,7 +61,7 @@
 					</div>
 					
 					<div class="form-floating mb-3">
-							<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required" >${tmiBoard.content }</textarea>
+							<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required" maxlength="1000">${tmiBoard.content }</textarea>
 							<label for ="content">내용</label>
 					</div>
 					

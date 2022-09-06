@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +12,11 @@
 
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
-<style type="text/css">
-
 	
+<style type="text/css">
+	.form-control {
+		font-family: 'lato';
+	}
 </style>
 </head>
 <body>
@@ -44,6 +47,16 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
+                        
+                        <!-- 로그인시 댓글 작성 -->  
+						<c:if test="${sessionScope.sNickName eq null }">
+							<script type="text/javascript">
+							alert("로그인을 해주세요 :)");
+							history.back();
+							</script>
+						</c:if>
+						<!-- 로그인시 댓글 작성 -->
+                        
                         <form action="TmiWritePro.co" name=tmiBoardForm method="POST" >
                             <!-- 닉네임 -->
                             <div class="form-floating mb-3">
@@ -53,13 +66,13 @@
                             
                             <!-- 제목 -->
                             <div class="form-floating mb-3">
-                                <input class="form-control" type="text" name="subject" id="subject" placeholder="제목을 입력해주세요!">
+                                <input class="form-control" type="text" name="subject" id="subject" placeholder="제목을 입력해주세요!" maxlength="50">
                                 <label for="subject">제목</label>
                             </div>
                             
                             <!-- 내용-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" name="content" id="content"  placeholder="내용을 입력해주세요 !" style="height: 10rem"></textarea>
+                                <textarea class="form-control" name="content" id="content"  placeholder="내용을 입력해주세요 !" style="height: 10rem" maxlength="1000"></textarea>
                                 <label for="content">내용</label>
                             </div>
                             

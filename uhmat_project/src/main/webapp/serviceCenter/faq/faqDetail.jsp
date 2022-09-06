@@ -87,7 +87,7 @@
 				     	<td>답변 : </td><td> ${reply.answer }</td>
 				    </tr>
 		     	 </c:if>
-			     <c:if test="${ not empty reply }">
+			     <c:if test="${ not empty reply and sessionScope.sNickName eq 'admin' }">
 			     	<tr>
 				     	<td><input type="button" value="삭제" onclick="location.href='FAQDetailReplyDelete.sc?idx=${faq.idx}&pageNum=${param.pageNum}'"></td>
 			     	</tr>

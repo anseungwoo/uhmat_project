@@ -19,11 +19,12 @@
 	<!-- 		헤더 들어가는 곳 -->
 		<jsp:include page="../../inc/header.jsp"/>
 	<!-- 		헤더 들어가는 곳 -->
+	
 	<div class="view">
 		<table>
 			<tr>
 <!-- 				아이콘 넣는 곳 -->
-				<td rowspan="2"><img alt="아이콘" src="image/character/${mate.icon}" width="70px"></td>
+				<td rowspan="2"><img alt="아이콘" src="image/character/${mate.icon }" width="70px"></td>
 				<td>${mate.nickname }</td>
 			</tr>
 			<tr>
@@ -63,8 +64,8 @@
 				<td width="500" class="reply"> ${mateReplyList.content } </td>
 				<td class="btn"><input type="button" value="답글" onclick="location.href='MateRereplyForm.co?idx=${param.idx}&pageNum=${param.pageNum}&reply_idx=${mateReplyList.idx} '"></td>
 				<c:if test="${sessionScope.sNickName == mateReplyList.nickname }">
-					<td class="btn"><input type="button" value="댓글삭제" onclick="location.href='MateReplyDeleteForm.co?idx=${mate.idx}&pageNum=${param.pageNum}&reply_idx=${mateReplyList.idx}&nickname=${mateReplyList.nickname}'"> </td>
 					<td class="btn"><input type="button" value="댓글수정" onclick="location.href='MateReplyModifyForm.co?idx=${mate.idx}&pageNum=${param.pageNum}&reply_idx=${mateReplyList.idx}&nickname=${mateReplyList.nickname}'"></td>
+					<td class="btn"><input type="button" value="댓글삭제" onclick="location.href='MateReplyDeleteForm.co?idx=${mate.idx}&pageNum=${param.pageNum}&reply_idx=${mateReplyList.idx}&nickname=${mateReplyList.nickname}'"> </td>
 				</c:if>
 			</tr>
 		</c:forEach>

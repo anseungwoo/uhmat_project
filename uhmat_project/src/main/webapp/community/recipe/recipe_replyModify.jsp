@@ -8,6 +8,11 @@
 
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
+	<style type="text/css">
+   .form-control {
+      font-family: 'lato';
+   }
+</style>
 </head>
 <body>
 	<!-- 헤더 들어가는 곳 -->

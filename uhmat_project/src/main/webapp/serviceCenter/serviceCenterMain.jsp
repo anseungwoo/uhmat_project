@@ -44,12 +44,13 @@
 
 	<article id="front" style="margin-left: 23%;">
 		<section>
-			<form method="post" action="FAQList.sc">
-				 <div class="search-box">
-				      <div class="search">
-						  <input type="text" name="keyword" placeholder="검색어 입력">
-						  <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-						</div>
+			<section id="search" style="margin-left: 30%;">
+				<form method="post" action="FAQList.sc" >
+		 		<div class="search-box">
+                  <input type="text" class="search-txt" name="keyword" placeholder="검색어를 입력하세요">
+                 	 <a class="search-btn" onclick="location.href='FAQList.sc'">
+                     <i class="fas fa-search"></i>
+                    </a>
 			    </div>
 			   </form>
 			</section>

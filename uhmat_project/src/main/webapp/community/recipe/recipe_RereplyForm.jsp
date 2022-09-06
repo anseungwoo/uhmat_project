@@ -6,9 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<!-- Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
+	<style type="text/css">
+		.form-control {
+			font-family: 'lato';
+		}
+	</style>
+
 </head>
 <body>
 	
@@ -58,12 +67,13 @@
 			</div>
 			
 			<div class="form-floating mb-3">
-				<textarea class="form-control" rows="10" cols="70" placeholder="댓글을 작성하세요" name="content" style="height: 10rem"></textarea>
+				<textarea class="form-control" rows="10" cols="70" placeholder="댓글을 작성하세요" name="content" style="height: 10rem" maxlength="1000"></textarea>
 				<label for="message">내용</label>
 			</div>
 			
 			<div align="right">
 				<input type="submit" value="댓글 전송" class="btn btn-secondary">
+				<input type="button" class="btn btn-secondary" value="취소" onclick="history.back()">
 			</div>
 		</form>
 		</div>

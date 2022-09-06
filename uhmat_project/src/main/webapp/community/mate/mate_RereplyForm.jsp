@@ -12,6 +12,11 @@
 	
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
+	<style type="text/css">
+   .form-control {
+      font-family: 'lato';
+   }
+</style>
 </head>
 <body>
 	
@@ -23,7 +28,7 @@
         <section class="page-section" id="contact">
             <div class="container" align="center">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">MATE 대댓글 쓰기</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">MATE 답글 쓰기</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -61,12 +66,13 @@
 			</div>
 			
 			<div class="form-floating mb-3">
-				<textarea class="form-control" rows="10" cols="70" placeholder="댓글을 작성하세요" name="content" style="height: 10rem"></textarea>
+				<textarea class="form-control" rows="10" cols="70" placeholder="댓글을 작성하세요" name="content" style="height: 10rem" maxlength="1000"></textarea>
 				<label for="message">내용</label>
 			</div>
 			
 			<div align="right">
 				<input type="submit" value="댓글 전송" class="btn btn-secondary">
+				<input type="button" class="btn btn-secondary" value="취소" onclick="history.back()">
 			</div>
 		</form>
 		</div>

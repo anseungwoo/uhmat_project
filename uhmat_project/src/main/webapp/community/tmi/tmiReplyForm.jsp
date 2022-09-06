@@ -12,6 +12,12 @@
 
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
+	
+	<style type="text/css">
+	.form-control {
+		font-family: 'lato';
+	}
+</style>
 </head>
 <body>
 	<!-- 헤더 들어가는 곳 -->
@@ -61,7 +67,7 @@
 			</div>
 			
 			<div class="form-floating mb-3">
-				<textarea class="form-control" rows="10" cols="70" placeholder="댓글을 작성하세요" name="content" style="height: 10rem"></textarea>
+				<textarea class="form-control" rows="10" cols="70" placeholder="댓글을 작성하세요" name="content" style="height: 10rem" maxlength="1000"></textarea>
 				<label for="message">내용</label>
 			</div>
 			

@@ -11,6 +11,11 @@
 
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
+	<style type="text/css">
+   	  .form-control {
+      font-family: 'lato';
+   }
+</style>
 </head>
 <body>
 	<!-- 헤더 들어가는 곳 -->
@@ -56,9 +61,9 @@
 				
 			
 			<div align="right">
-				<input type="submit" value="수정" class="btn btn-primary">&nbsp;&nbsp;
-				<input type="reset" value="다시쓰기" class="btn btn-primary">&nbsp;&nbsp;
-				<input type="button" value="취소" onclick="history.back()" class="btn btn-primary">
+				<input type="submit" value="수정" class="btn btn-secondary">&nbsp;&nbsp;
+				<input type="reset" value="다시쓰기" class="btn btn-secondary">&nbsp;&nbsp;
+				<input type="button" value="취소" onclick="history.back()" class="btn btn-secondary">
 			</div>
 			
 	</form>

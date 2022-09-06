@@ -126,15 +126,21 @@
 				<p><img id="img" src="upload/${dto.photo }" alt="파일"></p>
 				<p ><textarea id="cnt" rows="20" cols="100">${dto.content }</textarea></p>
 				<p>
-				<button id="likeBtn" onclick="likeAdd(this)" >❤</button>&nbsp;<span id="heart">${dto.likes }</span>
-				<button id="msgBtn" onclick="location.href='ReviewReplyList.re?idx=${dto.idx}&nickname=${dto.nickname }&pageNum=${param.pageNum}'">💬</button>
-				<button id="shrBtn" >🔗</button>
+				<c:choose>
+					<c:when test="${empty sessionScope.sNickName }">
+						<button id="likeBtn">❤</button>&nbsp;<span id="heart">${dto.likes }</span>
+					</c:when>
+					<c:otherwise>
+						<button id="likeBtn" onclick="likeAdd(this)" >❤</button>&nbsp;<span id="heart">${dto.likes }</span>
+						<button id="msgBtn" onclick="location.href='ReviewReplyList.re?idx=${dto.idx}&nickname=${dto.nickname }&pageNum=${pageNum}'">💬</button>
+					</c:otherwise>				
+				</c:choose>
 				</p>
 				<p>
 				<c:choose>
 					<c:when test="${not empty replyList }">
 						<c:forEach var="reply" items="${replyList}">
-						<p>${reply.nickname }  ${reply.content }</p>
+						<p>${reply.nickname }:  ${reply.content }</p>
 					</c:forEach>
 					</c:when>
 				</c:choose>

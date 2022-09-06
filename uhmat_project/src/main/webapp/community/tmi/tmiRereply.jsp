@@ -13,7 +13,9 @@
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="css/styles.css" rel="stylesheet" />
 <style type="text/css">
-	
+	.form-control {
+		font-family: 'lato';
+	}
 </style>
 </head>
 <body>
@@ -62,13 +64,9 @@
 					<input class="form-control" type="text" name="nickname" id="nickname" value="${sessionScope.sNickName }" readonly="readonly" />
 					<label for="nickname">어맛인</label>
 				</div>
-				
+			
 				<div class="form-floating mb-3">
-					<input class="form-control" type="text" name="cotent" value="Re:${tmiRereply.content }" required="required" />
-					<label for="content">댓글 내용</label>
-				</div>
-				<div class="form-floating mb-3">
-					<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required"></textarea>
+					<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required" maxlength="1000"></textarea>
 					<label for="content">내용</label>
 					
 				</div>

@@ -65,7 +65,7 @@
  				 </div>
  				 
  				 <div class="form-floating mb-3">
-				    <input class="form-control" type="file" name="file" id="file" placeholder="제목을 입력해주세요!" required="required" >
+				    <input class="form-control" type="file" name="file" id="file" placeholder="제목을 입력해주세요!" >
 				    <label for="file">파일첨부</label>
 				</div>
 				
