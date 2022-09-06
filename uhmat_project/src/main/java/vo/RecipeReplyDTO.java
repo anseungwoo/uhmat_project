@@ -11,6 +11,7 @@ public class RecipeReplyDTO {
 	private int re_seq;
 	private Timestamp date;
 	private int board_idx;
+	private String icon;
 	
 	public int getIdx() {
 		return idx;

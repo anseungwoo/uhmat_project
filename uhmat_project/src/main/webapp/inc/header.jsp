@@ -99,7 +99,7 @@
     		<a href="./event/NewFile.jsp">이벤트</a>
     			<div class="dropdownContent">
 				<ul>
-					<li><a href="#">어맛룰렛</a></li>
+					<li><a href="Roulette.ev">어맛룰렛</a></li>
 				</ul>	
 				</div>
   	  	</div>

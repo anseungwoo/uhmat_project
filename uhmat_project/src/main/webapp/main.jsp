@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link href="css/main.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-3.6.0.js"></script>
+<script src="https://kit.fontawesome.com/5382a0d7e0.js" crossorigin="anonymous"></script>
 <!-- <link href="css/header.css" rel="stylesheet" type="text/css"> -->
 <!-- <link href="css/footer.css" rel="stylesheet" type="text/css"> -->
 <script type="text/javascript">
@@ -148,12 +149,13 @@ $(document).ready(function(){
 		<!-- 최고의 리뷰 순위 시작 -->
 		<div class="mainViewContainer">	
 			<div class="rankContainer">
-				<div class = "imgContainer" ><h2>최다 좋아요 리뷰</h2>
+				<div class = "imgContainer" ><h2>어맛 최다 좋아요 리뷰 <i class="fa-regular fa-heart"></i></h2>
+				<p><div class="moreInformation01" onclick="location.href='ReviewList.re'" style="cursor:pointer;">모두 보기</div></p>
 						<div id="bestReview">
-							<table>
+							<table class="mainReviewTable">
 							<tr>
-								<td>empty</td>
-								<td>Hello</td>
+								<td></td>
+								<td></td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -171,12 +173,13 @@ $(document).ready(function(){
 		<div class="clear"></div>
 		<!-- 최신 리뷰 시작 -->
 			<div class="rankReview">
-				<div class = "imgContainer"><h2>어맛 최신 리뷰</h2>
+				<div class = "imgContainer"><h2>어맛 최신 리뷰 <i class="fa-regular fa-clock"></i></h2>
+				<p><div class="moreInformation02" onclick="location.href='ReviewList.re'" style="cursor:pointer;">모두 보기</div></p>
 					<div>
 						<div id="recentReview">
-						<table>
+						<table class="mainReviewTable">
 							<tr>
-								<td>Helo</td>
+								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -196,10 +199,11 @@ $(document).ready(function(){
 		
 		<!-- 어맛 추천 리뷰 시작 -->
 			<div class="rankReview" id="bestRes">
-				<div class = "imgContainer"><h2>어맛 추천 식당</h2>
+				<div class = "imgContainer"><h2>어맛 추천 식당 <i class="fa-regular fa-thumbs-up"></i></h2>
+				<p><div class="moreInformation03" onclick="location.href='restaurantList.re'" style="cursor:pointer;">모두 보기</div></p>
 					<!-- 별점, 댓글의 개수 순으로 내림차순 정렬된 식당의 값 -->
 					<div id="bestRes">
-						<table>
+						<table class="mainReviewTable">
 							<tr>
 								<td></td>
 								<td></td>
