@@ -48,6 +48,18 @@ $(document).ready(function(){
 			success: function(response) {
 // 					var content = $("#bestReview").html(response).find("#list");
 // 					$("#bestReview").html(content);
+				var result = $(response).find("#list");
+				var title = $(response).find("#subject").eq(0);
+				alert(title.text());
+				var image = result.find("img:eq(0)");
+				$("#bestReview img:eq(0)").attr('src',image.prop('src'));
+				
+				for(var i=0;i<4;i++){
+					var image = result.find("img:eq("+i+")");
+					var title = $(response).find("#subject").eq(i);
+					$("#bestReview img:eq("+i+")").attr('src',image.prop('src'));
+					$("#bestReview tr:eq(0) td:eq("+i+")").html(title);
+				}
 		   }
 		});
    	   
@@ -63,15 +75,11 @@ $(document).ready(function(){
 				var result = $(response).find("#list");
 				var image = result.find("img:eq(0)");
 				$("#recentReview img:eq(0)").attr('src',image.prop('src'));
-				alert(image.prop('src'));	//이미지 경로 찾음
-				//반복문으로 고치기!!
 				
-				
-// 				for(var i=0;i<4;i++){
-					
-// 					$("#recentReview img").eq(i).attr('src',image)
-// 				}
-// 				$("#recentReview img").eq(0).attr('src',image.src);
+				for(var i=0;i<4;i++){
+					var image = result.find("img:eq("+i+")");
+					$("#recentReview img:eq("+i+")").attr('src',image.prop('src'));	
+				}
 		   }
 		});
    	   
@@ -194,8 +202,10 @@ $(document).ready(function(){
 								<td></td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 							<tr>
+								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
 								<td><img src="#" width="300" height="200"></td>
