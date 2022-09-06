@@ -444,7 +444,7 @@ public class MemberDAO {
 			
 			while(rs.next()) {
 				System.out.println("rs.next()");
-				sql = "SELECT (COUNT(m.subject) + COUNT(t.subject) + COUNT(r.subject)) AS NUM FROM member me INNER JOIN community_mate m ON me.nickname = m.nickname  INNER JOIN community_tmi t ON m.nickname = t.nickname  INNER JOIN reviewboard r ON t.nickname = r.nickname WHERE r.nickname = ?";
+				sql = "SELECT ((select Count(subject) from community_mate as m where m.nickname=ma.nickname)+(select Count(subject) from community_tmi as t where t.nickname=ma.nickname)+(select Count(subject) from community_recipe as r where r.nickname=ma.nickname)+(select Count(subject) from reviewboard as v where v.nickname=ma.nickname)+(select Count(subject) from faqboard as f where f.nickname=ma.nickname)+(select Count(subject) from noticeboard as n where n.nickname=ma.nickname)) as NUM FROM member as ma WHERE ma.nickname =?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, rs.getString("nickname"));
 				rs2 = pstmt.executeQuery();
