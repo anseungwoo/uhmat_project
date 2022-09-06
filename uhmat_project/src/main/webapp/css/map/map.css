@@ -114,11 +114,11 @@
 	padding: 0;
 	width: 99%;
 	display: flex;
-	height:1000px;
+	height:800px;
 }
 
 .flex-container>.left {
-	height: 1000px;
+	height: 800px;
 	overflow: scroll;
 	width: 25%;
 	text-align: left;
@@ -131,7 +131,6 @@
 }
 /*헤더 */
 .mainLogo > a > img {
-	float: left;
 	max-width: 600px;
 	max-height:90px;
 	width: auto;

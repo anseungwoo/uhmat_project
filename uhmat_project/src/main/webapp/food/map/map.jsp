@@ -168,7 +168,7 @@ window.onload = function(){
 				<a href="MemberDetailForm.me?nickName=${sessionScope.sNickName }">${sessionScope.sNickName }
 					님 </a>&nbsp; <a href="MemberLogout.me">로그아웃</a>
 				<c:if test="${sessionScope.sNickName eq 'admin'}"> &nbsp; <a
-						href="AdminMain.me">관리자페이지</a>
+						href="AdminMain.ad">관리자페이지</a>
 				</c:if>
 			</c:otherwise>
 		</c:choose>
@@ -199,7 +199,7 @@ window.onload = function(){
 	
 	</div>
 	<div class="right">
-	<div id="map" style="width: 100%; height: 1000px;"></div>
+	<div id="map" style="width: 100%; height: 800px;"></div>
 	
 	</div>
 	</div>
@@ -329,7 +329,7 @@ $("#keywordSelect").on("click", function() {
 					   			success: function(response) {
 				  					var content = $("#list").html(response).find("#list");
 //				   					alert(response);
-				  					$("#list").html(content);
+				  					$("#list").html(content+"<hr>");
 					   		   }
 					   		});
 				    	 
