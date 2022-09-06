@@ -20,7 +20,7 @@
 
 	<!-- 배너, 메뉴바 -->
 	<div align="center" class="tmiBanner">
-		<img alt="TMI 배너" src="./image/tmi/tmi_banner.png">
+		<img alt="TMI 배너" src="image/tmi/tmi_banner.png">
 	</div>
 
 	<div align="center" id="menuBar">

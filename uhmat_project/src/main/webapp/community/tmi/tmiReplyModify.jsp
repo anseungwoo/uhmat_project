@@ -57,10 +57,6 @@
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input class="form-control" type="text" name="cotent" value="Re:${tmiReply.content }" required="required" maxlength="1000"/>
-					<label for="content">댓글 내용</label>
-				</div>
-				<div class="form-floating mb-3">
 					<textarea class="form-control" id="content" name="content" style="height: 10rem" required="required" maxlength="1000"></textarea>
 					<label for="content">내용</label>
 					

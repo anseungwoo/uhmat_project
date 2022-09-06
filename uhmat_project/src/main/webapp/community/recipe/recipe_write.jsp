@@ -100,7 +100,7 @@ function fileCheck(obj) {
             </div>
 <!-- 			파일 첨부 형식은 input 태그의 type="file" 속성 사용 -->
 			<div class="form-floating sm-3">
-				 <input class="form-control" type="file" name="file1" multiple="multiple" accept="image/gif, image/jpg, image/png, image/jpeg" onchange="fileCheck(this)">
+				 <input class="form-control" type="file" required="required" name="file1" multiple="multiple" accept="image/gif, image/jpg, image/png, image/jpeg" onchange="fileCheck(this)">
 				 <label for="file">파일1</label>
 			</div>	
 			<div class="form-floating sm-3">

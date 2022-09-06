@@ -37,7 +37,7 @@
 				<c:forEach var="recipe" items="${recipeList }">
 					<div class= "recipeList">
 						<a href="RecipeDetail.co?idx=${recipe.idx }&pageNum=${pageInfo.pageNum}">
-								<img class="recipeImg"  width="100" src="./upload/recipe_upload/${recipe.real_File1 }" onerror="this.onerror=null; this.src='image/recipe/recipe_default_img.png'" >
+								<img class="recipeImg"  width="100" src="upload/recipe_upload/${recipe.real_File1 }" onerror="this.onerror=null; this.src='image/recipe/recipe_default_img.png'" >
 						</a>
 						
 						<div>
@@ -58,7 +58,7 @@
 	 			<c:forEach var="recipe" items="${recipeSearchList}">
 	 			<div class= "recipeList"> 
 						<a href="RecipeDetail.co?idx=${recipe.idx }&pageNum=${pageInfo.pageNum}">
-							<img class="recipeImg" src="./upload/recipe_upload/${recipe.real_File1 }" onerror="this.onerror=null; this.src='image/recipe/recipe_banner.png'" >
+							<img class="recipeImg" src="upload/recipe_upload/${recipe.real_File1 }" onerror="this.onerror=null; this.src='image/recipe/recipe_banner.png'" >
 						</a>
 					
 					<div>
