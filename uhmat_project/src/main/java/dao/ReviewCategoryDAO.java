@@ -152,6 +152,7 @@ public class ReviewCategoryDAO {
 					try {
 						sql = "SELECT * FROM reviewboard r inner join " 
 								 + " (SELECT * FROM tag_relation WHERE tag_name LIKE ?) s on r.idx=s.review_idx "
+								 + " INNER JOIN member AS m ON r.nickname = m.nickname"
 								+ " ORDER BY idx DESC ";
 //								+ " limit ?, ?";
 						
@@ -177,6 +178,7 @@ public class ReviewCategoryDAO {
 							dto.setLikes(rs.getInt("likes"));
 							dto.setRating(rs.getFloat("rating"));
 							dto.setDate(rs.getDate("date"));
+							dto.setIcon(rs.getString("icon"));
 							
 								String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 								pstmt2  = con.prepareStatement(sql2);
@@ -223,7 +225,7 @@ public class ReviewCategoryDAO {
 		int startRow = (pageNum  - 1) * listLimit;
 
 			try {
-				sql = "SELECT * FROM reviewboard WHERE res_name=?"
+				sql = "SELECT * FROM reviewboard JOIN member on reviewboard.nickname = member.nickname WHERE res_name=?"
 							+ "ORDER BY idx DESC "
 							+ "LIMIT ?, ?";
 				
@@ -248,6 +250,7 @@ public class ReviewCategoryDAO {
 					dto.setLikes(rs.getInt("likes"));
 					dto.setRating(rs.getFloat("rating"));
 					dto.setDate(rs.getDate("date"));
+					dto.setIcon(rs.getString("icon"));
 				
 					String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 					pstmt2  = con.prepareStatement(sql2);
@@ -277,7 +280,7 @@ public class ReviewCategoryDAO {
 		ResultSet rs2 = null;
 		String tagResult = "";
 		try {
-			String sql = "SELECT * FROM reviewboard WHERE idx =?";
+			String sql = "SELECT * FROM reviewboard JOIN member on reviewboard.nickname = member.nickname WHERE idx =?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			
@@ -294,6 +297,7 @@ public class ReviewCategoryDAO {
 				dto.setRes_name(rs.getString("res_name"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setDate(rs.getDate("date"));
+				dto.setIcon(rs.getString("icon"));
 				
 				String sql2 = "SELECT tag_name FROM tag_relation WHERE review_idx=?";
 				pstmt2  = con.prepareStatement(sql2);
@@ -739,7 +743,7 @@ public class ReviewCategoryDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM review_reply WHERE board_idx=? " + 
+			String sql = "SELECT * FROM review_reply JOIN member ON review_reply.nickname=member.nickname WHERE board_idx=? " + 
 		" ORDER BY idx DESC";
 			
 			pstmt = con.prepareStatement(sql);
@@ -756,6 +760,7 @@ public class ReviewCategoryDAO {
 				dto.setContent(rs.getString("content"));
 				dto.setDate(rs.getTimestamp("date"));
 				dto.setBoard_idx(board_idx);
+				dto.setIcon(rs.getString("icon"));
 				
 				replyList.add(dto);
 			}
@@ -819,7 +824,7 @@ public class ReviewCategoryDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM review_reply WHERE board_idx=? "
+			String sql = "SELECT * FROM review_reply JOIN member ON review_reply.nickname=member.nickname WHERE board_idx=? "
 					+ " order by idx DESC limit 0, 2";
 			
 			pstmt = con.prepareStatement(sql);
@@ -836,6 +841,7 @@ public class ReviewCategoryDAO {
 				dto.setContent(rs.getString("content"));
 				dto.setDate(rs.getTimestamp("date"));
 				dto.setBoard_idx(board_idx);
+				dto.setIcon(rs.getString("icon"));
 				
 				replyList.add(dto);
 			}
