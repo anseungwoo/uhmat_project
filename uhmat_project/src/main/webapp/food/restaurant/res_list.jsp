@@ -98,6 +98,7 @@
 		<section>
 			<table>
 				<tr>
+					<th> 카테고리 </th>
 					<th> 식당이름 </th>
 					<th> 별점 </th>
 					<th> 리뷰 개수</th>
@@ -120,6 +121,7 @@
 					<c:otherwise>
 						<c:forEach items="${restaurantInfo }" var="resInfo">
 							<tr onclick="location.href='restaurantDetail.re?resName=${resInfo.resName}'" class="append">
+								<td>${resInfo.category }</td>
 								<td>${resInfo.resName }</td>
 								<td>${resInfo.rating }</td>
 								<td>${resInfo.reviewCount }</td>

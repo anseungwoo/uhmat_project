@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#resDetailBody {
+header:not {
 	margin: 0;
 	font-size: 1.2em;
 }
