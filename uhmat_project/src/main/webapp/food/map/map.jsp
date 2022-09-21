@@ -208,8 +208,7 @@ window.onload = function(){
 	<!-- 푸터 들어가는곳 -->
 <%-- 	<jsp:include page="../../inc/footer.jsp" flush="false" /> --%>
 	<!-- 푸터 들어가는곳 -->
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc765c4cdf63c6a5bcc8181887cebf33"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35185e429e5d9c68170c91b88e2d3a84"></script>
 	<script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
 	<script>
  
