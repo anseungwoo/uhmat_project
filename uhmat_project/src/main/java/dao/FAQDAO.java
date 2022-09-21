@@ -29,7 +29,7 @@ public class FAQDAO {
 		int num = 1;
 		
 		try {
-			String sql = "SELECT MAX(idx) FROM FAQBoard";
+			String sql = "SELECT MAX(idx) FROM faqboard";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -38,7 +38,7 @@ public class FAQDAO {
 			}
 			
 			// 전달받은 데이터를 board 테이블에 INSERT
-			sql = "INSERT INTO FAQBoard VALUES (?,?,?,?,now(),?,?,?,?)";
+			sql = "INSERT INTO faqboard VALUES (?,?,?,?,now(),?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, faq.getNickname());
@@ -68,7 +68,7 @@ public class FAQDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM FAQBoard WHERE idx=?";
+			String sql = "SELECT * FROM faqboard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			rs = pstmt.executeQuery();
@@ -102,7 +102,7 @@ public class FAQDAO {
 		
 		try {
 
-			String sql = "UPDATE FAQBoard SET nickname=?, subject=?, content=?, category=?, original_File=?, real_File=? WHERE idx=?";
+			String sql = "UPDATE faqboard SET nickname=?, subject=?, content=?, category=?, original_File=?, real_File=? WHERE idx=?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, faq.getNickname());
@@ -130,7 +130,7 @@ public class FAQDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE FROM FAQBoard WHERE idx=?";
+			String sql = "DELETE FROM faqboard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			deleteCount = pstmt.executeUpdate();
@@ -151,7 +151,7 @@ public class FAQDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "UPDATE FAQboard SET readcount = readcount + 1 WHERE idx=?";
+			String sql = "UPDATE faqboard SET readcount = readcount + 1 WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			pstmt.executeUpdate();
@@ -174,7 +174,7 @@ public class FAQDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM FAQBoard WHERE category LIKE ?";
+			String sql = "SELECT COUNT(*) FROM faqboard WHERE category LIKE ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+ category +"%");
 			
@@ -204,7 +204,7 @@ public class FAQDAO {
 		int startRow = (pageNum- 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM FAQBoard WHERE category LIKE ? ORDER BY idx DESC LIMIT ?,? ";
+			String sql = "SELECT * FROM faqboard WHERE category LIKE ? ORDER BY idx DESC LIMIT ?,? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+ category +"%");
 			pstmt.setInt(2, startRow);
@@ -248,7 +248,7 @@ public class FAQDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM FAQBoard WHERE subject LIKE ?";
+			String sql = "SELECT COUNT(*) FROM faqboard WHERE subject LIKE ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + keyword + "%" );
 			
@@ -278,7 +278,7 @@ public class FAQDAO {
 		int startRow = (pageNum- 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM FAQBoard WHERE subject LIKE ? ORDER BY idx DESC LIMIT ?,? ";
+			String sql = "SELECT * FROM faqboard WHERE subject LIKE ? ORDER BY idx DESC LIMIT ?,? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + keyword + "%");
 			pstmt.setInt(2, startRow);
@@ -322,7 +322,7 @@ public class FAQDAO {
 		
 		
 		try {
-			String sql = "SELECT * FROM FAQBoard ORDER BY idx DESC LIMIT 5";
+			String sql = "SELECT * FROM faqboard ORDER BY idx DESC LIMIT 5";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
