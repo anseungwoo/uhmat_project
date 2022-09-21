@@ -31,7 +31,7 @@ public class NoticeDAO {
 		int num = 1;
 		
 		try {
-			String sql = "SELECT MAX(idx) FROM NoticeBoard";
+			String sql = "SELECT MAX(idx) FROM noticeboard";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -40,7 +40,7 @@ public class NoticeDAO {
 			}
 			
 			// 전달받은 데이터를 board 테이블에 INSERT
-			sql = "INSERT INTO NoticeBoard VALUES (?,?,?,?,now(),?,?,?)";
+			sql = "INSERT INTO noticeboard VALUES (?,?,?,?,now(),?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, notice.getNickname());
@@ -69,7 +69,7 @@ public class NoticeDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM NoticeBoard WHERE idx=?";
+			String sql = "SELECT * FROM noticeboard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			rs = pstmt.executeQuery();
@@ -101,7 +101,7 @@ public class NoticeDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "UPDATE NoticeBoard SET nickname=?, subject=?, content=?, category=?, original_File=?, real_File=? WHERE idx=?";
+			String sql = "UPDATE noticeboard SET nickname=?, subject=?, content=?, category=?, original_File=?, real_File=? WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, notice.getNickname());
 			pstmt.setString(2, notice.getSubject());
@@ -130,7 +130,7 @@ public class NoticeDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE FROM NoticeBoard WHERE idx=?";
+			String sql = "DELETE FROM noticeboard WHERE idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			deleteCount = pstmt.executeUpdate();
@@ -158,7 +158,7 @@ public class NoticeDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM NoticeBoard WHERE subject LIKE ?";
+			String sql = "SELECT COUNT(*) FROM noticeboard WHERE subject LIKE ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + keyword + "%" );
 			
@@ -187,7 +187,7 @@ public class NoticeDAO {
 		int startRow = (pageNum- 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM NoticeBoard WHERE subject LIKE ? ORDER BY idx DESC LIMIT ?,? ";
+			String sql = "SELECT * FROM noticeboard WHERE subject LIKE ? ORDER BY idx DESC LIMIT ?,? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + keyword + "%");
 			pstmt.setInt(2, startRow);
@@ -228,7 +228,7 @@ public class NoticeDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM NoticeBoard WHERE category LIKE ?";
+			String sql = "SELECT COUNT(*) FROM noticeboard WHERE category LIKE ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+ category +"%");
 			
@@ -256,7 +256,7 @@ public class NoticeDAO {
 		int startRow = (pageNum- 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM NoticeBoard WHERE category LIKE ? ORDER BY idx DESC LIMIT ?,? ";
+			String sql = "SELECT * FROM noticeboard WHERE category LIKE ? ORDER BY idx DESC LIMIT ?,? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+ category +"%");
 			pstmt.setInt(2, startRow);
@@ -297,7 +297,7 @@ public class NoticeDAO {
 		
 		
 		try {
-			String sql = "SELECT * FROM NoticeBoard ORDER BY idx LIMIT 5";
+			String sql = "SELECT * FROM noticeboard ORDER BY idx LIMIT 5";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
