@@ -1,4 +1,8 @@
 /action/
 /controller/
-/vo/
 /dao/
+/db/
+/mail/
+/svc/
+/util/
+/vo/
