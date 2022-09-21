@@ -23,7 +23,7 @@
 	<header id="uhmatHeader">
 		<!-- 로고 들어가는 곳 시작 -->
     	<div class="mainLogo">
-    		<a href="/uhmat_project/"><img src="image/uhmatMainLogo.png"></a>
+    		<a href="/"><img src="image/uhmatMainLogo.png"></a>
     	</div>
 		<!-- 로고 들어가는 곳 끝 -->
 		
