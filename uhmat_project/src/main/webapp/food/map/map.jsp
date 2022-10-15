@@ -22,7 +22,7 @@ window.onload = function(){
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 		$.ajax({
 			type: "get",
-			url: "http://localhost:8080/uhmat_project/map.re",
+			url: "map.re",
 			data : {keyword:$('#keyword').val()}, 
 			dataType: "json",
 			success : function(data){
@@ -154,7 +154,7 @@ window.onload = function(){
 	<!-- 헤더 들어가는곳 -->
 <%-- 	<jsp:include page="../../inc/header.jsp" flush="false" /> --%>
 <div class="mainLogo">
-    		<a href="/uhmat_project/"><img src="image/uhmatMainLogo.png"></a>
+    		<a href="/"><img src="image/uhmatMainLogo.png"></a>
     	</div>
 		<!-- 로고 들어가는 곳 끝 -->
 		
@@ -226,7 +226,7 @@ $("#keywordSelect").on("click", function() {
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 		$.ajax({
 			type: "get",
-			url: "http://localhost:8080/uhmat_project/map.re",
+			url: "map.re",
 			data : {keyword:$('#keyword').val()}, 
 			dataType: "json",
 			success : function(data){

@@ -29,6 +29,13 @@ Resource 태그를 사용하여 DBCP 정보 설정
 		password="itwillbs8030909"
 		maxActive="500"
 	/>
+	
+	<!-- 연습용 DB이름은 itwill13 서버는 itwillbs13 -->
+<!-- 	FOR CAFE24 -->
+<!-- 	username == itwillbs13 -->
+<!-- 	password == itwillbs8030909 -->
+	
+	
 </Context>
 
 
